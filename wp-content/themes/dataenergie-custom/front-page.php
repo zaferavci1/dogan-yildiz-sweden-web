@@ -60,7 +60,7 @@ $solar_image_url = $hero_image_solar ? $hero_image_solar['url'] : $default_solar
             <h2 class="hero-panel__title"><?php echo esc_html( $hero_title_solar ); ?></h2>
             <p class="hero-panel__subtitle">Photovoltaik-Anlagen für Privathaushalte und Unternehmen</p>
             <a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>" class="btn btn-primary">
-                Angebot anfordern
+                Mehr erfahren
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -103,7 +103,7 @@ $about_text = $about_teaser ?: $default_about;
                     <span class="stat-item__label">Swiss Quality</span>
                 </div>
             </div>
-            <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-secondary">
+            <a href="<?php echo esc_url( home_url( '/uber-uns/' ) ); ?>" class="btn btn-secondary">
                 Mehr über uns
             </a>
         </div>
@@ -129,7 +129,7 @@ $about_text = $about_teaser ?: $default_about;
         <div class="services-grid">
 
             <!-- Service Card 1: Microsoft 365 -->
-            <article class="service-card">
+            <article class="service-card service-card--it">
                 <div class="service-card__icon service-card__icon--it">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
@@ -151,7 +151,7 @@ $about_text = $about_teaser ?: $default_about;
             </article>
 
             <!-- Service Card 2: Network & Security -->
-            <article class="service-card">
+            <article class="service-card service-card--it">
                 <div class="service-card__icon service-card__icon--it">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -170,8 +170,50 @@ $about_text = $about_teaser ?: $default_about;
                 </a>
             </article>
 
-            <!-- Service Card 3: Photovoltaik -->
-            <article class="service-card">
+            <!-- Service Card 3: Cloud Solutions -->
+            <article class="service-card service-card--it">
+                <div class="service-card__icon service-card__icon--it">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                    </svg>
+                </div>
+                <h3 class="service-card__title">Cloud Solutions</h3>
+                <p class="service-card__description">
+                    Sichere Cloud-Migration, Azure-Integration und hybride Infrastrukturen für flexible Arbeitsmodelle.
+                </p>
+                <a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>" class="service-card__link">
+                    Mehr erfahren
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- Service Card 4: IT Support -->
+            <article class="service-card service-card--it">
+                <div class="service-card__icon service-card__icon--it">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+                <h3 class="service-card__title">IT Support</h3>
+                <p class="service-card__description">
+                    Zuverlässiger IT-Support, Fernwartung und schnelle Problemlösung durch unser Expertenteam.
+                </p>
+                <a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>" class="service-card__link">
+                    Mehr erfahren
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- Service Card 5: Photovoltaik -->
+            <article class="service-card service-card--solar">
                 <div class="service-card__icon service-card__icon--solar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -198,28 +240,8 @@ $about_text = $about_teaser ?: $default_about;
                 </a>
             </article>
 
-            <!-- Service Card 4: Cloud Solutions -->
-            <article class="service-card">
-                <div class="service-card__icon service-card__icon--it">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                    </svg>
-                </div>
-                <h3 class="service-card__title">Cloud Solutions</h3>
-                <p class="service-card__description">
-                    Sichere Cloud-Migration, Azure-Integration und hybride Infrastrukturen für flexible Arbeitsmodelle.
-                </p>
-                <a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>" class="service-card__link">
-                    Mehr erfahren
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </article>
-
-            <!-- Service Card 5: Energiespeicher -->
-            <article class="service-card">
+            <!-- Service Card 6: Energiespeicher -->
+            <article class="service-card service-card--solar">
                 <div class="service-card__icon service-card__icon--solar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
@@ -235,28 +257,6 @@ $about_text = $about_teaser ?: $default_about;
                     Moderne Batteriespeicher für maximale Eigenverbrauchsoptimierung und Energieunabhängigkeit.
                 </p>
                 <a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>" class="service-card__link">
-                    Mehr erfahren
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </article>
-
-            <!-- Service Card 6: IT Support -->
-            <article class="service-card">
-                <div class="service-card__icon service-card__icon--it">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                    </svg>
-                </div>
-                <h3 class="service-card__title">IT Support</h3>
-                <p class="service-card__description">
-                    Zuverlässiger IT-Support, Fernwartung und schnelle Problemlösung durch unser Expertenteam.
-                </p>
-                <a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>" class="service-card__link">
                     Mehr erfahren
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>

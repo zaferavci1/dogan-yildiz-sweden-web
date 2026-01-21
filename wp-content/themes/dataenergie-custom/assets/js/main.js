@@ -1,8 +1,9 @@
 /**
  * Dataenergie Custom Theme - Main JavaScript
+ * Mega Menu Navigation Support
  *
  * @package Dataenergie
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 (function() {
@@ -14,7 +15,6 @@
     document.addEventListener('DOMContentLoaded', function() {
         initMobileMenu();
         initMobileDropdowns();
-        initDesktopDropdowns();
         initStickyHeader();
         initSmoothScroll();
         initProjectGalleryLightbox();
@@ -43,9 +43,9 @@
             document.body.style.overflow = isExpanded ? '' : 'hidden';
         });
 
-        // Menü dışına tıklandığında kapat
-        document.addEventListener('click', function(e) {
-            if (!mobileNav.contains(e.target) && !toggleBtn.contains(e.target)) {
+        // Menü dışına tıklandığında kapat (sadece overlay alanına)
+        mobileNav.addEventListener('click', function(e) {
+            if (e.target === mobileNav) {
                 closeMobileMenu(toggleBtn, mobileNav);
             }
         });
@@ -57,7 +57,7 @@
             }
         });
 
-        // Mobil menü içindeki linklere tıklandığında kapat (alt menü linki değilse)
+        // Mobil menü içindeki normal linklere tıklandığında kapat
         const mobileNavLinks = mobileNav.querySelectorAll('a:not(.menu-item-has-children > a)');
         mobileNavLinks.forEach(function(link) {
             link.addEventListener('click', function() {
@@ -93,11 +93,12 @@
 
                 const isOpen = item.classList.contains('open');
 
-                // Diğer açık menüleri kapat
-                parentItems.forEach(function(otherItem) {
+                // Diğer açık menüleri kapat (sadece aynı seviyedeki kardeşler)
+                const siblingItems = item.parentElement.querySelectorAll(':scope > .menu-item-has-children');
+                siblingItems.forEach(function(otherItem) {
                     if (otherItem !== item) {
                         otherItem.classList.remove('open');
-                        const otherToggle = otherItem.querySelector('.dropdown-toggle');
+                        const otherToggle = otherItem.querySelector(':scope > .dropdown-toggle');
                         if (otherToggle) {
                             otherToggle.setAttribute('aria-expanded', 'false');
                         }
@@ -109,65 +110,16 @@
                 toggleBtn.setAttribute('aria-expanded', !isOpen);
             });
 
-            // Ana linke tıklama - sadece sayfaya git, dropdown'ı açma
+            // Ana linke tıklama - sayfaya git
             link.addEventListener('click', function(e) {
-                // Eğer link href="#" ise sadece dropdown'ı aç
-                if (link.getAttribute('href') === '#') {
+                const href = link.getAttribute('href');
+                // Eğer link '#' veya boş ise sadece dropdown'ı aç
+                if (!href || href === '#' || href === '') {
                     e.preventDefault();
                     toggleBtn.click();
                 }
+                // Aksi halde linke normal şekilde git
             });
-        });
-    }
-
-    /**
-     * Desktop dropdown - keyboard navigation
-     */
-    function initDesktopDropdowns() {
-        const mainNav = document.querySelector('.main-nav');
-        if (!mainNav) return;
-
-        const parentItems = mainNav.querySelectorAll('.menu-item-has-children');
-
-        parentItems.forEach(function(item) {
-            const link = item.querySelector(':scope > a');
-            const subMenu = item.querySelector('.sub-menu');
-
-            if (!link || !subMenu) return;
-
-            // Escape tuşu ile dropdown kapat
-            item.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    link.focus();
-                    subMenu.style.opacity = '0';
-                    subMenu.style.visibility = 'hidden';
-
-                    setTimeout(function() {
-                        subMenu.style.opacity = '';
-                        subMenu.style.visibility = '';
-                    }, 150);
-                }
-            });
-
-            // Tab ile çıkışta dropdown kapat
-            const lastSubLink = subMenu.querySelector('li:last-child > a');
-            if (lastSubLink) {
-                lastSubLink.addEventListener('blur', function() {
-                    // Biraz gecikme ile focus'un nereye gittiğini kontrol et
-                    setTimeout(function() {
-                        if (!item.contains(document.activeElement)) {
-                            // Focus item dışına çıktı
-                        }
-                    }, 10);
-                });
-            }
-        });
-
-        // Sayfa herhangi bir yerine tıklandığında dropdown'ları kapat
-        document.addEventListener('click', function(e) {
-            if (!mainNav.contains(e.target)) {
-                // Click dışarıda - CSS hover ile zaten kapanacak
-            }
         });
     }
 
@@ -184,7 +136,7 @@
         const openItems = mobileNav.querySelectorAll('.menu-item-has-children.open');
         openItems.forEach(function(item) {
             item.classList.remove('open');
-            const toggle = item.querySelector('.dropdown-toggle');
+            const toggle = item.querySelector(':scope > .dropdown-toggle');
             if (toggle) {
                 toggle.setAttribute('aria-expanded', 'false');
             }

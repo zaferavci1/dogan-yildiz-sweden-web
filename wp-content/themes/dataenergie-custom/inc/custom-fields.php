@@ -2988,3 +2988,588 @@ function dataenergie_register_solar_systems_fields() {
     ) );
 }
 add_action( 'acf/init', 'dataenergie_register_solar_systems_fields' );
+
+/**
+ * Microsoft Azure Cloud Sayfa Alanlarını Tanımla
+ * ACF Free uyumlu
+ */
+function dataenergie_register_azure_page_fields() {
+    if ( ! dataenergie_check_acf() ) {
+        return;
+    }
+
+    // İkon seçenekleri
+    $icon_choices = array(
+        'azure'      => 'Azure (Şimşek)',
+        'cloud'      => 'Bulut (Cloud)',
+        'server'     => 'Sunucu (Server)',
+        'database'   => 'Veritabanı (Database)',
+        'shield'     => 'Kalkan (Shield)',
+        'cpu'        => 'İşlemci (CPU)',
+        'network'    => 'Ağ (Network)',
+        'lock'       => 'Kilit (Lock)',
+        'globe'      => 'Dünya (Globe)',
+        'refresh'    => 'Yenile (Refresh)',
+    );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_azure_page',
+        'title'  => 'Microsoft Azure Cloud Sayfa Ayarları',
+        'fields' => array(
+            // =========================================
+            // SEKME 1: HERO
+            // =========================================
+            array( 'key' => 'field_azure_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_azure_hero_tag', 'label' => 'Hero Etiket', 'name' => 'azure_hero_tag', 'type' => 'text', 'default_value' => 'Microsoft Azure' ),
+            array( 'key' => 'field_azure_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'azure_hero_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Skalierbare Cloud-Infrastruktur für Ihr Unternehmen' ),
+
+            // =========================================
+            // SEKME 2: SERVICE 1
+            // =========================================
+            array( 'key' => 'field_azure_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_azure_service_1_title', 'label' => 'Başlık', 'name' => 'azure_service_1_title', 'type' => 'text', 'default_value' => 'Azure Virtual Machines' ),
+            array( 'key' => 'field_azure_service_1_description', 'label' => 'Açıklama', 'name' => 'azure_service_1_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Flexible und skalierbare virtuelle Maschinen für jede Arbeitslast. Windows und Linux VMs mit Enterprise-Performance.' ),
+            array( 'key' => 'field_azure_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'azure_service_1_feature_1', 'type' => 'text', 'default_value' => 'Windows & Linux VMs', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'azure_service_1_feature_2', 'type' => 'text', 'default_value' => 'Automatische Skalierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'azure_service_1_feature_3', 'type' => 'text', 'default_value' => 'Reserved Instances für Kosteneinsparung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'azure_service_1_feature_4', 'type' => 'text', 'default_value' => 'Spot VMs für variable Workloads', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2
+            array( 'key' => 'field_azure_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_azure_service_2_title', 'label' => 'Başlık', 'name' => 'azure_service_2_title', 'type' => 'text', 'default_value' => 'Azure Active Directory' ),
+            array( 'key' => 'field_azure_service_2_description', 'label' => 'Açıklama', 'name' => 'azure_service_2_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Identitäts- und Zugriffsverwaltung für Ihre Cloud-Umgebung. Single Sign-On und Multi-Faktor-Authentifizierung.' ),
+            array( 'key' => 'field_azure_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'azure_service_2_feature_1', 'type' => 'text', 'default_value' => 'Single Sign-On (SSO)', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'azure_service_2_feature_2', 'type' => 'text', 'default_value' => 'Multi-Faktor-Authentifizierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'azure_service_2_feature_3', 'type' => 'text', 'default_value' => 'Conditional Access Policies', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'azure_service_2_feature_4', 'type' => 'text', 'default_value' => 'Azure AD B2B & B2C', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3
+            array( 'key' => 'field_azure_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_azure_service_3_title', 'label' => 'Başlık', 'name' => 'azure_service_3_title', 'type' => 'text', 'default_value' => 'Azure Backup & Site Recovery' ),
+            array( 'key' => 'field_azure_service_3_description', 'label' => 'Açıklama', 'name' => 'azure_service_3_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Zuverlässige Datensicherung und Disaster Recovery. Schützen Sie Ihre kritischen Workloads vor Datenverlust.' ),
+            array( 'key' => 'field_azure_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'azure_service_3_feature_1', 'type' => 'text', 'default_value' => 'Automatisierte Backups', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'azure_service_3_feature_2', 'type' => 'text', 'default_value' => 'Geo-redundante Speicherung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'azure_service_3_feature_3', 'type' => 'text', 'default_value' => 'Site Recovery für VMs', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'azure_service_3_feature_4', 'type' => 'text', 'default_value' => 'Schnelle Wiederherstellung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4
+            array( 'key' => 'field_azure_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_azure_service_4_title', 'label' => 'Başlık', 'name' => 'azure_service_4_title', 'type' => 'text', 'default_value' => 'Hybride Cloud-Lösungen' ),
+            array( 'key' => 'field_azure_service_4_description', 'label' => 'Açıklama', 'name' => 'azure_service_4_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Nahtlose Integration von On-Premises und Cloud. Azure Arc und Azure Stack für hybride Szenarien.' ),
+            array( 'key' => 'field_azure_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'azure_service_4_feature_1', 'type' => 'text', 'default_value' => 'Azure Arc Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'azure_service_4_feature_2', 'type' => 'text', 'default_value' => 'Azure Stack HCI', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'azure_service_4_feature_3', 'type' => 'text', 'default_value' => 'VPN & ExpressRoute', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'azure_service_4_feature_4', 'type' => 'text', 'default_value' => 'Einheitliche Verwaltung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 5
+            array( 'key' => 'field_azure_service5_tab', 'label' => 'Hizmet 5', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_azure_service_5_title', 'label' => 'Başlık', 'name' => 'azure_service_5_title', 'type' => 'text', 'default_value' => 'Azure Kubernetes Service' ),
+            array( 'key' => 'field_azure_service_5_description', 'label' => 'Açıklama', 'name' => 'azure_service_5_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Managed Kubernetes für containerisierte Anwendungen. Einfache Bereitstellung, Skalierung und Verwaltung.' ),
+            array( 'key' => 'field_azure_service_5_feature_1', 'label' => 'Özellik 1', 'name' => 'azure_service_5_feature_1', 'type' => 'text', 'default_value' => 'Managed Kubernetes Cluster', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_5_feature_2', 'label' => 'Özellik 2', 'name' => 'azure_service_5_feature_2', 'type' => 'text', 'default_value' => 'Azure Container Registry', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_5_feature_3', 'label' => 'Özellik 3', 'name' => 'azure_service_5_feature_3', 'type' => 'text', 'default_value' => 'DevOps Integration', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_5_feature_4', 'label' => 'Özellik 4', 'name' => 'azure_service_5_feature_4', 'type' => 'text', 'default_value' => 'Auto-Scaling & Load Balancing', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 6
+            array( 'key' => 'field_azure_service6_tab', 'label' => 'Hizmet 6', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_azure_service_6_title', 'label' => 'Başlık', 'name' => 'azure_service_6_title', 'type' => 'text', 'default_value' => 'Azure Security Center' ),
+            array( 'key' => 'field_azure_service_6_description', 'label' => 'Açıklama', 'name' => 'azure_service_6_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Umfassender Cloud-Sicherheit mit Threat Protection und Compliance. Sichern Sie Ihre Cloud-Ressourcen ab.' ),
+            array( 'key' => 'field_azure_service_6_feature_1', 'label' => 'Özellik 1', 'name' => 'azure_service_6_feature_1', 'type' => 'text', 'default_value' => 'Threat Protection', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_6_feature_2', 'label' => 'Özellik 2', 'name' => 'azure_service_6_feature_2', 'type' => 'text', 'default_value' => 'Security Posture Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_6_feature_3', 'label' => 'Özellik 3', 'name' => 'azure_service_6_feature_3', 'type' => 'text', 'default_value' => 'Compliance-Überwachung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_azure_service_6_feature_4', 'label' => 'Özellik 4', 'name' => 'azure_service_6_feature_4', 'type' => 'text', 'default_value' => 'Azure Defender', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_azure_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_azure_cta_title', 'label' => 'CTA Başlık', 'name' => 'azure_cta_title', 'type' => 'text', 'default_value' => 'Bereit für Azure?' ),
+            array( 'key' => 'field_azure_cta_description', 'label' => 'CTA Açıklama', 'name' => 'azure_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Wir beraten Sie gerne zur optimalen Azure-Strategie für Ihr Unternehmen.' ),
+            array( 'key' => 'field_azure_cta_button_text', 'label' => 'Buton Metni', 'name' => 'azure_cta_button_text', 'type' => 'text', 'default_value' => 'Kostenlose Beratung' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-microsoft-azure.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_azure_page_fields' );
+
+/**
+ * Swisscom DCS+ Cloud Sayfa Alanlarını Tanımla
+ * ACF Free uyumlu
+ */
+function dataenergie_register_swisscom_page_fields() {
+    if ( ! dataenergie_check_acf() ) {
+        return;
+    }
+
+    // İkon seçenekleri
+    $icon_choices = array(
+        'cloud'      => 'Bulut (Cloud)',
+        'server'     => 'Sunucu (Server)',
+        'database'   => 'Veritabanı (Database)',
+        'shield'     => 'Kalkan (Shield)',
+        'lock'       => 'Kilit (Lock)',
+        'network'    => 'Ağ (Network)',
+        'globe'      => 'Dünya (Globe)',
+        'flag'       => 'Bayrak (Flag)',
+        'check'      => 'Onay (Check)',
+        'zap'        => 'Şimşek (Zap)',
+        'headphones' => 'Kulaklık (Headphones)',
+        'settings'   => 'Ayarlar (Settings)',
+    );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_swisscom_page',
+        'title'  => 'Swisscom DCS+ Cloud Sayfa Ayarları',
+        'fields' => array(
+            // =========================================
+            // SEKME 1: HERO
+            // =========================================
+            array( 'key' => 'field_swisscom_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_swisscom_hero_tag', 'label' => 'Hero Etiket', 'name' => 'swisscom_hero_tag', 'type' => 'text', 'default_value' => 'Swisscom DCS+' ),
+            array( 'key' => 'field_swisscom_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'swisscom_hero_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Enterprise Cloud aus der Schweiz - Datenschutz garantiert' ),
+
+            // =========================================
+            // SEKME 2: SERVICE 1
+            // =========================================
+            array( 'key' => 'field_swisscom_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_swisscom_service_1_title', 'label' => 'Başlık', 'name' => 'swisscom_service_1_title', 'type' => 'text', 'default_value' => 'DCS+ Infrastructure' ),
+            array( 'key' => 'field_swisscom_service_1_description', 'label' => 'Açıklama', 'name' => 'swisscom_service_1_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Enterprise-grade Infrastruktur aus Schweizer Rechenzentren. Virtualisierte Server und Storage mit höchster Verfügbarkeit.' ),
+            array( 'key' => 'field_swisscom_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'swisscom_service_1_feature_1', 'type' => 'text', 'default_value' => 'VMware-basierte Virtualisierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'swisscom_service_1_feature_2', 'type' => 'text', 'default_value' => 'Tier 3+ Rechenzentren', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'swisscom_service_1_feature_3', 'type' => 'text', 'default_value' => 'SSD-Storage mit hoher IOPS', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'swisscom_service_1_feature_4', 'type' => 'text', 'default_value' => 'Dedizierte Ressourcen verfügbar', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2
+            array( 'key' => 'field_swisscom_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_swisscom_service_2_title', 'label' => 'Başlık', 'name' => 'swisscom_service_2_title', 'type' => 'text', 'default_value' => 'Swiss Data Sovereignty' ),
+            array( 'key' => 'field_swisscom_service_2_description', 'label' => 'Açıklama', 'name' => 'swisscom_service_2_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Ihre Daten bleiben in der Schweiz. DSGVO-konform und unter Schweizer Datenschutzrecht geschützt.' ),
+            array( 'key' => 'field_swisscom_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'swisscom_service_2_feature_1', 'type' => 'text', 'default_value' => 'Daten 100% in der Schweiz', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'swisscom_service_2_feature_2', 'type' => 'text', 'default_value' => 'DSGVO & DSG konform', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'swisscom_service_2_feature_3', 'type' => 'text', 'default_value' => 'Keine US CLOUD Act Bedenken', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'swisscom_service_2_feature_4', 'type' => 'text', 'default_value' => 'Schweizer Ansprechpartner', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3
+            array( 'key' => 'field_swisscom_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_swisscom_service_3_title', 'label' => 'Başlık', 'name' => 'swisscom_service_3_title', 'type' => 'text', 'default_value' => 'Managed Cloud Services' ),
+            array( 'key' => 'field_swisscom_service_3_description', 'label' => 'Açıklama', 'name' => 'swisscom_service_3_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Full-Managed IT-Infrastruktur. Monitoring, Patching und Support durch Swisscom-Experten.' ),
+            array( 'key' => 'field_swisscom_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'swisscom_service_3_feature_1', 'type' => 'text', 'default_value' => '24/7 Monitoring & Support', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'swisscom_service_3_feature_2', 'type' => 'text', 'default_value' => 'Automatisiertes Patching', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'swisscom_service_3_feature_3', 'type' => 'text', 'default_value' => 'Incident Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'swisscom_service_3_feature_4', 'type' => 'text', 'default_value' => 'Monatliche Reports', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4
+            array( 'key' => 'field_swisscom_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_swisscom_service_4_title', 'label' => 'Başlık', 'name' => 'swisscom_service_4_title', 'type' => 'text', 'default_value' => 'DCS+ Backup & Recovery' ),
+            array( 'key' => 'field_swisscom_service_4_description', 'label' => 'Açıklama', 'name' => 'swisscom_service_4_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Zuverlässige Backup-Lösungen mit garantierter Wiederherstellung. Geo-redundante Speicherung in Schweizer Rechenzentren.' ),
+            array( 'key' => 'field_swisscom_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'swisscom_service_4_feature_1', 'type' => 'text', 'default_value' => 'Veeam Backup as a Service', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'swisscom_service_4_feature_2', 'type' => 'text', 'default_value' => 'Geo-redundante Speicherung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'swisscom_service_4_feature_3', 'type' => 'text', 'default_value' => 'Granulare Wiederherstellung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'swisscom_service_4_feature_4', 'type' => 'text', 'default_value' => 'Langzeit-Archivierung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 5
+            array( 'key' => 'field_swisscom_service5_tab', 'label' => 'Hizmet 5', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_swisscom_service_5_title', 'label' => 'Başlık', 'name' => 'swisscom_service_5_title', 'type' => 'text', 'default_value' => 'DCS+ Security Services' ),
+            array( 'key' => 'field_swisscom_service_5_description', 'label' => 'Açıklama', 'name' => 'swisscom_service_5_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Umfassende Sicherheitslösungen für Ihre Cloud-Umgebung. Firewall, DDoS-Schutz und Vulnerability Management.' ),
+            array( 'key' => 'field_swisscom_service_5_feature_1', 'label' => 'Özellik 1', 'name' => 'swisscom_service_5_feature_1', 'type' => 'text', 'default_value' => 'Next-Gen Firewall', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_5_feature_2', 'label' => 'Özellik 2', 'name' => 'swisscom_service_5_feature_2', 'type' => 'text', 'default_value' => 'DDoS Protection', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_5_feature_3', 'label' => 'Özellik 3', 'name' => 'swisscom_service_5_feature_3', 'type' => 'text', 'default_value' => 'Web Application Firewall', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_5_feature_4', 'label' => 'Özellik 4', 'name' => 'swisscom_service_5_feature_4', 'type' => 'text', 'default_value' => 'Security Operations Center', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 6
+            array( 'key' => 'field_swisscom_service6_tab', 'label' => 'Hizmet 6', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_swisscom_service_6_title', 'label' => 'Başlık', 'name' => 'swisscom_service_6_title', 'type' => 'text', 'default_value' => 'Enterprise Connectivity' ),
+            array( 'key' => 'field_swisscom_service_6_description', 'label' => 'Açıklama', 'name' => 'swisscom_service_6_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Direkte Anbindung an Ihr Unternehmensnetzwerk. Private Connect und dedizierte Verbindungen.' ),
+            array( 'key' => 'field_swisscom_service_6_feature_1', 'label' => 'Özellik 1', 'name' => 'swisscom_service_6_feature_1', 'type' => 'text', 'default_value' => 'Private Connect', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_6_feature_2', 'label' => 'Özellik 2', 'name' => 'swisscom_service_6_feature_2', 'type' => 'text', 'default_value' => 'VPN-Anbindung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_6_feature_3', 'label' => 'Özellik 3', 'name' => 'swisscom_service_6_feature_3', 'type' => 'text', 'default_value' => 'Dedizierte Leitungen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_swisscom_service_6_feature_4', 'label' => 'Özellik 4', 'name' => 'swisscom_service_6_feature_4', 'type' => 'text', 'default_value' => 'Multi-Cloud Networking', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_swisscom_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_swisscom_cta_title', 'label' => 'CTA Başlık', 'name' => 'swisscom_cta_title', 'type' => 'text', 'default_value' => 'Interessiert an DCS+ Cloud?' ),
+            array( 'key' => 'field_swisscom_cta_description', 'label' => 'CTA Açıklama', 'name' => 'swisscom_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Erfahren Sie, wie Swisscom DCS+ Ihre Daten sicher in der Schweiz hostet.' ),
+            array( 'key' => 'field_swisscom_cta_button_text', 'label' => 'Buton Metni', 'name' => 'swisscom_cta_button_text', 'type' => 'text', 'default_value' => 'Beratung anfordern' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-swisscom-dcs.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_swisscom_page_fields' );
+
+/**
+ * Server und Storage Sayfa Alanları
+ */
+function dataenergie_register_storage_page_fields() {
+    if ( ! dataenergie_check_acf() ) {
+        return;
+    }
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_storage_page',
+        'title'  => 'Server & Storage Sayfa Ayarları',
+        'fields' => array(
+            // =========================================
+            // SEKME 1: HERO
+            // =========================================
+            array( 'key' => 'field_storage_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_storage_hero_tag', 'label' => 'Hero Etiket', 'name' => 'storage_hero_tag', 'type' => 'text', 'default_value' => 'Server & Storage' ),
+            array( 'key' => 'field_storage_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'storage_hero_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Enterprise-Hardware für maximale Leistung und Zuverlässigkeit' ),
+
+            // =========================================
+            // SEKME 2: SERVICE 1 - Enterprise Server
+            // =========================================
+            array( 'key' => 'field_storage_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_storage_service_1_title', 'label' => 'Başlık', 'name' => 'storage_service_1_title', 'type' => 'text', 'default_value' => 'Enterprise Server' ),
+            array( 'key' => 'field_storage_service_1_description', 'label' => 'Açıklama', 'name' => 'storage_service_1_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Leistungsstarke Server-Lösungen für Ihre Rechenzentren. Von Rack-Servern bis zu Blade-Systemen für jede Anforderung.' ),
+            array( 'key' => 'field_storage_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'storage_service_1_feature_1', 'type' => 'text', 'default_value' => 'HPE ProLiant & Dell PowerEdge', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'storage_service_1_feature_2', 'type' => 'text', 'default_value' => 'Blade-Server & Rack-Systeme', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'storage_service_1_feature_3', 'type' => 'text', 'default_value' => 'Hochverfügbarkeits-Cluster', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'storage_service_1_feature_4', 'type' => 'text', 'default_value' => 'GPU-Server für AI/ML', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2 - Storage Solutions
+            array( 'key' => 'field_storage_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_storage_service_2_title', 'label' => 'Başlık', 'name' => 'storage_service_2_title', 'type' => 'text', 'default_value' => 'Storage-Lösungen' ),
+            array( 'key' => 'field_storage_service_2_description', 'label' => 'Açıklama', 'name' => 'storage_service_2_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Enterprise-Storage für kritische Daten. NAS, SAN und All-Flash-Arrays für höchste Performance und Verfügbarkeit.' ),
+            array( 'key' => 'field_storage_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'storage_service_2_feature_1', 'type' => 'text', 'default_value' => 'All-Flash & Hybrid Arrays', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'storage_service_2_feature_2', 'type' => 'text', 'default_value' => 'NetApp, Dell EMC, HPE Nimble', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'storage_service_2_feature_3', 'type' => 'text', 'default_value' => 'SAN & NAS Architekturen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'storage_service_2_feature_4', 'type' => 'text', 'default_value' => 'Deduplizierung & Kompression', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3 - Backup & Recovery
+            array( 'key' => 'field_storage_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_storage_service_3_title', 'label' => 'Başlık', 'name' => 'storage_service_3_title', 'type' => 'text', 'default_value' => 'Backup & Disaster Recovery' ),
+            array( 'key' => 'field_storage_service_3_description', 'label' => 'Açıklama', 'name' => 'storage_service_3_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Zuverlässige Datensicherung und schnelle Wiederherstellung. Tape, Disk und Cloud-basierte Backup-Lösungen.' ),
+            array( 'key' => 'field_storage_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'storage_service_3_feature_1', 'type' => 'text', 'default_value' => 'Veeam & Commvault', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'storage_service_3_feature_2', 'type' => 'text', 'default_value' => 'Tape-Libraries & VTL', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'storage_service_3_feature_3', 'type' => 'text', 'default_value' => 'Disaster Recovery Sites', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'storage_service_3_feature_4', 'type' => 'text', 'default_value' => 'Air-Gap Backup Solutions', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4 - HCI
+            array( 'key' => 'field_storage_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_storage_service_4_title', 'label' => 'Başlık', 'name' => 'storage_service_4_title', 'type' => 'text', 'default_value' => 'Hyperconverged Infrastructure' ),
+            array( 'key' => 'field_storage_service_4_description', 'label' => 'Açıklama', 'name' => 'storage_service_4_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Konvergente Systeme für vereinfachte IT. Compute, Storage und Netzwerk in einer integrierten Plattform.' ),
+            array( 'key' => 'field_storage_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'storage_service_4_feature_1', 'type' => 'text', 'default_value' => 'VMware vSAN & Nutanix', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'storage_service_4_feature_2', 'type' => 'text', 'default_value' => 'Dell VxRail & HPE SimpliVity', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'storage_service_4_feature_3', 'type' => 'text', 'default_value' => 'Einfache Skalierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'storage_service_4_feature_4', 'type' => 'text', 'default_value' => 'Integriertes Management', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 5 - Virtualization
+            array( 'key' => 'field_storage_service5_tab', 'label' => 'Hizmet 5', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_storage_service_5_title', 'label' => 'Başlık', 'name' => 'storage_service_5_title', 'type' => 'text', 'default_value' => 'Virtualisierung' ),
+            array( 'key' => 'field_storage_service_5_description', 'label' => 'Açıklama', 'name' => 'storage_service_5_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'VMware und Hyper-V Umgebungen. Design, Migration und Optimierung Ihrer virtualisierten Infrastruktur.' ),
+            array( 'key' => 'field_storage_service_5_feature_1', 'label' => 'Özellik 1', 'name' => 'storage_service_5_feature_1', 'type' => 'text', 'default_value' => 'VMware vSphere & vCenter', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_5_feature_2', 'label' => 'Özellik 2', 'name' => 'storage_service_5_feature_2', 'type' => 'text', 'default_value' => 'Microsoft Hyper-V', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_5_feature_3', 'label' => 'Özellik 3', 'name' => 'storage_service_5_feature_3', 'type' => 'text', 'default_value' => 'P2V & V2V Migrationen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_5_feature_4', 'label' => 'Özellik 4', 'name' => 'storage_service_5_feature_4', 'type' => 'text', 'default_value' => 'Performance-Optimierung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 6 - Maintenance
+            array( 'key' => 'field_storage_service6_tab', 'label' => 'Hizmet 6', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_storage_service_6_title', 'label' => 'Başlık', 'name' => 'storage_service_6_title', 'type' => 'text', 'default_value' => 'Wartung & Support' ),
+            array( 'key' => 'field_storage_service_6_description', 'label' => 'Açıklama', 'name' => 'storage_service_6_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Professioneller Support für Ihre Hardware. Wartungsverträge, Ersatzteil-Service und 24/7 Notfall-Unterstützung.' ),
+            array( 'key' => 'field_storage_service_6_feature_1', 'label' => 'Özellik 1', 'name' => 'storage_service_6_feature_1', 'type' => 'text', 'default_value' => '24/7 Hardware-Support', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_6_feature_2', 'label' => 'Özellik 2', 'name' => 'storage_service_6_feature_2', 'type' => 'text', 'default_value' => 'Ersatzteil-Vorhaltung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_6_feature_3', 'label' => 'Özellik 3', 'name' => 'storage_service_6_feature_3', 'type' => 'text', 'default_value' => 'Firmware-Updates', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_storage_service_6_feature_4', 'label' => 'Özellik 4', 'name' => 'storage_service_6_feature_4', 'type' => 'text', 'default_value' => 'Proaktives Monitoring', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_storage_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_storage_cta_title', 'label' => 'CTA Başlık', 'name' => 'storage_cta_title', 'type' => 'text', 'default_value' => 'Ihr IT-Infrastruktur Projekt?' ),
+            array( 'key' => 'field_storage_cta_description', 'label' => 'CTA Açıklama', 'name' => 'storage_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Wir beraten Sie bei der Auswahl der optimalen Server- und Storage-Lösung für Ihre Anforderungen.' ),
+            array( 'key' => 'field_storage_cta_button_text', 'label' => 'Buton Metni', 'name' => 'storage_cta_button_text', 'type' => 'text', 'default_value' => 'Beratungsgespräch vereinbaren' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-server-storage.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_storage_page_fields' );
+
+/**
+ * Virtualisierung Sayfa Alanları
+ */
+function dataenergie_register_virtualisierung_page_fields() {
+    if ( ! dataenergie_check_acf() ) {
+        return;
+    }
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_virtualisierung_page',
+        'title'  => 'Virtualisierung Sayfa Ayarları',
+        'fields' => array(
+            // =========================================
+            // SEKME 1: HERO
+            // =========================================
+            array( 'key' => 'field_virt_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_virt_hero_tag', 'label' => 'Hero Etiket', 'name' => 'virt_hero_tag', 'type' => 'text', 'default_value' => 'Virtualisierung' ),
+            array( 'key' => 'field_virt_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'virt_hero_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Effiziente IT-Infrastruktur durch moderne Virtualisierungstechnologien' ),
+
+            // =========================================
+            // SEKME 2: SERVICE 1 - VMware vSphere
+            // =========================================
+            array( 'key' => 'field_virt_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_virt_service_1_title', 'label' => 'Başlık', 'name' => 'virt_service_1_title', 'type' => 'text', 'default_value' => 'VMware vSphere' ),
+            array( 'key' => 'field_virt_service_1_description', 'label' => 'Açıklama', 'name' => 'virt_service_1_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Die führende Virtualisierungsplattform für Enterprise-Umgebungen. Maximale Flexibilität und Zuverlässigkeit für Ihre kritischen Workloads.' ),
+            array( 'key' => 'field_virt_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'virt_service_1_feature_1', 'type' => 'text', 'default_value' => 'ESXi Hypervisor Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'virt_service_1_feature_2', 'type' => 'text', 'default_value' => 'vCenter Server Administration', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'virt_service_1_feature_3', 'type' => 'text', 'default_value' => 'vMotion & Storage vMotion', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'virt_service_1_feature_4', 'type' => 'text', 'default_value' => 'High Availability Cluster', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2 - Microsoft Hyper-V
+            array( 'key' => 'field_virt_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_virt_service_2_title', 'label' => 'Başlık', 'name' => 'virt_service_2_title', 'type' => 'text', 'default_value' => 'Microsoft Hyper-V' ),
+            array( 'key' => 'field_virt_service_2_description', 'label' => 'Açıklama', 'name' => 'virt_service_2_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Native Windows-Virtualisierung mit nahtloser Integration in Ihre Microsoft-Infrastruktur. Ideal für Windows-basierte Workloads.' ),
+            array( 'key' => 'field_virt_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'virt_service_2_feature_1', 'type' => 'text', 'default_value' => 'Windows Server Integration', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'virt_service_2_feature_2', 'type' => 'text', 'default_value' => 'Live Migration', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'virt_service_2_feature_3', 'type' => 'text', 'default_value' => 'Failover Clustering', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'virt_service_2_feature_4', 'type' => 'text', 'default_value' => 'System Center Integration', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3 - Container & Kubernetes
+            array( 'key' => 'field_virt_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_virt_service_3_title', 'label' => 'Başlık', 'name' => 'virt_service_3_title', 'type' => 'text', 'default_value' => 'Container & Kubernetes' ),
+            array( 'key' => 'field_virt_service_3_description', 'label' => 'Açıklama', 'name' => 'virt_service_3_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Moderne Container-Orchestrierung für Cloud-native Anwendungen. Schnelle Bereitstellung und effiziente Ressourcennutzung.' ),
+            array( 'key' => 'field_virt_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'virt_service_3_feature_1', 'type' => 'text', 'default_value' => 'Docker Container Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'virt_service_3_feature_2', 'type' => 'text', 'default_value' => 'Kubernetes Cluster Setup', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'virt_service_3_feature_3', 'type' => 'text', 'default_value' => 'CI/CD Pipeline Integration', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'virt_service_3_feature_4', 'type' => 'text', 'default_value' => 'Container Registry', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4 - VDI
+            array( 'key' => 'field_virt_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_virt_service_4_title', 'label' => 'Başlık', 'name' => 'virt_service_4_title', 'type' => 'text', 'default_value' => 'Virtual Desktop (VDI)' ),
+            array( 'key' => 'field_virt_service_4_description', 'label' => 'Açıklama', 'name' => 'virt_service_4_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Sichere virtuelle Arbeitsplätze für flexibles Arbeiten. Zentrale Verwaltung und Zugriff von überall.' ),
+            array( 'key' => 'field_virt_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'virt_service_4_feature_1', 'type' => 'text', 'default_value' => 'VMware Horizon', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'virt_service_4_feature_2', 'type' => 'text', 'default_value' => 'Microsoft AVD/WVD', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'virt_service_4_feature_3', 'type' => 'text', 'default_value' => 'Citrix Virtual Apps', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'virt_service_4_feature_4', 'type' => 'text', 'default_value' => 'Persistent & Non-Persistent', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 5 - Storage Virtualisierung
+            array( 'key' => 'field_virt_service5_tab', 'label' => 'Hizmet 5', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_virt_service_5_title', 'label' => 'Başlık', 'name' => 'virt_service_5_title', 'type' => 'text', 'default_value' => 'Storage Virtualisierung' ),
+            array( 'key' => 'field_virt_service_5_description', 'label' => 'Açıklama', 'name' => 'virt_service_5_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Abstrahieren Sie Ihren Speicher für maximale Flexibilität. Software-Defined Storage und Hyper-Converged Infrastructure.' ),
+            array( 'key' => 'field_virt_service_5_feature_1', 'label' => 'Özellik 1', 'name' => 'virt_service_5_feature_1', 'type' => 'text', 'default_value' => 'VMware vSAN', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_5_feature_2', 'label' => 'Özellik 2', 'name' => 'virt_service_5_feature_2', 'type' => 'text', 'default_value' => 'Storage Spaces Direct', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_5_feature_3', 'label' => 'Özellik 3', 'name' => 'virt_service_5_feature_3', 'type' => 'text', 'default_value' => 'Nutanix HCI', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_5_feature_4', 'label' => 'Özellik 4', 'name' => 'virt_service_5_feature_4', 'type' => 'text', 'default_value' => 'Deduplication & Compression', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 6 - Netzwerk Virtualisierung
+            array( 'key' => 'field_virt_service6_tab', 'label' => 'Hizmet 6', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_virt_service_6_title', 'label' => 'Başlık', 'name' => 'virt_service_6_title', 'type' => 'text', 'default_value' => 'Netzwerk Virtualisierung' ),
+            array( 'key' => 'field_virt_service_6_description', 'label' => 'Açıklama', 'name' => 'virt_service_6_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Software-Defined Networking für agile und sichere Netzwerkinfrastruktur. Micro-Segmentierung und zentrale Steuerung.' ),
+            array( 'key' => 'field_virt_service_6_feature_1', 'label' => 'Özellik 1', 'name' => 'virt_service_6_feature_1', 'type' => 'text', 'default_value' => 'VMware NSX', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_6_feature_2', 'label' => 'Özellik 2', 'name' => 'virt_service_6_feature_2', 'type' => 'text', 'default_value' => 'Virtual Switches & Routers', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_6_feature_3', 'label' => 'Özellik 3', 'name' => 'virt_service_6_feature_3', 'type' => 'text', 'default_value' => 'Micro-Segmentation', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_virt_service_6_feature_4', 'label' => 'Özellik 4', 'name' => 'virt_service_6_feature_4', 'type' => 'text', 'default_value' => 'Network Automation', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_virt_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_virt_cta_title', 'label' => 'CTA Başlık', 'name' => 'virt_cta_title', 'type' => 'text', 'default_value' => 'Bereit für moderne Virtualisierung?' ),
+            array( 'key' => 'field_virt_cta_description', 'label' => 'CTA Açıklama', 'name' => 'virt_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Lassen Sie uns gemeinsam Ihre IT-Infrastruktur optimieren und zukunftssicher gestalten.' ),
+            array( 'key' => 'field_virt_cta_button_text', 'label' => 'Buton Metni', 'name' => 'virt_cta_button_text', 'type' => 'text', 'default_value' => 'Kostenlose Analyse anfordern' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-virtualisierung.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_virtualisierung_page_fields' );
+
+/**
+ * Beratung & Analyse Sayfa Alanları
+ */
+function dataenergie_register_beratung_page_fields() {
+    if ( ! dataenergie_check_acf() ) {
+        return;
+    }
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_beratung_page',
+        'title'  => 'Beratung & Analyse Sayfa Ayarları',
+        'fields' => array(
+            // =========================================
+            // SEKME 1: HERO
+            // =========================================
+            array( 'key' => 'field_beratung_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_hero_tag', 'label' => 'Hero Etiket', 'name' => 'beratung_hero_tag', 'type' => 'text', 'default_value' => 'Beratung & Analyse' ),
+            array( 'key' => 'field_beratung_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'beratung_hero_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Strategische IT-Beratung für nachhaltigen Unternehmenserfolg' ),
+
+            // =========================================
+            // SEKME 2: PROZESSSCHRITTE
+            // =========================================
+            array( 'key' => 'field_beratung_steps_tab', 'label' => 'Prozessschritte', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_step_1_title', 'label' => 'Schritt 1 Titel', 'name' => 'beratung_step_1_title', 'type' => 'text', 'default_value' => 'Anfrage & Erstgespräch', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_step_1_desc', 'label' => 'Schritt 1 Beschreibung', 'name' => 'beratung_step_1_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Erstes Kennenlernen und Erfassung Ihrer Anforderungen und Ziele in einem unverbindlichen Beratungsgespräch.', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_step_2_title', 'label' => 'Schritt 2 Titel', 'name' => 'beratung_step_2_title', 'type' => 'text', 'default_value' => 'Ist-Analyse', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_step_2_desc', 'label' => 'Schritt 2 Beschreibung', 'name' => 'beratung_step_2_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Detaillierte Analyse Ihrer bestehenden IT-Infrastruktur, Prozesse und Systeme.', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_step_3_title', 'label' => 'Schritt 3 Titel', 'name' => 'beratung_step_3_title', 'type' => 'text', 'default_value' => 'Strategieentwicklung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_step_3_desc', 'label' => 'Schritt 3 Beschreibung', 'name' => 'beratung_step_3_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Entwicklung einer massgeschneiderten IT-Strategie mit konkreten Handlungsempfehlungen.', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_step_4_title', 'label' => 'Schritt 4 Titel', 'name' => 'beratung_step_4_title', 'type' => 'text', 'default_value' => 'Implementierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_step_4_desc', 'label' => 'Schritt 4 Beschreibung', 'name' => 'beratung_step_4_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Begleitung bei der Umsetzung und kontinuierliche Optimierung Ihrer IT-Landschaft.', 'wrapper' => array( 'width' => '50' ) ),
+
+            // =========================================
+            // SEKME 3: HIZMET 1 - IT-Strategie Beratung
+            // =========================================
+            array( 'key' => 'field_beratung_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_service_1_title', 'label' => 'Başlık', 'name' => 'beratung_service_1_title', 'type' => 'text', 'default_value' => 'IT-Strategie Beratung' ),
+            array( 'key' => 'field_beratung_service_1_desc', 'label' => 'Açıklama', 'name' => 'beratung_service_1_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Entwicklung einer zukunftssicheren IT-Strategie, die Ihre Geschäftsziele optimal unterstützt.' ),
+            array( 'key' => 'field_beratung_service_1_f1', 'label' => 'Özellik 1', 'name' => 'beratung_service_1_f1', 'type' => 'text', 'default_value' => 'Strategische IT-Roadmap', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_1_f2', 'label' => 'Özellik 2', 'name' => 'beratung_service_1_f2', 'type' => 'text', 'default_value' => 'Technology Assessment', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_1_f3', 'label' => 'Özellik 3', 'name' => 'beratung_service_1_f3', 'type' => 'text', 'default_value' => 'Vendor-unabhängige Beratung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_1_f4', 'label' => 'Özellik 4', 'name' => 'beratung_service_1_f4', 'type' => 'text', 'default_value' => 'ROI-Analyse', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 2 - Infrastruktur-Analyse
+            array( 'key' => 'field_beratung_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_service_2_title', 'label' => 'Başlık', 'name' => 'beratung_service_2_title', 'type' => 'text', 'default_value' => 'Infrastruktur-Analyse' ),
+            array( 'key' => 'field_beratung_service_2_desc', 'label' => 'Açıklama', 'name' => 'beratung_service_2_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Umfassende Analyse Ihrer IT-Infrastruktur mit konkreten Optimierungsvorschlägen.' ),
+            array( 'key' => 'field_beratung_service_2_f1', 'label' => 'Özellik 1', 'name' => 'beratung_service_2_f1', 'type' => 'text', 'default_value' => 'Netzwerk-Assessment', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_2_f2', 'label' => 'Özellik 2', 'name' => 'beratung_service_2_f2', 'type' => 'text', 'default_value' => 'Server & Storage Analyse', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_2_f3', 'label' => 'Özellik 3', 'name' => 'beratung_service_2_f3', 'type' => 'text', 'default_value' => 'Performance-Monitoring', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_2_f4', 'label' => 'Özellik 4', 'name' => 'beratung_service_2_f4', 'type' => 'text', 'default_value' => 'Kapazitätsplanung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 3 - Security Assessment
+            array( 'key' => 'field_beratung_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_service_3_title', 'label' => 'Başlık', 'name' => 'beratung_service_3_title', 'type' => 'text', 'default_value' => 'Security Assessment' ),
+            array( 'key' => 'field_beratung_service_3_desc', 'label' => 'Açıklama', 'name' => 'beratung_service_3_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Identifikation von Sicherheitslücken und Entwicklung einer robusten Security-Strategie.' ),
+            array( 'key' => 'field_beratung_service_3_f1', 'label' => 'Özellik 1', 'name' => 'beratung_service_3_f1', 'type' => 'text', 'default_value' => 'Schwachstellen-Analyse', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_3_f2', 'label' => 'Özellik 2', 'name' => 'beratung_service_3_f2', 'type' => 'text', 'default_value' => 'Penetrationstests', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_3_f3', 'label' => 'Özellik 3', 'name' => 'beratung_service_3_f3', 'type' => 'text', 'default_value' => 'Compliance-Check', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_3_f4', 'label' => 'Özellik 4', 'name' => 'beratung_service_3_f4', 'type' => 'text', 'default_value' => 'Security-Roadmap', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 4 - Cloud-Readiness Assessment
+            array( 'key' => 'field_beratung_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_service_4_title', 'label' => 'Başlık', 'name' => 'beratung_service_4_title', 'type' => 'text', 'default_value' => 'Cloud-Readiness Assessment' ),
+            array( 'key' => 'field_beratung_service_4_desc', 'label' => 'Açıklama', 'name' => 'beratung_service_4_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Analyse Ihrer Cloud-Bereitschaft und Entwicklung einer optimalen Migrationsstrategie.' ),
+            array( 'key' => 'field_beratung_service_4_f1', 'label' => 'Özellik 1', 'name' => 'beratung_service_4_f1', 'type' => 'text', 'default_value' => 'Workload-Analyse', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_4_f2', 'label' => 'Özellik 2', 'name' => 'beratung_service_4_f2', 'type' => 'text', 'default_value' => 'TCO-Berechnung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_4_f3', 'label' => 'Özellik 3', 'name' => 'beratung_service_4_f3', 'type' => 'text', 'default_value' => 'Migrations-Roadmap', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_4_f4', 'label' => 'Özellik 4', 'name' => 'beratung_service_4_f4', 'type' => 'text', 'default_value' => 'Hybrid-Cloud Strategie', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 5 - Digitale Transformation
+            array( 'key' => 'field_beratung_service5_tab', 'label' => 'Hizmet 5', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_service_5_title', 'label' => 'Başlık', 'name' => 'beratung_service_5_title', 'type' => 'text', 'default_value' => 'Digitale Transformation' ),
+            array( 'key' => 'field_beratung_service_5_desc', 'label' => 'Açıklama', 'name' => 'beratung_service_5_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Begleitung Ihres Unternehmens auf dem Weg zur digitalen Exzellenz.' ),
+            array( 'key' => 'field_beratung_service_5_f1', 'label' => 'Özellik 1', 'name' => 'beratung_service_5_f1', 'type' => 'text', 'default_value' => 'Prozessoptimierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_5_f2', 'label' => 'Özellik 2', 'name' => 'beratung_service_5_f2', 'type' => 'text', 'default_value' => 'Automatisierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_5_f3', 'label' => 'Özellik 3', 'name' => 'beratung_service_5_f3', 'type' => 'text', 'default_value' => 'Change Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_5_f4', 'label' => 'Özellik 4', 'name' => 'beratung_service_5_f4', 'type' => 'text', 'default_value' => 'Schulung & Enablement', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 6 - IT-Kosten Optimierung
+            array( 'key' => 'field_beratung_service6_tab', 'label' => 'Hizmet 6', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_service_6_title', 'label' => 'Başlık', 'name' => 'beratung_service_6_title', 'type' => 'text', 'default_value' => 'IT-Kosten Optimierung' ),
+            array( 'key' => 'field_beratung_service_6_desc', 'label' => 'Açıklama', 'name' => 'beratung_service_6_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Identifikation von Einsparpotenzialen ohne Kompromisse bei Qualität und Leistung.' ),
+            array( 'key' => 'field_beratung_service_6_f1', 'label' => 'Özellik 1', 'name' => 'beratung_service_6_f1', 'type' => 'text', 'default_value' => 'Lizenz-Optimierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_6_f2', 'label' => 'Özellik 2', 'name' => 'beratung_service_6_f2', 'type' => 'text', 'default_value' => 'Vertragsverhandlungen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_6_f3', 'label' => 'Özellik 3', 'name' => 'beratung_service_6_f3', 'type' => 'text', 'default_value' => 'Konsolidierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_beratung_service_6_f4', 'label' => 'Özellik 4', 'name' => 'beratung_service_6_f4', 'type' => 'text', 'default_value' => 'Kostencontrolling', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_beratung_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_beratung_cta_title', 'label' => 'CTA Başlık', 'name' => 'beratung_cta_title', 'type' => 'text', 'default_value' => 'Bereit für die Zukunft?' ),
+            array( 'key' => 'field_beratung_cta_desc', 'label' => 'CTA Açıklama', 'name' => 'beratung_cta_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Vereinbaren Sie jetzt ein unverbindliches Erstgespräch und entdecken Sie Ihr IT-Potenzial.' ),
+            array( 'key' => 'field_beratung_cta_button', 'label' => 'Buton Metni', 'name' => 'beratung_cta_button', 'type' => 'text', 'default_value' => 'Kostenlose Erstberatung' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-beratung-analyse.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_beratung_page_fields' );
+
+/**
+ * IT Outsourcing Sayfa Alanları
+ */
+function dataenergie_register_outsourcing_page_fields() {
+    if ( ! dataenergie_check_acf() ) {
+        return;
+    }
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_outsourcing_page',
+        'title'  => 'IT Outsourcing Sayfa Ayarları',
+        'fields' => array(
+            // =========================================
+            // SEKME 1: HERO
+            // =========================================
+            array( 'key' => 'field_outsourcing_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_outsourcing_hero_tag', 'label' => 'Hero Etiket', 'name' => 'outsourcing_hero_tag', 'type' => 'text', 'default_value' => 'IT Outsourcing' ),
+            array( 'key' => 'field_outsourcing_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'outsourcing_hero_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Fokussieren Sie sich auf Ihr Kerngeschäft - wir kümmern uns um Ihre IT' ),
+
+            // =========================================
+            // SEKME 2: HIZMET 1 - Helpdesk & Support
+            // =========================================
+            array( 'key' => 'field_outsourcing_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_outsourcing_service_1_title', 'label' => 'Başlık', 'name' => 'outsourcing_service_1_title', 'type' => 'text', 'default_value' => 'Helpdesk & Support' ),
+            array( 'key' => 'field_outsourcing_service_1_desc', 'label' => 'Açıklama', 'name' => 'outsourcing_service_1_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Professioneller 1st & 2nd Level Support für Ihre Mitarbeiter. Schnelle Reaktionszeiten und kompetente Hilfe.' ),
+            array( 'key' => 'field_outsourcing_service_1_f1', 'label' => 'Özellik 1', 'name' => 'outsourcing_service_1_f1', 'type' => 'text', 'default_value' => '1st & 2nd Level Support', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_1_f2', 'label' => 'Özellik 2', 'name' => 'outsourcing_service_1_f2', 'type' => 'text', 'default_value' => 'Ticket-Management System', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_1_f3', 'label' => 'Özellik 3', 'name' => 'outsourcing_service_1_f3', 'type' => 'text', 'default_value' => 'Remote & Vor-Ort Support', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_1_f4', 'label' => 'Özellik 4', 'name' => 'outsourcing_service_1_f4', 'type' => 'text', 'default_value' => 'Definierte SLAs', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 2 - Infrastructure Management
+            array( 'key' => 'field_outsourcing_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_outsourcing_service_2_title', 'label' => 'Başlık', 'name' => 'outsourcing_service_2_title', 'type' => 'text', 'default_value' => 'Infrastructure Management' ),
+            array( 'key' => 'field_outsourcing_service_2_desc', 'label' => 'Açıklama', 'name' => 'outsourcing_service_2_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Proaktive Verwaltung und Wartung Ihrer gesamten IT-Infrastruktur.' ),
+            array( 'key' => 'field_outsourcing_service_2_f1', 'label' => 'Özellik 1', 'name' => 'outsourcing_service_2_f1', 'type' => 'text', 'default_value' => 'Server & Storage Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_2_f2', 'label' => 'Özellik 2', 'name' => 'outsourcing_service_2_f2', 'type' => 'text', 'default_value' => 'Netzwerk-Administration', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_2_f3', 'label' => 'Özellik 3', 'name' => 'outsourcing_service_2_f3', 'type' => 'text', 'default_value' => 'Patch Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_2_f4', 'label' => 'Özellik 4', 'name' => 'outsourcing_service_2_f4', 'type' => 'text', 'default_value' => 'Performance Monitoring', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 3 - Cloud Management
+            array( 'key' => 'field_outsourcing_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_outsourcing_service_3_title', 'label' => 'Başlık', 'name' => 'outsourcing_service_3_title', 'type' => 'text', 'default_value' => 'Cloud Management' ),
+            array( 'key' => 'field_outsourcing_service_3_desc', 'label' => 'Açıklama', 'name' => 'outsourcing_service_3_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Verwaltung Ihrer Cloud-Umgebungen in Azure, AWS oder hybriden Setups.' ),
+            array( 'key' => 'field_outsourcing_service_3_f1', 'label' => 'Özellik 1', 'name' => 'outsourcing_service_3_f1', 'type' => 'text', 'default_value' => 'Azure & Microsoft 365', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_3_f2', 'label' => 'Özellik 2', 'name' => 'outsourcing_service_3_f2', 'type' => 'text', 'default_value' => 'Cloud-Optimierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_3_f3', 'label' => 'Özellik 3', 'name' => 'outsourcing_service_3_f3', 'type' => 'text', 'default_value' => 'Cost Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_3_f4', 'label' => 'Özellik 4', 'name' => 'outsourcing_service_3_f4', 'type' => 'text', 'default_value' => 'Hybrid Cloud Support', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 4 - Security Operations
+            array( 'key' => 'field_outsourcing_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_outsourcing_service_4_title', 'label' => 'Başlık', 'name' => 'outsourcing_service_4_title', 'type' => 'text', 'default_value' => 'Security Operations' ),
+            array( 'key' => 'field_outsourcing_service_4_desc', 'label' => 'Açıklama', 'name' => 'outsourcing_service_4_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Kontinuierlicher Schutz Ihrer IT durch Monitoring, Incident Response und Prävention.' ),
+            array( 'key' => 'field_outsourcing_service_4_f1', 'label' => 'Özellik 1', 'name' => 'outsourcing_service_4_f1', 'type' => 'text', 'default_value' => '24/7 Security Monitoring', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_4_f2', 'label' => 'Özellik 2', 'name' => 'outsourcing_service_4_f2', 'type' => 'text', 'default_value' => 'Incident Response', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_4_f3', 'label' => 'Özellik 3', 'name' => 'outsourcing_service_4_f3', 'type' => 'text', 'default_value' => 'Vulnerability Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_4_f4', 'label' => 'Özellik 4', 'name' => 'outsourcing_service_4_f4', 'type' => 'text', 'default_value' => 'Security Awareness', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 5 - Backup & Disaster Recovery
+            array( 'key' => 'field_outsourcing_service5_tab', 'label' => 'Hizmet 5', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_outsourcing_service_5_title', 'label' => 'Başlık', 'name' => 'outsourcing_service_5_title', 'type' => 'text', 'default_value' => 'Backup & Disaster Recovery' ),
+            array( 'key' => 'field_outsourcing_service_5_desc', 'label' => 'Açıklama', 'name' => 'outsourcing_service_5_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Zuverlässige Datensicherung und schnelle Wiederherstellung im Ernstfall.' ),
+            array( 'key' => 'field_outsourcing_service_5_f1', 'label' => 'Özellik 1', 'name' => 'outsourcing_service_5_f1', 'type' => 'text', 'default_value' => 'Automatisierte Backups', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_5_f2', 'label' => 'Özellik 2', 'name' => 'outsourcing_service_5_f2', 'type' => 'text', 'default_value' => 'Disaster Recovery Planung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_5_f3', 'label' => 'Özellik 3', 'name' => 'outsourcing_service_5_f3', 'type' => 'text', 'default_value' => 'Regelmässige Tests', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_5_f4', 'label' => 'Özellik 4', 'name' => 'outsourcing_service_5_f4', 'type' => 'text', 'default_value' => 'Geo-redundante Speicherung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // HIZMET 6 - Workplace Management
+            array( 'key' => 'field_outsourcing_service6_tab', 'label' => 'Hizmet 6', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_outsourcing_service_6_title', 'label' => 'Başlık', 'name' => 'outsourcing_service_6_title', 'type' => 'text', 'default_value' => 'Workplace Management' ),
+            array( 'key' => 'field_outsourcing_service_6_desc', 'label' => 'Açıklama', 'name' => 'outsourcing_service_6_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Verwaltung aller Endgeräte und Arbeitsplätze Ihrer Mitarbeiter.' ),
+            array( 'key' => 'field_outsourcing_service_6_f1', 'label' => 'Özellik 1', 'name' => 'outsourcing_service_6_f1', 'type' => 'text', 'default_value' => 'Device Lifecycle Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_6_f2', 'label' => 'Özellik 2', 'name' => 'outsourcing_service_6_f2', 'type' => 'text', 'default_value' => 'Software Deployment', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_6_f3', 'label' => 'Özellik 3', 'name' => 'outsourcing_service_6_f3', 'type' => 'text', 'default_value' => 'Endpoint Security', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_outsourcing_service_6_f4', 'label' => 'Özellik 4', 'name' => 'outsourcing_service_6_f4', 'type' => 'text', 'default_value' => 'Mobile Device Management', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_outsourcing_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_outsourcing_cta_title', 'label' => 'CTA Başlık', 'name' => 'outsourcing_cta_title', 'type' => 'text', 'default_value' => 'Entlasten Sie Ihr Team' ),
+            array( 'key' => 'field_outsourcing_cta_desc', 'label' => 'CTA Açıklama', 'name' => 'outsourcing_cta_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Erfahren Sie, wie IT Outsourcing Ihr Unternehmen voranbringt.' ),
+            array( 'key' => 'field_outsourcing_cta_button', 'label' => 'Buton Metni', 'name' => 'outsourcing_cta_button', 'type' => 'text', 'default_value' => 'Unverbindliches Angebot' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-it-outsourcing.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_outsourcing_page_fields' );

@@ -142,6 +142,11 @@ add_filter( 'nav_menu_link_attributes', 'dataenergie_nav_menu_link_attributes', 
 require_once get_template_directory() . '/inc/custom-fields.php';
 
 /**
+ * Mega Menu Walker Class'ları yükle
+ */
+require_once get_template_directory() . '/inc/class-mega-menu-walker.php';
+
+/**
  * Demo İçerik İçe Aktarıcı (Otomatik Kurulum)
  */
 require_once get_template_directory() . '/inc/demo-importer.php';

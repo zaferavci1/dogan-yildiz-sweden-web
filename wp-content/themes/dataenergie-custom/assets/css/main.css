@@ -18,6 +18,12 @@
     /* Colors */
     --color-primary: #2563EB;      /* Mavi - IT/Kurumsal (Logo uyumlu) */
     --color-secondary: #06B6D4;    /* Turkuaz - Solar Enerji (Logo uyumlu) */
+    --color-heading: #0f172a;      /* Koyu Lacivert - Başlıklar için */
+
+    /* Eski Renkler (Yedek)
+    --color-primary-old: #0f172a;    Koyu Lacivert - IT/Kurumsal
+    --color-secondary-old: #fbbf24;  Amber/Sarı - Solar Enerji
+    */
     --color-text: #334155;         /* Metin rengi */
     --color-text-light: #64748b;   /* Açık metin rengi */
     --color-bg: #ffffff;           /* Arka plan */
@@ -125,7 +131,7 @@ h6 {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--color-primary);
+    color: var(--color-heading);
     font-weight: 600;
     line-height: 1.3;
 }
@@ -310,7 +316,7 @@ ul, ol {
 /* Secondary Button */
 .btn-secondary {
     background-color: var(--color-secondary);
-    color: var(--color-primary);
+    color: var(--color-bg);
     border-color: var(--color-secondary);
 }
 
@@ -343,7 +349,7 @@ ul, ol {
 }
 
 /* ==========================================================================
-   6. HEADER STYLES
+   6. HEADER STYLES - Mega Menu Navigation
    ========================================================================== */
 
 .site-header {
@@ -351,8 +357,51 @@ ul, ol {
     top: 0;
     z-index: 100;
     background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
+}
+
+/* -----------------------------------------------------------------------------
+   Top Bar (Secondary Navigation)
+   -------------------------------------------------------------------------- */
+.top-bar {
+    background-color: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+    display: none;
+}
+
+.top-bar-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-bar-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.top-bar-menu li {
+    list-style: none;
+}
+
+.top-bar-menu a {
+    display: block;
+    padding: var(--spacing-sm) 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: color var(--transition-fast);
+}
+
+.top-bar-menu a:hover {
+    color: var(--color-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   Main Header
+   -------------------------------------------------------------------------- */
+.header-main {
+    border-bottom: 1px solid var(--color-border);
 }
 
 .header-inner {
@@ -361,6 +410,7 @@ ul, ol {
     justify-content: space-between;
     padding: var(--spacing-md) 0;
     min-height: 70px;
+    gap: var(--spacing-lg);
 }
 
 /* Logo */
@@ -372,6 +422,7 @@ ul, ol {
     font-weight: 700;
     color: var(--color-primary);
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .site-logo .logo-image {
@@ -384,68 +435,248 @@ ul, ol {
     color: var(--color-primary);
 }
 
-.site-logo .logo-accent {
-    color: var(--color-secondary);
+/* -----------------------------------------------------------------------------
+   Primary Navigation (Desktop)
+   -------------------------------------------------------------------------- */
+.nav-primary {
+    display: flex;
+    flex: 1;
+    justify-content: center;
 }
 
-/* Main Navigation */
-.main-nav {
-    display: none;
+/* Hide on mobile (below 768px) */
+@media (max-width: 767px) {
+    .nav-primary {
+        display: none;
+    }
 }
 
-.main-nav ul {
+.menu-primary {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
+    margin: 0;
+    padding: 0;
 }
 
-.main-nav a {
-    display: block;
+.menu-primary > .menu-item {
+    position: relative;
+    list-style: none;
+}
+
+.menu-primary > .menu-item > a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     padding: var(--spacing-sm) 0;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--color-text);
-    position: relative;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
 }
 
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-secondary);
-    transition: width var(--transition-base);
-}
-
-.main-nav a:hover,
-.main-nav a.active {
+.menu-primary > .menu-item > a:hover {
     color: var(--color-primary);
 }
 
-.main-nav a:hover::after,
-.main-nav a.active::after {
-    width: 100%;
+/* Dropdown Arrow for items with children */
+.menu-primary > .menu-item-has-children > a::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    transition: transform var(--transition-fast);
 }
 
-/* Header CTA Button */
+.menu-primary > .menu-item-has-children:hover > a::after {
+    transform: rotate(180deg);
+}
+
+/* Invisible bridge to prevent hover gap */
+.menu-primary > .menu-item-has-children::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    right: -20px;
+    height: 10px;
+    background: transparent;
+}
+
+/* -----------------------------------------------------------------------------
+   Standard Dropdown Menu
+   -------------------------------------------------------------------------- */
+.menu-primary .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    padding: var(--spacing-sm) 0;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+    z-index: 1000;
+    list-style: none;
+    margin: 0;
+}
+
+.menu-primary > .menu-item-has-children:hover > .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0s;
+}
+
+.menu-primary .sub-menu li {
+    list-style: none;
+}
+
+.menu-primary .sub-menu a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+}
+
+.menu-primary .sub-menu a:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   Mega Menu
+   -------------------------------------------------------------------------- */
+.mega-menu-parent {
+    position: static !important;
+}
+
+.mega-menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-primary);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+    z-index: 1000;
+}
+
+.mega-menu-parent:hover > .mega-menu-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0s;
+}
+
+.mega-menu-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--container-padding);
+}
+
+/* 2 Column Mega Menu */
+.mega-menu-inner.mega-menu-2-columns {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+}
+
+.mega-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.mega-menu-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.mega-menu-heading {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--color-secondary);
+    margin-bottom: var(--spacing-xs);
+    transition: color var(--transition-fast);
+}
+
+.mega-menu-heading:hover {
+    color: var(--color-primary);
+}
+
+.mega-menu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.mega-menu-links li {
+    list-style: none;
+}
+
+.mega-menu-links a {
+    display: block;
+    padding: var(--spacing-xs) 0;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+}
+
+.mega-menu-links a:hover {
+    color: var(--color-primary);
+    padding-left: var(--spacing-xs);
+}
+
+/* -----------------------------------------------------------------------------
+   Header CTA Button
+   -------------------------------------------------------------------------- */
 .header-cta {
     display: none;
+    flex-shrink: 0;
 }
 
-/* Mobile Menu Toggle */
+/* -----------------------------------------------------------------------------
+   Mobile Menu Toggle (Hamburger)
+   -------------------------------------------------------------------------- */
 .mobile-menu-toggle {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     background: transparent;
     border: none;
     cursor: pointer;
+    z-index: 101;
 }
 
 .mobile-menu-toggle span {
@@ -454,9 +685,9 @@ ul, ol {
     height: 2px;
     background-color: var(--color-primary);
     transition: all var(--transition-fast);
+    transform-origin: center;
 }
 
-/* Mobile Menu Active State */
 .mobile-menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -469,46 +700,143 @@ ul, ol {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Navigation */
+/* -----------------------------------------------------------------------------
+   Mobile Navigation
+   -------------------------------------------------------------------------- */
 .mobile-nav {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    box-shadow: var(--shadow-md);
-    padding: var(--spacing-md);
+    z-index: 99;
+    overflow-y: auto;
+    padding-top: 80px;
 }
 
 .mobile-nav.active {
     display: block;
 }
 
-.mobile-nav ul {
+.mobile-nav-inner {
+    padding: var(--spacing-lg) var(--container-padding);
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.mobile-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
 }
 
-.mobile-nav a {
+.mobile-menu > .menu-item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-menu > .menu-item > a {
     display: block;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    font-size: 1.125rem;
     font-weight: 500;
     color: var(--color-text);
-    border-radius: var(--radius-md);
-    transition: background-color var(--transition-fast);
+    transition: color var(--transition-fast);
 }
 
-.mobile-nav a:hover {
-    background-color: var(--color-bg-alt);
+.mobile-menu > .menu-item > a:hover {
     color: var(--color-primary);
 }
 
-.mobile-nav .btn {
+/* Mobile Submenu */
+.mobile-menu .menu-item-has-children {
+    position: relative;
+}
+
+.mobile-menu .menu-item-has-children > a {
+    padding-right: 50px;
+}
+
+.mobile-menu .dropdown-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu .dropdown-toggle::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--color-text);
+    transition: transform var(--transition-fast);
+}
+
+.mobile-menu .menu-item-has-children.open > .dropdown-toggle::before {
+    transform: rotate(180deg);
+}
+
+.mobile-menu .sub-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 var(--spacing-sm) var(--spacing-md);
+}
+
+.mobile-menu .menu-item-has-children.open > .sub-menu {
+    display: block;
+}
+
+.mobile-menu .sub-menu a {
+    display: block;
+    padding: var(--spacing-sm) 0;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--color-text-light);
+    transition: color var(--transition-fast);
+}
+
+.mobile-menu .sub-menu a:hover {
+    color: var(--color-primary);
+}
+
+/* Mobile Secondary Links */
+.mobile-secondary-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid var(--color-border);
     margin-top: var(--spacing-md);
+}
+
+.mobile-secondary-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: color var(--transition-fast);
+}
+
+.mobile-secondary-links a:hover {
+    color: var(--color-primary);
+}
+
+/* Mobile CTA */
+.mobile-cta {
     width: 100%;
+    margin-top: var(--spacing-lg);
 }
 
 /* ==========================================================================
@@ -654,19 +982,6 @@ ul, ol {
         --container-padding: 1.5rem;
     }
 
-    /* Header */
-    .main-nav {
-        display: block;
-    }
-
-    .mobile-menu-toggle {
-        display: none;
-    }
-
-    .mobile-nav {
-        display: none !important;
-    }
-
     /* Footer Grid */
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -678,15 +993,30 @@ ul, ol {
     }
 }
 
-/* Desktop (1024px and up) */
-@media (min-width: 1024px) {
+/* Desktop (768px and up) */
+@media (min-width: 768px) {
     :root {
         --container-padding: 2rem;
     }
 
-    /* Header */
+    /* Header - Show Top Bar */
+    .top-bar {
+        display: block;
+    }
+
+    /* Header - Show CTA */
     .header-cta {
         display: inline-flex;
+    }
+
+    /* Hide Mobile Toggle */
+    .mobile-menu-toggle {
+        display: none;
+    }
+
+    /* Hide Mobile Nav */
+    .mobile-nav {
+        display: none !important;
     }
 
     /* Footer Grid */
@@ -697,8 +1027,12 @@ ul, ol {
 
 /* Large Desktop (1280px and up) */
 @media (min-width: 1280px) {
-    .main-nav ul {
-        gap: var(--spacing-2xl);
+    .menu-primary {
+        gap: var(--spacing-xl);
+    }
+
+    .top-bar-menu {
+        gap: var(--spacing-xl);
     }
 }
 
@@ -774,12 +1108,12 @@ ul, ol {
 
 .hero-panel--solar .hero-panel__title,
 .hero-panel--solar .hero-panel__subtitle {
-    color: var(--color-bg);
+    color: var(--color-heading);
 }
 
 .hero-panel--solar .hero-panel__tag {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: var(--color-bg);
+    background-color: rgba(15, 23, 42, 0.15);
+    color: var(--color-heading);
 }
 
 /* Content */
@@ -858,7 +1192,7 @@ ul, ol {
 .about-teaser__title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -889,7 +1223,7 @@ ul, ol {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     line-height: 1;
 }
 
@@ -919,7 +1253,7 @@ ul, ol {
 .section-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-md);
 }
 
@@ -975,7 +1309,7 @@ ul, ol {
 .service-card__title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1007,6 +1341,27 @@ ul, ol {
 
 .service-card__link:hover svg {
     transform: translateX(4px);
+}
+
+/* Service Card Variants - IT & Solar */
+.service-card--it {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(37, 99, 235, 0.08) 100%);
+    border-color: rgba(37, 99, 235, 0.15);
+}
+
+.service-card--it:hover {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(37, 99, 235, 0.12) 100%);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.service-card--solar {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.03) 0%, rgba(6, 182, 212, 0.08) 100%);
+    border-color: rgba(6, 182, 212, 0.15);
+}
+
+.service-card--solar:hover {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(6, 182, 212, 0.12) 100%);
+    border-color: rgba(6, 182, 212, 0.3);
 }
 
 /* ==========================================================================
@@ -1172,7 +1527,7 @@ ul, ol {
 .page-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     line-height: 1.2;
 }
 
@@ -1304,7 +1659,7 @@ ul, ol {
 .error-404__title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-md);
 }
 
@@ -1555,7 +1910,7 @@ ul, ol {
 .feature-card__title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1615,7 +1970,7 @@ ul, ol {
 .cta-minimal__title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1641,7 +1996,7 @@ ul, ol {
 .projects-section__title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1700,7 +2055,7 @@ ul, ol {
 .project-card-modern__title {
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1885,7 +2240,7 @@ ul, ol {
 .project-header__title {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     line-height: 1.2;
     letter-spacing: -0.02em;
 }
@@ -1980,7 +2335,7 @@ ul, ol {
 .project-gallery__title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-heading);
 }
 
 .project-gallery__count {
@@ -2325,7 +2680,7 @@ ul, ol {
 .about-story__title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-lg);
     line-height: 1.2;
 }
@@ -2379,7 +2734,7 @@ ul, ol {
 .values-section__title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -2429,7 +2784,7 @@ ul, ol {
 .value-card__title {
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -2495,7 +2850,7 @@ ul, ol {
 .team-section__title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -2552,7 +2907,7 @@ ul, ol {
 .team-card__name {
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -2586,7 +2941,7 @@ ul, ol {
 .timeline-section__title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -2642,7 +2997,7 @@ ul, ol {
 .timeline-item__title {
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -2972,7 +3327,7 @@ ul, ol {
     gap: var(--spacing-md);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-sm);
     border-bottom: 1px solid var(--color-border);
@@ -3212,7 +3567,7 @@ ul, ol {
 .legal-cta__title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-heading);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -3450,5 +3805,1037 @@ a.impressum-contact-item__value:hover {
 
     .legal-section {
         page-break-inside: avoid;
+    }
+}
+
+/* ==========================================================================
+   21. CLOUD SERVICE PAGES (Azure, Swisscom DCS+)
+   Modern SaaS Design - Vercel/Linear Aesthetic
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Cloud Partner Badge
+   -------------------------------------------------------------------------- */
+.cloud-partner-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-2xl);
+    transition: all var(--transition-base);
+}
+
+.cloud-partner-badge:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: var(--shadow-md);
+}
+
+.cloud-partner-badge__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cloud-partner-badge__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Azure variant */
+.cloud-partner-badge--azure .cloud-partner-badge__icon {
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.1), rgba(0, 120, 212, 0.05));
+}
+
+.cloud-partner-badge--azure .cloud-partner-badge__icon svg {
+    color: #0078D4; /* Azure Blue */
+}
+
+.cloud-partner-badge--azure:hover {
+    border-color: rgba(0, 120, 212, 0.3);
+}
+
+/* Swisscom variant */
+.cloud-partner-badge--swisscom .cloud-partner-badge__icon {
+    background: linear-gradient(135deg, rgba(220, 30, 50, 0.1), rgba(220, 30, 50, 0.05));
+}
+
+.cloud-partner-badge--swisscom .cloud-partner-badge__icon svg {
+    color: #DC1E32; /* Swisscom Red */
+}
+
+.cloud-partner-badge--swisscom:hover {
+    border-color: rgba(220, 30, 50, 0.3);
+}
+
+.cloud-partner-badge__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.cloud-partner-badge__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-light);
+}
+
+.cloud-partner-badge__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-heading);
+}
+
+/* -----------------------------------------------------------------------------
+   Cloud Benefits Section
+   -------------------------------------------------------------------------- */
+.cloud-benefits {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.cloud-benefits__grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.cloud-benefit-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.cloud-benefit-card:hover {
+    border-color: rgba(37, 99, 235, 0.2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Swisscom variant */
+.cloud-benefit-card--swisscom:hover {
+    border-color: rgba(220, 30, 50, 0.2);
+}
+
+.cloud-benefit-card__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: rgba(37, 99, 235, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cloud-benefit-card__icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+}
+
+.cloud-benefit-card--swisscom .cloud-benefit-card__icon {
+    background: rgba(220, 30, 50, 0.08);
+}
+
+.cloud-benefit-card--swisscom .cloud-benefit-card__icon svg {
+    color: #DC1E32;
+}
+
+.cloud-benefit-card__content {
+    flex: 1;
+}
+
+.cloud-benefit-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-xs);
+}
+
+.cloud-benefit-card__text {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Cloud Why Section (Swisscom specific)
+   -------------------------------------------------------------------------- */
+.cloud-why-section {
+    padding: var(--spacing-2xl) 0;
+    margin-bottom: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cloud-why-section__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.cloud-why-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.cloud-why-card {
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.cloud-why-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-xs);
+    position: relative;
+    display: inline-block;
+}
+
+.cloud-why-card__title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 2px;
+    background: var(--color-secondary);
+}
+
+.cloud-why-card__text {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: var(--spacing-sm) 0 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive: Tablet (768px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    .cloud-benefits__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cloud-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cloud-partner-badge {
+        max-width: 450px;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive: Desktop (1024px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    .cloud-why-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cloud-why-section__title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Print Styles for Cloud Pages */
+@media print {
+    .cloud-partner-badge,
+    .cloud-benefit-card {
+        border: 1px solid #e2e8f0;
+    }
+
+    .cloud-partner-badge:hover,
+    .cloud-benefit-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* ==========================================================================
+   22. VIRTUALISIERUNG PAGE COMPONENTS
+   Modern SaaS Design - Vercel/Linear Aesthetic
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Technology Partners Section
+   -------------------------------------------------------------------------- */
+.virt-partners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03), rgba(6, 182, 212, 0.03));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.virt-partners__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-light);
+}
+
+.virt-partners__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.virt-partner-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.virt-partner-item:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.virt-partner-item__name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+}
+
+.virt-partner-item__desc {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+}
+
+/* -----------------------------------------------------------------------------
+   Use Cases Section
+   -------------------------------------------------------------------------- */
+.virt-usecases {
+    padding: var(--spacing-2xl) 0;
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.virt-usecases__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.virt-usecases__grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.virt-usecase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.virt-usecase:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.virt-usecase__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.virt-usecase__icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-primary);
+}
+
+.virt-usecase__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.virt-usecase__text {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive: Tablet (768px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    .virt-partners__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .virt-usecases__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .virt-usecase {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive: Desktop (1024px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    .virt-partners {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+
+    .virt-partners__label {
+        flex-shrink: 0;
+    }
+
+    .virt-partners__grid {
+        width: auto;
+        flex: 1;
+        max-width: 800px;
+    }
+
+    .virt-usecases__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .virt-usecases__title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Print Styles for Virtualisierung Page */
+@media print {
+    .virt-partners,
+    .virt-partner-item,
+    .virt-usecase {
+        border: 1px solid #e2e8f0;
+    }
+
+    .virt-partner-item:hover,
+    .virt-usecase:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* ==========================================================================
+   BERATUNG & ANALYSE PAGE STYLES
+   Modern SaaS Design - Vercel/Linear Ästhetik
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Process Section - Beratungsprozess
+   -------------------------------------------------------------------------- */
+.process-section {
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.process-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.process-step:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.process-step__number {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    opacity: 0.5;
+}
+
+.process-step__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%);
+    border-radius: var(--radius-md);
+    color: var(--color-primary);
+}
+
+.process-step__icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.process-step__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.process-step__desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.process-step__connector {
+    display: none;
+}
+
+/* -----------------------------------------------------------------------------
+   Advantages Section
+   -------------------------------------------------------------------------- */
+.advantages-section {
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.advantage-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: all var(--transition-base);
+}
+
+.advantage-card:hover {
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.advantage-card__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+    color: var(--color-bg);
+}
+
+.advantage-card__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.advantage-card__content {
+    flex: 1;
+}
+
+.advantage-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-xs);
+}
+
+.advantage-card__text {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive: Tablet (768px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+
+    .advantages-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .advantage-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--spacing-lg);
+    }
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive: Desktop (1024px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    .process-steps {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+        position: relative;
+    }
+
+    .process-step {
+        padding: var(--spacing-lg);
+    }
+
+    .process-step__connector {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: calc(-1 * var(--spacing-lg) / 2 - 12px);
+        transform: translateY(-50%);
+        width: 24px;
+        height: 2px;
+        background: var(--color-border);
+    }
+
+    .process-step__connector::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 6px solid var(--color-border);
+    }
+
+    .process-step:hover .process-step__connector {
+        background: var(--color-primary);
+    }
+
+    .process-step:hover .process-step__connector::after {
+        border-left-color: var(--color-primary);
+    }
+
+    .advantages-section {
+        padding: var(--spacing-2xl);
+    }
+
+    .advantage-card {
+        padding: var(--spacing-xl);
+    }
+
+    .advantage-card__icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .advantage-card__icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .advantage-card__title {
+        font-size: 1.125rem;
+    }
+
+    .advantage-card__text {
+        font-size: 0.9375rem;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+   Beratung Page - Print Styles
+   -------------------------------------------------------------------------- */
+@media print {
+    .process-step,
+    .advantage-card {
+        border: 1px solid #e2e8f0;
+        break-inside: avoid;
+    }
+
+    .process-step:hover,
+    .advantage-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .process-step__connector {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   IT OUTSOURCING PAGE STYLES
+   Modern SaaS Design - Vercel/Linear Ästhetik
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Outsourcing Models Section
+   -------------------------------------------------------------------------- */
+.outsourcing-models {
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.models-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.model-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.model-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.model-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, rgba(37, 99, 235, 0.8) 100%);
+    border-radius: var(--radius-lg);
+    color: var(--color-bg);
+}
+
+.model-card__icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.model-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.model-card__desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Benefits Section (Outsourcing specific)
+   -------------------------------------------------------------------------- */
+.outsourcing-benefits {
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.benefit-item:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.benefit-item__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--color-primary);
+}
+
+.benefit-item__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.benefit-item__content {
+    flex: 1;
+}
+
+.benefit-item__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-xs);
+}
+
+.benefit-item__text {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* -----------------------------------------------------------------------------
+   SLA Info Section
+   -------------------------------------------------------------------------- */
+.sla-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl);
+    background: var(--color-primary);
+    border-radius: var(--radius-lg);
+    color: var(--color-bg);
+}
+
+.sla-info__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-bg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.sla-info__text {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.sla-info__metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.sla-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+}
+
+.sla-metric__value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-bg);
+    line-height: 1.2;
+}
+
+.sla-metric__label {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--spacing-xs);
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive: Tablet (768px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    .models-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sla-info {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sla-info__content {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    .sla-info__metrics {
+        flex-shrink: 0;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive: Desktop (1024px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+    .model-card {
+        padding: var(--spacing-2xl) var(--spacing-xl);
+    }
+
+    .model-card__icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .model-card__icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .model-card__title {
+        font-size: 1.375rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .benefit-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--spacing-lg);
+    }
+
+    .benefit-item__icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .benefit-item__icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .sla-info {
+        padding: var(--spacing-2xl);
+    }
+
+    .sla-info__title {
+        font-size: 1.75rem;
+    }
+
+    .sla-metric {
+        padding: var(--spacing-lg);
+    }
+
+    .sla-metric__value {
+        font-size: 2rem;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+   IT Outsourcing Page - Print Styles
+   -------------------------------------------------------------------------- */
+@media print {
+    .model-card,
+    .benefit-item,
+    .sla-info {
+        border: 1px solid #e2e8f0;
+        break-inside: avoid;
+    }
+
+    .model-card:hover,
+    .benefit-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .sla-info {
+        background: #f8fafc;
+        color: #334155;
+    }
+
+    .sla-info__title {
+        color: #0f172a;
     }
 }

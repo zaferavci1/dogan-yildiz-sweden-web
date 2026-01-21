@@ -18,6 +18,12 @@ Text Domain: dataenergie
     /* Colors */
     --color-primary: #2563EB;      /* Mavi - IT/Kurumsal (Logo uyumlu) */
     --color-secondary: #06B6D4;    /* Turkuaz - Solar Enerji (Logo uyumlu) */
+    --color-heading: #0f172a;      /* Koyu Lacivert - Başlıklar için */
+
+    /* Eski Renkler (Yedek)
+    --color-primary-old: #0f172a;    Koyu Lacivert - IT/Kurumsal
+    --color-secondary-old: #fbbf24;  Amber/Sarı - Solar Enerji
+    */
     --color-text: #334155;         /* Metin rengi */
     --color-text-light: #64748b;   /* Açık metin rengi */
     --color-bg: #ffffff;           /* Arka plan */
@@ -125,7 +131,7 @@ h6 {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--color-primary);
+    color: var(--color-heading);
     font-weight: 600;
     line-height: 1.3;
 }
@@ -250,7 +256,7 @@ ul, ol {
 /* Secondary Button */
 .btn-secondary {
     background-color: var(--color-secondary);
-    color: var(--color-primary);
+    color: var(--color-bg);
     border-color: var(--color-secondary);
 }
 
@@ -864,10 +870,10 @@ ul, ol {
     background: linear-gradient(135deg, rgba(6, 182, 212, 0.95) 0%, rgba(8, 145, 178, 0.9) 100%);
 }
 .hero-panel--solar .hero-panel__title,
-.hero-panel--solar .hero-panel__subtitle { color: var(--color-primary); }
+.hero-panel--solar .hero-panel__subtitle { color: var(--color-heading); }
 .hero-panel--solar .hero-panel__tag {
-    background-color: rgba(37, 99, 235, 0.1);
-    color: var(--color-primary);
+    background-color: rgba(15, 23, 42, 0.15);
+    color: var(--color-heading);
 }
 
 /* Content */
@@ -2610,7 +2616,171 @@ ul, ol {
 }
 
 /* ==========================================================================
-   21. PRINT STYLES
+   21. SERVER & STORAGE PAGE STYLES
+   ========================================================================== */
+
+/* Technology Partners Section */
+.tech-partners {
+    margin: var(--spacing-xl) 0 var(--spacing-2xl);
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(37, 99, 235, 0.08) 100%);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    border-radius: var(--radius-lg);
+}
+
+.tech-partners__header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.tech-partners__label {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    background-color: rgba(37, 99, 235, 0.1);
+    border-radius: 100px;
+}
+
+.tech-partners__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.tech-partner-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.tech-partner-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.tech-partner-item__name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tech-partner-item__level {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Use Cases Section */
+.use-cases-section {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.use-cases-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.use-case-card {
+    padding: var(--spacing-lg);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.use-case-card:hover {
+    background-color: var(--color-bg);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.use-case-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1e40af 100%);
+    border-radius: var(--radius-md);
+    color: var(--color-bg);
+}
+
+.use-case-card__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.use-case-card__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.use-case-card__description {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   22. SERVER & STORAGE PAGE - RESPONSIVE
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    .tech-partners__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .use-cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-partners {
+        padding: var(--spacing-2xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .use-cases-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .use-cases-section {
+        margin-top: calc(var(--spacing-2xl) * 1.5);
+        padding-top: calc(var(--spacing-2xl) * 1.5);
+    }
+
+    .tech-partner-item {
+        padding: var(--spacing-lg);
+    }
+
+    .tech-partner-item__name {
+        font-size: 1.125rem;
+    }
+}
+
+/* ==========================================================================
+   23. PRINT STYLES
    ========================================================================== */
 @media print {
     .site-header, .site-footer { display: none; }

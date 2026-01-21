@@ -14,84 +14,81 @@
 <?php wp_body_open(); ?>
 
 <!-- ========================================
-     HEADER
+     HEADER - Mega Menu Navigation
      ======================================== -->
 <header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-
-            <!-- Logo -->
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo" aria-label="<?php bloginfo( 'name' ); ?> - Ana Sayfa">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.jpeg" alt="Dataenergie GmbH" class="logo-image">
-            </a>
-
-            <!-- Main Navigation (Desktop) -->
-            <nav class="main-nav" aria-label="Ana Navigasyon">
-                <?php
-                if ( has_nav_menu( 'main-menu' ) ) {
-                    wp_nav_menu( array(
-                        'theme_location' => 'main-menu',
-                        'container'      => false,
-                        'menu_class'     => '',
-                        'fallback_cb'    => false,
-                        'depth'          => 2,
-                    ) );
-                } else {
-                    // Fallback statik menü
-                    ?>
-                    <ul>
-                        <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="active">Home</a></li>
-                        <li><a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>">IT Services</a></li>
-                        <li><a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>">Solar Systems</a></li>
-                        <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></li>
-                    </ul>
-                    <?php
-                }
-                ?>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <nav class="top-bar-nav" aria-label="Sekundäre Navigation">
+                <ul class="top-bar-menu">
+                    <li><a href="<?php echo esc_url( home_url( '/ueber-uns/' ) ); ?>">Über uns</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Kontakt</a></li>
+                </ul>
             </nav>
+        </div>
+    </div>
 
-            <!-- Header CTA Button (Desktop) -->
-            <div class="header-cta">
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-secondary">
-                    Angebot anfordern
+    <!-- Main Header -->
+    <div class="header-main">
+        <div class="container">
+            <div class="header-inner">
+
+                <!-- Logo -->
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo" aria-label="<?php bloginfo( 'name' ); ?> - Startseite">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.jpeg" alt="Dataenergie GmbH" class="logo-image">
                 </a>
-            </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" aria-label="Menü" aria-expanded="false" aria-controls="mobile-nav">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                <!-- Primary Navigation (Desktop) -->
+                <nav class="nav-primary" aria-label="Hauptnavigation">
+                    <?php
+                    if ( has_nav_menu( 'main-menu' ) ) {
+                        wp_nav_menu( array(
+                            'theme_location' => 'main-menu',
+                            'container'      => false,
+                            'menu_class'     => 'menu-primary',
+                            'walker'         => new Dataenergie_Mega_Menu_Walker(),
+                            'fallback_cb'    => false,
+                            'depth'          => 3,
+                        ) );
+                    } else {
+                        echo '<p style="color:red;">Menu not assigned!</p>';
+                    }
+                    ?>
+                </nav>
 
-        </div><!-- .header-inner -->
-    </div><!-- .container -->
+                <!-- Header CTA Button (Desktop) -->
+                <div class="header-cta">
+                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-secondary">
+                        Angebot anfordern
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Menü" aria-expanded="false" aria-controls="mobile-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div><!-- .header-inner -->
+        </div><!-- .container -->
+    </div><!-- .header-main -->
 
     <!-- Mobile Navigation -->
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobil Navigasyon">
-        <div class="container">
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+        <div class="mobile-nav-inner">
             <?php
-            if ( has_nav_menu( 'main-menu' ) ) {
-                wp_nav_menu( array(
-                    'theme_location' => 'main-menu',
-                    'container'      => false,
-                    'menu_class'     => '',
-                    'fallback_cb'    => false,
-                    'depth'          => 2,
-                ) );
-            } else {
-                // Fallback statik menü
-                ?>
-                <ul>
-                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>">IT Services</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>">Solar Systems</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></li>
-                </ul>
-                <?php
-            }
+            wp_nav_menu( array(
+                'theme_location' => 'main-menu',
+                'container'      => false,
+                'menu_class'     => 'mobile-menu',
+                'walker'         => new Dataenergie_Mobile_Menu_Walker(),
+                'fallback_cb'    => false,
+            ) );
             ?>
-            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-secondary">
+
+            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-secondary mobile-cta">
                 Angebot anfordern
             </a>
         </div>
