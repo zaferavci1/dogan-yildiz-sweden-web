@@ -85,6 +85,8 @@ html {
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
 }
 
 /* Body defaults */
@@ -95,6 +97,7 @@ body {
     color: var(--color-text);
     background-color: var(--color-bg);
     min-height: 100vh;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

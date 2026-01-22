@@ -774,19 +774,6 @@ ul, ol {
     cursor: pointer;
 }
 
-.mobile-menu .dropdown-toggle::before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid var(--color-text);
-    transition: transform var(--transition-fast);
-}
-
-.mobile-menu .menu-item-has-children.open > .dropdown-toggle::before {
-    transform: rotate(180deg);
-}
 
 .mobile-menu .sub-menu {
     display: none;
