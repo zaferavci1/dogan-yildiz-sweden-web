@@ -2783,7 +2783,149 @@ ul, ol {
 }
 
 /* ==========================================================================
-   23. PRINT STYLES
+   23. CONTACT FORM 7 STYLES
+   ========================================================================== */
+
+.contact-form-cf7 .wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.contact-form-cf7 .wpcf7-form label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-form-cf7 .wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-acceptance) {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--color-text);
+    background-color: var(--color-bg-alt);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.contact-form-cf7 .wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-acceptance):focus {
+    background-color: var(--color-bg);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.contact-form-cf7 .wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-acceptance):hover {
+    background-color: var(--color-bg);
+    border-color: var(--color-border);
+}
+
+.contact-form-cf7 .wpcf7-textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.contact-form-cf7 .wpcf7-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-md) center;
+    padding-right: var(--spacing-2xl);
+    cursor: pointer;
+}
+
+/* Acceptance Checkbox */
+.contact-form-cf7 .wpcf7-acceptance {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.contact-form-cf7 .wpcf7-acceptance input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.contact-form-cf7 .wpcf7-acceptance .wpcf7-list-item-label {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+.contact-form-cf7 .wpcf7-acceptance a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.contact-form-cf7 .wpcf7-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-bg);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1e293b 100%);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.contact-form-cf7 .wpcf7-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Validation Messages */
+.contact-form-cf7 .wpcf7-not-valid-tip {
+    display: block;
+    margin-top: var(--spacing-xs);
+    font-size: 0.8125rem;
+    color: #dc2626;
+}
+
+.contact-form-cf7 .wpcf7-response-output {
+    margin: var(--spacing-md) 0 0;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
+}
+
+.contact-form-cf7 .wpcf7-mail-sent-ok {
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #16a34a;
+}
+
+.contact-form-cf7 .wpcf7-validation-errors,
+.contact-form-cf7 .wpcf7-mail-sent-ng {
+    background-color: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    color: #dc2626;
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+    .contact-form-cf7 .wpcf7-submit {
+        width: auto;
+        align-self: flex-start;
+    }
+}
+
+/* ==========================================================================
+   24. PRINT STYLES
    ========================================================================== */
 @media print {
     .site-header, .site-footer { display: none; }

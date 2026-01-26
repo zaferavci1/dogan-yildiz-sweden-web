@@ -1302,7 +1302,16 @@ function dataenergie_register_options_fields() {
                 'name'         => 'phone_number',
                 'type'         => 'text',
                 'instructions' => 'Şirket telefon numarası',
-                'placeholder'  => '+41 44 123 45 67',
+                'placeholder'  => '044 501 73 73',
+                'maxlength'    => 30,
+            ),
+            array(
+                'key'          => 'field_mobile_number',
+                'label'        => 'Mobil Numarası',
+                'name'         => 'mobile_number',
+                'type'         => 'text',
+                'instructions' => 'Şirket mobil numarası',
+                'placeholder'  => '076 216 27 73',
                 'maxlength'    => 30,
             ),
             array(
@@ -1320,7 +1329,7 @@ function dataenergie_register_options_fields() {
                 'type'         => 'textarea',
                 'instructions' => 'Şirket adresi',
                 'rows'         => 3,
-                'placeholder'  => "Musterstrasse 123\n8000 Zürich\nSchweiz",
+                'placeholder'  => "Gewerbestrasse 19\n6314 Unterägeri\nSchweiz",
             ),
 
             // SOSYAL MEDYA SEKMESİ
@@ -2049,6 +2058,7 @@ function dataenergie_get_icon_choices() {
         'monitor'    => 'Monitor',
         'settings'   => 'Settings',
         'refresh'    => 'Refresh',
+        'refresh-cw' => 'Refresh CW',
         'activity'   => 'Activity',
         'phone'      => 'Phone',
         'tool'       => 'Tool',
@@ -2061,6 +2071,9 @@ function dataenergie_get_icon_choices() {
         'zap'        => 'Zap (Lightning)',
         'sun'        => 'Sun',
         'battery'    => 'Battery',
+        'home'       => 'Home',
+        'aperture'   => 'Aperture',
+        'sparkles'   => 'Sparkles',
     );
 }
 
@@ -2820,10 +2833,10 @@ function dataenergie_register_solar_installation_fields() {
 add_action( 'acf/init', 'dataenergie_register_solar_installation_fields' );
 
 /**
- * Solar Wartung sayfası ACF alanları
- * ACF Free uyumlu - Services, Pricing packages için sabit alanlar
+ * Reinigung (Temizlik Hizmetleri) sayfası ACF alanları
+ * ACF Free uyumlu - 4 hizmet kartı için sabit alanlar
  */
-function dataenergie_register_solar_wartung_fields() {
+function dataenergie_register_reinigung_fields() {
     if ( ! dataenergie_check_acf() ) {
         return;
     }
@@ -2831,93 +2844,67 @@ function dataenergie_register_solar_wartung_fields() {
     $icon_choices = dataenergie_get_icon_choices();
 
     acf_add_local_field_group( array(
-        'key'    => 'group_solar_wartung',
-        'title'  => 'Solar Wartung - Sayfa İçerikleri',
+        'key'    => 'group_reinigung',
+        'title'  => 'Reinigung - Sayfa İçerikleri',
         'fields' => array(
             // HERO
-            array( 'key' => 'field_wartung_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
-            array( 'key' => 'field_wartung_hero_tag', 'label' => 'Hero Tag', 'name' => 'wartung_hero_tag', 'type' => 'text', 'default_value' => 'Solar Wartung' ),
-            array( 'key' => 'field_wartung_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'wartung_hero_subtitle', 'type' => 'text', 'default_value' => 'Maximale Leistung für Ihre Solaranlage' ),
+            array( 'key' => 'field_reinigung_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_reinigung_hero_tag', 'label' => 'Hero Tag', 'name' => 'reinigung_hero_tag', 'type' => 'text', 'default_value' => 'Reinigung' ),
+            array( 'key' => 'field_reinigung_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'reinigung_hero_subtitle', 'type' => 'text', 'default_value' => 'Professionelle Reinigungslösungen für Ihr Unternehmen' ),
 
-            // SERVICES OVERVIEW
-            array( 'key' => 'field_wartung_services_tab', 'label' => 'Hizmetler', 'type' => 'tab', 'placement' => 'left' ),
-            array( 'key' => 'field_wartung_overview_title', 'label' => 'Section Başlık', 'name' => 'wartung_overview_title', 'type' => 'text', 'default_value' => 'Rundum-Service für Ihre Anlage' ),
-            array( 'key' => 'field_wartung_overview_desc', 'label' => 'Section Açıklama', 'name' => 'wartung_overview_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Damit Ihre Solaranlage jahrelang optimal funktioniert.' ),
+            // SERVICES
+            array( 'key' => 'field_reinigung_services_tab', 'label' => 'Hizmetler', 'type' => 'tab', 'placement' => 'left' ),
 
-            // Service 1
-            array( 'key' => 'field_wartung_service_1_icon', 'label' => 'Hizmet 1 İkon', 'name' => 'wartung_service_1_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'settings', 'wrapper' => array( 'width' => '30' ) ),
-            array( 'key' => 'field_wartung_service_1_title', 'label' => 'Hizmet 1 Başlık', 'name' => 'wartung_service_1_title', 'type' => 'text', 'default_value' => 'Regelmässige Wartung', 'wrapper' => array( 'width' => '70' ) ),
-            array( 'key' => 'field_wartung_service_1_description', 'label' => 'Hizmet 1 Açıklama', 'name' => 'wartung_service_1_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Professionelle Inspektion und Wartung für maximale Lebensdauer Ihrer Anlage.' ),
+            // Service 1 - Gebäudereinigung
+            array( 'key' => 'field_reinigung_service_1_icon', 'label' => 'Hizmet 1 İkon', 'name' => 'reinigung_service_1_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'home', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_reinigung_service_1_title', 'label' => 'Hizmet 1 Başlık', 'name' => 'reinigung_service_1_title', 'type' => 'text', 'default_value' => 'Gebäudereinigung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_reinigung_service_1_description', 'label' => 'Hizmet 1 Açıklama', 'name' => 'reinigung_service_1_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Umfassende Reinigung für Büros, Praxen und Geschäftsräume.' ),
+            array( 'key' => 'field_reinigung_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'reinigung_service_1_feature_1', 'type' => 'text', 'default_value' => 'Büroreinigung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'reinigung_service_1_feature_2', 'type' => 'text', 'default_value' => 'Praxisreinigung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'reinigung_service_1_feature_3', 'type' => 'text', 'default_value' => 'Empfangsbereich', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'reinigung_service_1_feature_4', 'type' => 'text', 'default_value' => 'Sanitäranlagen', 'wrapper' => array( 'width' => '50' ) ),
 
-            // Service 2
-            array( 'key' => 'field_wartung_service_2_icon', 'label' => 'Hizmet 2 İkon', 'name' => 'wartung_service_2_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'refresh', 'wrapper' => array( 'width' => '30' ) ),
-            array( 'key' => 'field_wartung_service_2_title', 'label' => 'Hizmet 2 Başlık', 'name' => 'wartung_service_2_title', 'type' => 'text', 'default_value' => 'Modulreinigung', 'wrapper' => array( 'width' => '70' ) ),
-            array( 'key' => 'field_wartung_service_2_description', 'label' => 'Hizmet 2 Açıklama', 'name' => 'wartung_service_2_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Fachgerechte Reinigung der Solarmodule für optimalen Ertrag.' ),
+            // Service 2 - Unterhaltsreinigung
+            array( 'key' => 'field_reinigung_service_2_icon', 'label' => 'Hizmet 2 İkon', 'name' => 'reinigung_service_2_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'refresh-cw', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_reinigung_service_2_title', 'label' => 'Hizmet 2 Başlık', 'name' => 'reinigung_service_2_title', 'type' => 'text', 'default_value' => 'Unterhaltsreinigung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_reinigung_service_2_description', 'label' => 'Hizmet 2 Açıklama', 'name' => 'reinigung_service_2_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Regelmässige Reinigung nach Ihrem Zeitplan.' ),
+            array( 'key' => 'field_reinigung_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'reinigung_service_2_feature_1', 'type' => 'text', 'default_value' => 'Tägliche Reinigung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'reinigung_service_2_feature_2', 'type' => 'text', 'default_value' => 'Wöchentliche Reinigung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'reinigung_service_2_feature_3', 'type' => 'text', 'default_value' => 'Flexible Termine', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'reinigung_service_2_feature_4', 'type' => 'text', 'default_value' => 'Qualitätskontrolle', 'wrapper' => array( 'width' => '50' ) ),
 
-            // Service 3
-            array( 'key' => 'field_wartung_service_3_icon', 'label' => 'Hizmet 3 İkon', 'name' => 'wartung_service_3_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'activity', 'wrapper' => array( 'width' => '30' ) ),
-            array( 'key' => 'field_wartung_service_3_title', 'label' => 'Hizmet 3 Başlık', 'name' => 'wartung_service_3_title', 'type' => 'text', 'default_value' => 'Monitoring', 'wrapper' => array( 'width' => '70' ) ),
-            array( 'key' => 'field_wartung_service_3_description', 'label' => 'Hizmet 3 Açıklama', 'name' => 'wartung_service_3_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Kontinuierliche Überwachung der Anlagenleistung und schnelle Fehlererkennung.' ),
+            // Service 3 - Glasreinigung
+            array( 'key' => 'field_reinigung_service_3_icon', 'label' => 'Hizmet 3 İkon', 'name' => 'reinigung_service_3_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'aperture', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_reinigung_service_3_title', 'label' => 'Hizmet 3 Başlık', 'name' => 'reinigung_service_3_title', 'type' => 'text', 'default_value' => 'Glasreinigung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_reinigung_service_3_description', 'label' => 'Hizmet 3 Açıklama', 'name' => 'reinigung_service_3_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Professionelle Fenster- und Glasflächenreinigung.' ),
+            array( 'key' => 'field_reinigung_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'reinigung_service_3_feature_1', 'type' => 'text', 'default_value' => 'Fensterreinigung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'reinigung_service_3_feature_2', 'type' => 'text', 'default_value' => 'Glasfassaden', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'reinigung_service_3_feature_3', 'type' => 'text', 'default_value' => 'Schaufenster', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'reinigung_service_3_feature_4', 'type' => 'text', 'default_value' => 'Wintergärten', 'wrapper' => array( 'width' => '50' ) ),
 
-            // Service 4
-            array( 'key' => 'field_wartung_service_4_icon', 'label' => 'Hizmet 4 İkon', 'name' => 'wartung_service_4_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'phone', 'wrapper' => array( 'width' => '30' ) ),
-            array( 'key' => 'field_wartung_service_4_title', 'label' => 'Hizmet 4 Başlık', 'name' => 'wartung_service_4_title', 'type' => 'text', 'default_value' => 'Support & Service', 'wrapper' => array( 'width' => '70' ) ),
-            array( 'key' => 'field_wartung_service_4_description', 'label' => 'Hizmet 4 Açıklama', 'name' => 'wartung_service_4_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Schnelle Hilfe bei Störungen und kompetenter technischer Support.' ),
-
-            // PRICING PACKAGES
-            array( 'key' => 'field_wartung_pricing_tab', 'label' => 'Fiyatlandırma', 'type' => 'tab', 'placement' => 'left' ),
-            array( 'key' => 'field_wartung_pricing_title', 'label' => 'Fiyat Section Başlık', 'name' => 'wartung_pricing_title', 'type' => 'text', 'default_value' => 'Wählen Sie Ihr Paket' ),
-            array( 'key' => 'field_wartung_pricing_desc', 'label' => 'Fiyat Section Açıklama', 'name' => 'wartung_pricing_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Transparente Preise für professionelle Wartung.' ),
-
-            // Package 1
-            array( 'key' => 'field_wartung_package_1_name', 'label' => 'Paket 1 Adı', 'name' => 'wartung_package_1_name', 'type' => 'text', 'default_value' => 'Basis', 'wrapper' => array( 'width' => '33' ) ),
-            array( 'key' => 'field_wartung_package_1_price', 'label' => 'Paket 1 Fiyat', 'name' => 'wartung_package_1_price', 'type' => 'text', 'default_value' => 'CHF 290', 'wrapper' => array( 'width' => '33' ) ),
-            array( 'key' => 'field_wartung_package_1_period', 'label' => 'Paket 1 Dönem', 'name' => 'wartung_package_1_period', 'type' => 'text', 'default_value' => 'pro Jahr', 'wrapper' => array( 'width' => '34' ) ),
-            array( 'key' => 'field_wartung_package_1_description', 'label' => 'Paket 1 Açıklama', 'name' => 'wartung_package_1_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Jährliche Inspektion für optimale Leistung.' ),
-            array( 'key' => 'field_wartung_package_1_highlighted', 'label' => 'Paket 1 Öne Çıkar', 'name' => 'wartung_package_1_highlighted', 'type' => 'true_false', 'default_value' => 0, 'ui' => 1 ),
-            array( 'key' => 'field_wartung_package_1_feature_1', 'label' => 'Özellik 1', 'name' => 'wartung_package_1_feature_1', 'type' => 'text', 'default_value' => 'Jährliche Sichtprüfung', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_1_feature_2', 'label' => 'Özellik 2', 'name' => 'wartung_package_1_feature_2', 'type' => 'text', 'default_value' => 'Ertragskontrolle', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_1_feature_3', 'label' => 'Özellik 3', 'name' => 'wartung_package_1_feature_3', 'type' => 'text', 'default_value' => 'Wechselrichter-Check', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_1_feature_4', 'label' => 'Özellik 4', 'name' => 'wartung_package_1_feature_4', 'type' => 'text', 'default_value' => 'Protokoll & Bericht', 'wrapper' => array( 'width' => '50' ) ),
-
-            // Package 2
-            array( 'key' => 'field_wartung_package_2_name', 'label' => 'Paket 2 Adı', 'name' => 'wartung_package_2_name', 'type' => 'text', 'default_value' => 'Premium', 'wrapper' => array( 'width' => '33' ) ),
-            array( 'key' => 'field_wartung_package_2_price', 'label' => 'Paket 2 Fiyat', 'name' => 'wartung_package_2_price', 'type' => 'text', 'default_value' => 'CHF 490', 'wrapper' => array( 'width' => '33' ) ),
-            array( 'key' => 'field_wartung_package_2_period', 'label' => 'Paket 2 Dönem', 'name' => 'wartung_package_2_period', 'type' => 'text', 'default_value' => 'pro Jahr', 'wrapper' => array( 'width' => '34' ) ),
-            array( 'key' => 'field_wartung_package_2_description', 'label' => 'Paket 2 Açıklama', 'name' => 'wartung_package_2_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Umfassende Wartung inkl. Reinigung.' ),
-            array( 'key' => 'field_wartung_package_2_highlighted', 'label' => 'Paket 2 Öne Çıkar', 'name' => 'wartung_package_2_highlighted', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1 ),
-            array( 'key' => 'field_wartung_package_2_feature_1', 'label' => 'Özellik 1', 'name' => 'wartung_package_2_feature_1', 'type' => 'text', 'default_value' => 'Alles aus Basis', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_2_feature_2', 'label' => 'Özellik 2', 'name' => 'wartung_package_2_feature_2', 'type' => 'text', 'default_value' => 'Professionelle Modulreinigung', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_2_feature_3', 'label' => 'Özellik 3', 'name' => 'wartung_package_2_feature_3', 'type' => 'text', 'default_value' => 'Kabelprüfung', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_2_feature_4', 'label' => 'Özellik 4', 'name' => 'wartung_package_2_feature_4', 'type' => 'text', 'default_value' => 'Thermografie-Analyse', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_2_feature_5', 'label' => 'Özellik 5', 'name' => 'wartung_package_2_feature_5', 'type' => 'text', 'default_value' => 'Prioritäts-Support' ),
-
-            // Package 3
-            array( 'key' => 'field_wartung_package_3_name', 'label' => 'Paket 3 Adı', 'name' => 'wartung_package_3_name', 'type' => 'text', 'default_value' => 'Enterprise', 'wrapper' => array( 'width' => '33' ) ),
-            array( 'key' => 'field_wartung_package_3_price', 'label' => 'Paket 3 Fiyat', 'name' => 'wartung_package_3_price', 'type' => 'text', 'default_value' => 'Auf Anfrage', 'wrapper' => array( 'width' => '33' ) ),
-            array( 'key' => 'field_wartung_package_3_period', 'label' => 'Paket 3 Dönem', 'name' => 'wartung_package_3_period', 'type' => 'text', 'default_value' => '', 'wrapper' => array( 'width' => '34' ) ),
-            array( 'key' => 'field_wartung_package_3_description', 'label' => 'Paket 3 Açıklama', 'name' => 'wartung_package_3_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Für Gewerbe- und Industrieanlagen.' ),
-            array( 'key' => 'field_wartung_package_3_highlighted', 'label' => 'Paket 3 Öne Çıkar', 'name' => 'wartung_package_3_highlighted', 'type' => 'true_false', 'default_value' => 0, 'ui' => 1 ),
-            array( 'key' => 'field_wartung_package_3_feature_1', 'label' => 'Özellik 1', 'name' => 'wartung_package_3_feature_1', 'type' => 'text', 'default_value' => 'Alles aus Premium', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_3_feature_2', 'label' => 'Özellik 2', 'name' => 'wartung_package_3_feature_2', 'type' => 'text', 'default_value' => 'Quartalsweise Inspektion', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_3_feature_3', 'label' => 'Özellik 3', 'name' => 'wartung_package_3_feature_3', 'type' => 'text', 'default_value' => 'Fernüberwachung 24/7', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_3_feature_4', 'label' => 'Özellik 4', 'name' => 'wartung_package_3_feature_4', 'type' => 'text', 'default_value' => 'Notfall-Einsatz innerhalb 4h', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_wartung_package_3_feature_5', 'label' => 'Özellik 5', 'name' => 'wartung_package_3_feature_5', 'type' => 'text', 'default_value' => 'Dedizierter Ansprechpartner' ),
+            // Service 4 - Spezialreinigung
+            array( 'key' => 'field_reinigung_service_4_icon', 'label' => 'Hizmet 4 İkon', 'name' => 'reinigung_service_4_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'sparkles', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_reinigung_service_4_title', 'label' => 'Hizmet 4 Başlık', 'name' => 'reinigung_service_4_title', 'type' => 'text', 'default_value' => 'Spezialreinigung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_reinigung_service_4_description', 'label' => 'Hizmet 4 Açıklama', 'name' => 'reinigung_service_4_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Sonderreinigungen für besondere Anforderungen.' ),
+            array( 'key' => 'field_reinigung_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'reinigung_service_4_feature_1', 'type' => 'text', 'default_value' => 'Baureinigung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'reinigung_service_4_feature_2', 'type' => 'text', 'default_value' => 'Grundreinigung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'reinigung_service_4_feature_3', 'type' => 'text', 'default_value' => 'Teppichreinigung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_reinigung_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'reinigung_service_4_feature_4', 'type' => 'text', 'default_value' => 'Steinbodenreinigung', 'wrapper' => array( 'width' => '50' ) ),
 
             // CTA
-            array( 'key' => 'field_wartung_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
-            array( 'key' => 'field_wartung_cta_title', 'label' => 'CTA Başlık', 'name' => 'wartung_cta_title', 'type' => 'text', 'default_value' => 'Wartung benötigt?' ),
-            array( 'key' => 'field_wartung_cta_description', 'label' => 'CTA Açıklama', 'name' => 'wartung_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Kontaktieren Sie uns für einen Wartungstermin oder bei Störungen.' ),
-            array( 'key' => 'field_wartung_cta_button_text', 'label' => 'Buton Metni', 'name' => 'wartung_cta_button_text', 'type' => 'text', 'default_value' => 'Termin vereinbaren' ),
+            array( 'key' => 'field_reinigung_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_reinigung_cta_title', 'label' => 'CTA Başlık', 'name' => 'reinigung_cta_title', 'type' => 'text', 'default_value' => 'Saubere Räume, klarer Kopf' ),
+            array( 'key' => 'field_reinigung_cta_description', 'label' => 'CTA Açıklama', 'name' => 'reinigung_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Kontaktieren Sie uns für ein unverbindliches Angebot.' ),
+            array( 'key' => 'field_reinigung_cta_button_text', 'label' => 'Buton Metni', 'name' => 'reinigung_cta_button_text', 'type' => 'text', 'default_value' => 'Offerte anfordern' ),
         ),
-        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-solar-wartung.php' ) ) ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-reinigung.php' ) ) ),
         'menu_order' => 0,
         'position' => 'normal',
         'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
         'active' => true,
     ) );
 }
-add_action( 'acf/init', 'dataenergie_register_solar_wartung_fields' );
+add_action( 'acf/init', 'dataenergie_register_reinigung_fields' );
 
 /**
  * Solar Systems sayfası ACF alanları

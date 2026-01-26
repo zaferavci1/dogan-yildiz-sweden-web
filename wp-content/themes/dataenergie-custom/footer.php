@@ -62,6 +62,12 @@
                 </div>
 
                 <!-- Column 4: Contact -->
+                <?php
+                $phone   = dataenergie_get_option( 'phone_number', '044 501 73 73' );
+                $mobile  = dataenergie_get_option( 'mobile_number', '076 216 27 73' );
+                $email   = dataenergie_get_option( 'email_address', 'info@dataenergie.ch' );
+                $address = dataenergie_get_option( 'address_text', "Gewerbestrasse 19\n6314 Unterägeri\nSchweiz" );
+                ?>
                 <div class="footer-section">
                     <h4>Kontakt</h4>
                     <div class="footer-contact">
@@ -71,11 +77,7 @@
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                            <span>
-                                Gewerbestrasse 19<br>
-                                8132 Egg bei Zürich<br>
-                                Schweiz
-                            </span>
+                            <span><?php echo nl2br( esc_html( $address ) ); ?></span>
                         </div>
 
                         <!-- Email -->
@@ -84,7 +86,7 @@
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            <a href="mailto:info@dataenergie.ch">info@dataenergie.ch</a>
+                            <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
                         </div>
 
                         <!-- Phone -->
@@ -92,8 +94,19 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                             </svg>
-                            <a href="tel:+41442344567">+41 44 234 45 67</a>
+                            <a href="tel:<?php echo esc_attr( dataenergie_clean_phone( $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
                         </div>
+
+                        <?php if ( $mobile ) : ?>
+                        <!-- Mobile -->
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                            <a href="tel:<?php echo esc_attr( dataenergie_clean_phone( $mobile ) ); ?>"><?php echo esc_html( $mobile ); ?></a>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 
