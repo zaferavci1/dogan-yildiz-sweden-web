@@ -58,6 +58,7 @@
                         <a href="<?php echo esc_url( home_url( '/cybersecurity/' ) ); ?>">Cybersecurity</a>
                         <a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>">Photovoltaik</a>
                         <a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>">Energiespeicher</a>
+                        <a href="<?php echo esc_url( home_url( '/loesungen/' ) ); ?>">Lösungen</a>
                     </nav>
                 </div>
 

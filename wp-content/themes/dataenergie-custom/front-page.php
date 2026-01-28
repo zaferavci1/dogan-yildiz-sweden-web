@@ -418,6 +418,20 @@ $about_text = $about_teaser ?: $default_about;
                         <p class="service-card-mini__description">WashSlot Waschküchen-Buchung und intelligente Gebäudelösungen.</p>
                     </div>
                 </a>
+
+                <!-- Service Card: IT Governance & Risk Assessment -->
+                <a href="<?php echo esc_url( home_url( '/beratung-analyse/' ) ); ?>" class="service-card-mini service-card-mini--it">
+                    <div class="service-card-mini__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="service-card-mini__content">
+                        <h4 class="service-card-mini__title">IT Governance &amp; Risk Assessment</h4>
+                        <p class="service-card-mini__description">Transparenz, Sicherheit und Kontrolle über Ihre IT-Umgebung.</p>
+                    </div>
+                </a>
             </div>
         </div>
 
