@@ -3,11 +3,10 @@
  * Template Name: Smart Building
  *
  * Smart Building Solutions (WashSlot) hizmetleri sayfası.
- * Vercel/Linear design estetiğinde tasarlanmıştır.
- * ACF Free uyumlu - Sabit alan yapısı ile dinamik içerik.
+ * Microsoft 365 sayfası ile aynı tasarım yapısı kullanılmaktadır.
  *
  * @package Dataenergie
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 get_header();
@@ -16,85 +15,68 @@ get_header();
 // SVG ICONS MAP
 // =============================================================================
 $icon_svgs = array(
-	'home'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
-	'calendar'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>',
-	'smartphone' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>',
-	'droplet'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>',
-	'credit-card'=> '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>',
-	'settings'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>',
+	'alert'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+	'check'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+	'settings'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>',
+	'star'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
+	'users'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
 );
 
 // =============================================================================
-// ACF VERILERINI AL (FALLBACK ILE) - ACF FREE UYUMLU
+// CONTENT DATA
 // =============================================================================
 
 // Hero Section
-$hero_tag      = get_field( 'sb_hero_tag' ) ?: 'Business Solutions';
-$hero_subtitle = get_field( 'sb_hero_subtitle' ) ?: 'Intelligente Buchungssysteme für Gemeinschaftsräume und Waschküchen';
+$hero_tag      = 'Business Solutions';
+$hero_subtitle = 'Digitale Waschslot-Reservierung';
 
-// Service 1
-$service_1_icon_key = get_field( 'sb_service_1_icon' ) ?: 'droplet';
-$service_1 = array(
-	'icon'        => $icon_svgs[ $service_1_icon_key ] ?? $icon_svgs['droplet'],
-	'title'       => get_field( 'sb_service_1_title' ) ?: 'WashSlot Waschküchen-Buchung',
-	'description' => get_field( 'sb_service_1_description' ) ?: 'Digitales Buchungssystem für Waschküchen in Mehrfamilienhäusern. Schluss mit Konflikten und handschriftlichen Listen.',
-	'features'    => array_filter( array(
-		get_field( 'sb_service_1_feature_1' ) ?: 'Online-Buchung via App',
-		get_field( 'sb_service_1_feature_2' ) ?: 'Automatische Erinnerungen',
-		get_field( 'sb_service_1_feature_3' ) ?: 'Konfliktfreie Zeitslots',
-		get_field( 'sb_service_1_feature_4' ) ?: 'Buchungshistorie',
-	) ),
+// Problem Section
+$problems = array(
+	'Doppelbelegungen',
+	'Konflikten zwischen Bewohnern',
+	'Zetteln, Listen oder inoffiziellen Regeln',
+	'Fehlender Übersicht für Verwaltungen',
+);
+$problem_result = 'Ergebnis: Unzufriedenheit und Aufwand.';
+
+// Solution Section
+$solution_title       = 'Unsere Lösung';
+$solution_subtitle    = 'Digitale Waschslot-Reservierung';
+$solution_description = 'WashSlot ermöglicht eine einfache, digitale Buchung von Waschmaschinen – für Bewohner, Verwaltung und Betreiber.';
+$solution_tagline     = 'Fair. Transparent. Einfach.';
+
+// Funktionen (Funktionsübersicht)
+$funktionen = array(
+	'Waschslot-Reservierung',
+	'Benutzer- & Hausverwaltung',
+	'Zeitfenster-Logik',
+	'QR-Code oder Login',
+	'Nutzungsübersicht & Statistiken',
+	'Cloud-basierte Lösung',
 );
 
-// Service 2
-$service_2_icon_key = get_field( 'sb_service_2_icon' ) ?: 'home';
-$service_2 = array(
-	'icon'        => $icon_svgs[ $service_2_icon_key ] ?? $icon_svgs['home'],
-	'title'       => get_field( 'sb_service_2_title' ) ?: 'Gemeinschaftsraum-Buchung',
-	'description' => get_field( 'sb_service_2_description' ) ?: 'Einfache Reservierung von Gemeinschaftsräumen, Sitzungszimmern oder Hobbyräumen für alle Bewohner.',
-	'features'    => array_filter( array(
-		get_field( 'sb_service_2_feature_1' ) ?: 'Raumverwaltung',
-		get_field( 'sb_service_2_feature_2' ) ?: 'Kapazitätsplanung',
-		get_field( 'sb_service_2_feature_3' ) ?: 'Nutzungsregeln',
-		get_field( 'sb_service_2_feature_4' ) ?: 'Verfügbarkeitsanzeige',
-	) ),
+// Mehrwert (Ihr Mehrwert)
+$mehrwert = array(
+	'Klare Regeln ohne Diskussionen',
+	'Weniger Aufwand für Verwaltung',
+	'Zufriedenere Nutzer',
+	'Skalierbar für mehrere Liegenschaften',
+	'Einfache Einführung',
 );
 
-// Service 3
-$service_3_icon_key = get_field( 'sb_service_3_icon' ) ?: 'smartphone';
-$service_3 = array(
-	'icon'        => $icon_svgs[ $service_3_icon_key ] ?? $icon_svgs['smartphone'],
-	'title'       => get_field( 'sb_service_3_title' ) ?: 'Mobile App & Benachrichtigungen',
-	'description' => get_field( 'sb_service_3_description' ) ?: 'Benutzerfreundliche App für alle Bewohner mit Push-Benachrichtigungen und automatischen Erinnerungen.',
-	'features'    => array_filter( array(
-		get_field( 'sb_service_3_feature_1' ) ?: 'iOS & Android App',
-		get_field( 'sb_service_3_feature_2' ) ?: 'Push-Benachrichtigungen',
-		get_field( 'sb_service_3_feature_3' ) ?: 'Kalender-Integration',
-		get_field( 'sb_service_3_feature_4' ) ?: 'Mehrsprachig',
-	) ),
+// Zielgruppe
+$zielgruppen = array(
+	'Liegenschaftsverwaltungen',
+	'Wohnanlagen',
+	'Unternehmen mit Gemeinschaftswaschräumen',
+	'Genossenschaften',
+	'Facility Management',
 );
-
-// Service 4
-$service_4_icon_key = get_field( 'sb_service_4_icon' ) ?: 'settings';
-$service_4 = array(
-	'icon'        => $icon_svgs[ $service_4_icon_key ] ?? $icon_svgs['settings'],
-	'title'       => get_field( 'sb_service_4_title' ) ?: 'Verwaltung & Abrechnung',
-	'description' => get_field( 'sb_service_4_description' ) ?: 'Zentrale Verwaltungsoberfläche für Hauswarte und Immobilienverwaltungen mit Nutzungsstatistiken.',
-	'features'    => array_filter( array(
-		get_field( 'sb_service_4_feature_1' ) ?: 'Admin-Dashboard',
-		get_field( 'sb_service_4_feature_2' ) ?: 'Nutzungsstatistiken',
-		get_field( 'sb_service_4_feature_3' ) ?: 'Kostenumlage',
-		get_field( 'sb_service_4_feature_4' ) ?: 'Multi-Liegenschaft',
-	) ),
-);
-
-// Build services array
-$services = array( $service_1, $service_2, $service_3, $service_4 );
 
 // CTA Section
-$cta_title       = get_field( 'sb_cta_title' ) ?: 'Interesse an Smart Building Lösungen?';
-$cta_description = get_field( 'sb_cta_description' ) ?: 'Wir beraten Sie gerne zu WashSlot und weiteren digitalen Lösungen für Ihre Liegenschaft.';
-$cta_button_text = get_field( 'sb_cta_button_text' ) ?: 'Beratung anfordern';
+$cta_title       = 'Möchten Sie Waschräume stressfrei organisieren?';
+$cta_description = 'Lernen Sie WashSlot kennen – die einfache Lösung für gemeinschaftliche Waschräume.';
+$cta_button_text = 'Lösung ansehen';
 ?>
 
 <?php
@@ -106,10 +88,10 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 ) );
 ?>
 
-<section class="page-content" aria-labelledby="services-heading">
+<section class="page-content" aria-labelledby="sb-main-heading">
 	<div class="container">
 
-		<!-- Intro -->
+		<!-- Intro Content -->
 		<div class="page-intro">
 			<div class="page-intro__content entry-content">
 				<?php
@@ -121,21 +103,90 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 			</div>
 		</div>
 
-		<!-- Services Grid -->
-		<h2 id="services-heading" class="sr-only">Unsere Smart Building Lösungen</h2>
-		<div class="feature-grid feature-grid--2col">
-			<?php foreach ( $services as $service ) : ?>
-				<?php
-				get_template_part( 'template-parts/sections/feature-card', null, array(
-					'icon_svg'    => $service['icon'],
-					'title'       => $service['title'],
-					'description' => $service['description'],
-					'features'    => $service['features'],
-					'variant'     => 'it',
-					'expandable'  => true,
-				) );
-				?>
-			<?php endforeach; ?>
+		<!-- Problem Section -->
+		<div class="m365-problem-section">
+			<div class="problem-box">
+				<div class="problem-box__icon" aria-hidden="true">
+					<?php echo $icon_svgs['alert']; ?>
+				</div>
+				<div class="problem-box__content">
+					<h2 class="problem-box__title">Das Problem</h2>
+					<p class="problem-box__intro">Gemeinschaftliche Waschräume führen oft zu:</p>
+					<ul class="problem-list">
+						<?php foreach ( $problems as $problem ) : ?>
+							<li class="problem-list__item">
+								<span class="problem-list__bullet" aria-hidden="true">&times;</span>
+								<?php echo esc_html( $problem ); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+					<p class="problem-box__result"><?php echo esc_html( $problem_result ); ?></p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Solution Section -->
+		<div class="m365-solution-section">
+			<div class="solution-header text-center">
+				<span class="section-tag"><?php echo esc_html( $solution_title ); ?></span>
+				<h2 id="sb-main-heading" class="section-title"><?php echo esc_html( $solution_subtitle ); ?></h2>
+				<p class="section-description"><?php echo esc_html( $solution_description ); ?></p>
+				<p class="solution-tagline"><strong><?php echo esc_html( $solution_tagline ); ?></strong></p>
+			</div>
+		</div>
+
+		<!-- Two Column: Funktionen & Mehrwert -->
+		<div class="m365-two-columns">
+			<!-- Funktionen -->
+			<div class="m365-column">
+				<div class="column-header">
+					<div class="column-icon" aria-hidden="true">
+						<?php echo $icon_svgs['settings']; ?>
+					</div>
+					<h3 class="column-title">Funktionen</h3>
+					<span class="column-subtitle">Funktionsübersicht</span>
+				</div>
+				<ul class="check-list">
+					<?php foreach ( $funktionen as $item ) : ?>
+						<li class="check-list__item">
+							<span class="check-list__icon" aria-hidden="true"><?php echo $icon_svgs['check']; ?></span>
+							<?php echo esc_html( $item ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+
+			<!-- Mehrwert -->
+			<div class="m365-column">
+				<div class="column-header">
+					<div class="column-icon column-icon--success" aria-hidden="true">
+						<?php echo $icon_svgs['star']; ?>
+					</div>
+					<h3 class="column-title">Vorteile</h3>
+					<span class="column-subtitle">Ihr Mehrwert</span>
+				</div>
+				<ul class="check-list check-list--success">
+					<?php foreach ( $mehrwert as $item ) : ?>
+						<li class="check-list__item">
+							<span class="check-list__icon" aria-hidden="true"><?php echo $icon_svgs['check']; ?></span>
+							<?php echo esc_html( $item ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Zielgruppe -->
+		<div class="m365-zielgruppe-section">
+			<h2 class="section-title text-center">Für wen geeignet?</h2>
+			<div class="zielgruppe-tags">
+				<?php foreach ( $zielgruppen as $zielgruppe ) : ?>
+					<span class="zielgruppe-tag">
+						<span class="zielgruppe-tag__icon" aria-hidden="true"><?php echo $icon_svgs['users']; ?></span>
+						<?php echo esc_html( $zielgruppe ); ?>
+					</span>
+				<?php endforeach; ?>
+			</div>
 		</div>
 
 		<!-- CTA -->
