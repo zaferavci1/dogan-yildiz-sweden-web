@@ -140,139 +140,62 @@ $about_text = $about_teaser ?: $default_about;
                     </div>
                     <h3 class="services-container__title">IT Solutions</h3>
                 </div>
-                <div class="services-container__grid services-container__grid--2x2">
-                    <?php
-                    // Varsayılan değerler (ACF boşsa gösterilecek)
-                    $defaults = array(
-                        1 => array(
-                            'title' => 'Microsoft 365 & Modern Workplace',
-                            'url'   => '/microsoft-365/',
-                            'desc'  => 'Effiziente Zusammenarbeit beginnt mit der richtigen Plattform. Wir konzipieren, implementieren und betreiben Microsoft-365-Umgebungen, die Sicherheit, Governance und Benutzerfreundlichkeit vereinen.',
-                            'features' => array(
-                                'Tenant-Design & Migration',
-                                'Microsoft Teams & SharePoint Strukturen',
-                                'Entra ID, Conditional Access & MFA',
-                                'Governance & Zugriffskonzepte'
-                            )
-                        ),
-                        2 => array(
-                            'title' => 'Security & Zero Trust',
-                            'url'   => '/cybersecurity/',
-                            'desc'  => 'IT-Sicherheit beginnt bei Identitäten. Wir entwickeln ganzheitliche Sicherheitskonzepte nach dem Zero-Trust-Prinzip und schützen Benutzer, Daten und Systeme vor modernen Bedrohungen.',
-                            'features' => array(
-                                'Zero-Trust Architektur',
-                                'MFA & Passwordless Authentication',
-                                'Privileged Access & Admin-Sicherheit',
-                                'Guest- & External-User-Management'
-                            )
-                        ),
-                        3 => array(
-                            'title' => 'IT Governance & Risk Assessment',
-                            'url'   => '/beratung-analyse/',
-                            'desc'  => 'Transparenz über Risiken ist die Basis guter Entscheidungen. Mit strukturierten IT-Governance- und Security-Assessments identifizieren wir Risiken, Sicherheitslücken und Optimierungspotenziale.',
-                            'features' => array(
-                                'Management-Report (PDF)',
-                                'Risiko-Score & Prioritäten',
-                                'Konkrete Handlungsempfehlungen',
-                                'Compliance- & Sicherheitsübersicht'
-                            )
-                        ),
-                        4 => array(
-                            'title' => 'Cloud & Hybrid IT',
-                            'url'   => '/cloud-solutions/',
-                            'desc'  => 'Cloud-Lösungen, die zu Ihrer Realität passen. Wir planen und betreiben Azure- und Hybrid-Infrastrukturen, die bestehende Systeme nahtlos integrieren und zukunftssicher skalierbar sind.',
-                            'features' => array(
-                                'Azure Architektur & Landing Zones',
-                                'Hybrid AD / Entra ID',
-                                'Backup & Disaster Recovery',
-                                'Kosten- & Sicherheitsoptimierung'
-                            )
-                        ),
-                        5 => array(
-                            'title' => 'Automation & IT Efficiency',
-                            'url'   => '/it-services/',
-                            'desc'  => 'Weniger manuelle Arbeit. Mehr Kontrolle. Durch gezielte Automatisierung reduzieren wir Fehler, beschleunigen Prozesse und erhöhen die Betriebssicherheit Ihrer IT.',
-                            'features' => array(
-                                'Benutzer- & Zugriffsautomatisierung',
-                                'Microsoft 365 Provisioning',
-                                'Security Checks & Reports',
-                                'Skript- & Prozessautomatisierung'
-                            )
-                        ),
-                        6 => array(
-                            'title' => 'IT Support & Managed Services',
-                            'url'   => '/it-outsourcing/',
-                            'desc'  => 'Zuverlässiger IT-Betrieb ohne Komplexität. Wir übernehmen den stabilen Betrieb Ihrer IT-Umgebung – strukturiert, transparent und mit klaren Zuständigkeiten.',
-                            'features' => array(
-                                '1st & 2nd Level Support',
-                                'Monitoring & Wartung',
-                                'Incident- & Problem-Management',
-                                'SLA-basierte Services'
-                            )
-                        ),
-                    );
-
-                    // IT Services kartlarını ACF'den çek veya varsayılan değerleri kullan (Ana sayfada sadece ilk 4)
-                    for ( $i = 1; $i <= 4; $i++ ) :
-                        // ACF'den değerleri al, yoksa varsayılanları kullan
-                        $service_title   = get_field( "it_service_{$i}_title" ) ?: $defaults[$i]['title'];
-                        $service_url     = get_field( "it_service_{$i}_url" ) ?: $defaults[$i]['url'];
-                        $service_desc    = get_field( "it_service_{$i}_description" ) ?: $defaults[$i]['desc'];
-                        $service_feat_1  = get_field( "it_service_{$i}_feature_1" ) ?: $defaults[$i]['features'][0];
-                        $service_feat_2  = get_field( "it_service_{$i}_feature_2" ) ?: $defaults[$i]['features'][1];
-                        $service_feat_3  = get_field( "it_service_{$i}_feature_3" ) ?: $defaults[$i]['features'][2];
-                        $service_feat_4  = get_field( "it_service_{$i}_feature_4" ) ?: $defaults[$i]['features'][3];
-
-                        // URL'yi tam URL'ye çevir
-                        if ( ! empty( $service_url ) ) {
-                            // Eğer URL "/" ile başlıyorsa home_url ekle
-                            if ( strpos( $service_url, '/' ) === 0 ) {
-                                $service_url = home_url( $service_url );
-                            }
-                        }
-
-                        // İkon belirleme (her kart için farklı ikon)
-                        $icons = array(
-                            1 => '<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>',
-                            2 => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>',
-                            3 => '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>',
-                            4 => '<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>',
-                            5 => '<circle cx="12" cy="12" r="3"></circle><path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H1m18.2-5.2l-4.2 4.2m0 6l4.2 4.2"></path>',
-                            6 => '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>',
-                        );
-                        $icon_svg = isset( $icons[ $i ] ) ? $icons[ $i ] : $icons[1];
-                    ?>
-                    <!-- Service Card <?php echo $i; ?>: <?php echo esc_html( $service_title ); ?> -->
-                    <div class="service-card-mini service-card-mini--it service-card-mini--detailed service-card-mini--expandable" data-href="<?php echo esc_url( $service_url ); ?>">
+                <div class="services-container__grid">
+                    <!-- Service Card: Microsoft 365 -->
+                    <a href="<?php echo esc_url( home_url( '/microsoft-365/' ) ); ?>" class="service-card-mini service-card-mini--it">
                         <div class="service-card-mini__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <?php echo $icon_svg; ?>
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
                             </svg>
                         </div>
                         <div class="service-card-mini__content">
-                            <h4 class="service-card-mini__title"><?php echo esc_html( $service_title ); ?></h4>
-                            <!-- Kısaltılmış açıklama (varsayılan görünür) -->
-                            <p class="service-card-mini__description service-card-mini__description--short"><?php echo esc_html( $service_desc ); ?></p>
-                            <!-- Tam açıklama (genişletilince görünür) -->
-                            <p class="service-card-mini__description service-card-mini__description--full" hidden><?php echo esc_html( $service_desc ); ?></p>
-                            <?php if ( ! empty( $service_feat_1 ) || ! empty( $service_feat_2 ) || ! empty( $service_feat_3 ) || ! empty( $service_feat_4 ) ) : ?>
-                            <ul class="service-card-mini__features" hidden>
-                                <?php if ( ! empty( $service_feat_1 ) ) : ?><li><?php echo esc_html( $service_feat_1 ); ?></li><?php endif; ?>
-                                <?php if ( ! empty( $service_feat_2 ) ) : ?><li><?php echo esc_html( $service_feat_2 ); ?></li><?php endif; ?>
-                                <?php if ( ! empty( $service_feat_3 ) ) : ?><li><?php echo esc_html( $service_feat_3 ); ?></li><?php endif; ?>
-                                <?php if ( ! empty( $service_feat_4 ) ) : ?><li><?php echo esc_html( $service_feat_4 ); ?></li><?php endif; ?>
-                            </ul>
-                            <?php endif; ?>
-                            <!-- Mehr anzeigen butonu -->
-                            <button class="service-card-mini__toggle" aria-expanded="false" type="button">
-                                <span class="toggle-text">Mehr anzeigen</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
+                            <h4 class="service-card-mini__title">Microsoft 365</h4>
+                            <p class="service-card-mini__description">Exchange Online, SharePoint und Teams für moderne Zusammenarbeit.</p>
                         </div>
-                    </div>
-                    <?php endfor; ?>
+                    </a>
+
+                    <!-- Service Card: Network & Security -->
+                    <a href="<?php echo esc_url( home_url( '/cybersecurity/' ) ); ?>" class="service-card-mini service-card-mini--it">
+                        <div class="service-card-mini__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <div class="service-card-mini__content">
+                            <h4 class="service-card-mini__title">Network & Security</h4>
+                            <p class="service-card-mini__description">Firewall-Lösungen und Cybersecurity für maximalen Schutz.</p>
+                        </div>
+                    </a>
+
+                    <!-- Service Card: Cloud Solutions -->
+                    <a href="<?php echo esc_url( home_url( '/cloud-solutions/' ) ); ?>" class="service-card-mini service-card-mini--it">
+                        <div class="service-card-mini__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                            </svg>
+                        </div>
+                        <div class="service-card-mini__content">
+                            <h4 class="service-card-mini__title">Cloud Solutions</h4>
+                            <p class="service-card-mini__description">Azure-Integration und hybride Infrastrukturen.</p>
+                        </div>
+                    </a>
+
+                    <!-- Service Card: IT Support -->
+                    <a href="<?php echo esc_url( home_url( '/it-outsourcing/' ) ); ?>" class="service-card-mini service-card-mini--it">
+                        <div class="service-card-mini__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div class="service-card-mini__content">
+                            <h4 class="service-card-mini__title">IT Support</h4>
+                            <p class="service-card-mini__description">Fernwartung und schnelle Problemlösung.</p>
+                        </div>
+                    </a>
                 </div>
                 <a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>" class="services-container__link">
                     Alle IT-Dienstleistungen
@@ -378,48 +301,6 @@ $about_text = $about_teaser ?: $default_about;
             </div>
 
         </div><!-- .services-split -->
-
-        <!-- Business Solutions Section -->
-        <div class="services-container services-container--business" style="margin-top: var(--spacing-lg);">
-            <div class="services-container__header">
-                <div class="services-container__icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
-                </div>
-                <h3 class="services-container__title">Business Solutions</h3>
-            </div>
-            <div class="services-container__grid">
-                <!-- Service Card: Workforce Management -->
-                <a href="<?php echo esc_url( home_url( '/workforce-management/' ) ); ?>" class="service-card-mini service-card-mini--it">
-                    <div class="service-card-mini__icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <div class="service-card-mini__content">
-                        <h4 class="service-card-mini__title">Workforce Management & Zeiterfassung</h4>
-                        <p class="service-card-mini__description">Digitale Zeiterfassung, Absenzen- und Personalplanung für Ihr Unternehmen.</p>
-                    </div>
-                </a>
-
-                <!-- Service Card: Smart Building -->
-                <a href="<?php echo esc_url( home_url( '/smart-building/' ) ); ?>" class="service-card-mini service-card-mini--it">
-                    <div class="service-card-mini__icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                    </div>
-                    <div class="service-card-mini__content">
-                        <h4 class="service-card-mini__title">Smart Building Solutions</h4>
-                        <p class="service-card-mini__description">WashSlot Waschküchen-Buchung und intelligente Gebäudelösungen.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
 
     </div><!-- .container -->
 </section>

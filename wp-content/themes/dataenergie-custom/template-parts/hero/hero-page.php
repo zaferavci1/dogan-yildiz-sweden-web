@@ -17,6 +17,7 @@
 $tag      = $args['tag'] ?? '';
 $title    = $args['title'] ?? get_the_title();
 $subtitle = $args['subtitle'] ?? '';
+$tagline  = $args['tagline'] ?? '';
 $variant  = $args['variant'] ?? 'default';
 
 // Build class based on variant
@@ -35,6 +36,9 @@ if ( 'solar' === $variant ) {
             <h1 id="page-hero-title" class="page-hero-modern__title"><?php echo esc_html( $title ); ?></h1>
             <?php if ( $subtitle ) : ?>
                 <p class="page-hero-modern__subtitle"><?php echo esc_html( $subtitle ); ?></p>
+            <?php endif; ?>
+            <?php if ( $tagline ) : ?>
+                <p class="page-hero-modern__tagline"><?php echo esc_html( $tagline ); ?></p>
             <?php endif; ?>
         </div>
     </div>

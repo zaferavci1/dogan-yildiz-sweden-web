@@ -234,7 +234,413 @@ function dataenergie_register_acf_fields() {
                 'mime_types'    => 'jpg, jpeg, png, webp',
             ),
 
-            // SEKME 2: KURUMSAL
+            // SEKME 2: IT SERVICES
+            array(
+                'key'       => 'field_it_services_tab',
+                'label'     => 'IT Services',
+                'name'      => '',
+                'type'      => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key'     => 'field_it_services_heading',
+                'label'   => 'IT Services Kartları',
+                'name'    => '',
+                'type'    => 'message',
+                'message' => '<strong>Ana sayfada gösterilecek 6 IT hizmeti kartını düzenleyin.</strong>',
+            ),
+
+            // IT Service 1
+            array(
+                'key'     => 'field_it_service_1_heading',
+                'label'   => 'Hizmet 1',
+                'name'    => '',
+                'type'    => 'message',
+                'message' => '<hr>',
+            ),
+            array(
+                'key'           => 'field_it_service_1_title',
+                'label'         => 'Başlık',
+                'name'          => 'it_service_1_title',
+                'type'          => 'text',
+                'default_value' => 'Microsoft 365 & Modern Workplace',
+                'maxlength'     => 100,
+            ),
+            array(
+                'key'           => 'field_it_service_1_url',
+                'label'         => 'Link URL',
+                'name'          => 'it_service_1_url',
+                'type'          => 'url',
+                'default_value' => '/microsoft-365/',
+                'placeholder'   => '/microsoft-365/',
+            ),
+            array(
+                'key'           => 'field_it_service_1_description',
+                'label'         => 'Açıklama',
+                'name'          => 'it_service_1_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Effiziente Zusammenarbeit beginnt mit der richtigen Plattform. Wir konzipieren, implementieren und betreiben Microsoft-365-Umgebungen, die Sicherheit, Governance und Benutzerfreundlichkeit vereinen.',
+            ),
+            array(
+                'key'           => 'field_it_service_1_feature_1',
+                'label'         => 'Özellik 1',
+                'name'          => 'it_service_1_feature_1',
+                'type'          => 'text',
+                'default_value' => 'Tenant-Design & Migration',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_1_feature_2',
+                'label'         => 'Özellik 2',
+                'name'          => 'it_service_1_feature_2',
+                'type'          => 'text',
+                'default_value' => 'Microsoft Teams & SharePoint Strukturen',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_1_feature_3',
+                'label'         => 'Özellik 3',
+                'name'          => 'it_service_1_feature_3',
+                'type'          => 'text',
+                'default_value' => 'Entra ID, Conditional Access & MFA',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_1_feature_4',
+                'label'         => 'Özellik 4',
+                'name'          => 'it_service_1_feature_4',
+                'type'          => 'text',
+                'default_value' => 'Governance & Zugriffskonzepte',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+
+            // IT Service 2
+            array(
+                'key'     => 'field_it_service_2_heading',
+                'label'   => 'Hizmet 2',
+                'name'    => '',
+                'type'    => 'message',
+                'message' => '<hr>',
+            ),
+            array(
+                'key'           => 'field_it_service_2_title',
+                'label'         => 'Başlık',
+                'name'          => 'it_service_2_title',
+                'type'          => 'text',
+                'default_value' => 'Security & Zero Trust',
+                'maxlength'     => 100,
+            ),
+            array(
+                'key'           => 'field_it_service_2_url',
+                'label'         => 'Link URL',
+                'name'          => 'it_service_2_url',
+                'type'          => 'url',
+                'default_value' => '/cybersecurity/',
+                'placeholder'   => '/cybersecurity/',
+            ),
+            array(
+                'key'           => 'field_it_service_2_description',
+                'label'         => 'Açıklama',
+                'name'          => 'it_service_2_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'IT-Sicherheit beginnt bei Identitäten. Wir entwickeln ganzheitliche Sicherheitskonzepte nach dem Zero-Trust-Prinzip und schützen Benutzer, Daten und Systeme vor modernen Bedrohungen.',
+            ),
+            array(
+                'key'           => 'field_it_service_2_feature_1',
+                'label'         => 'Özellik 1',
+                'name'          => 'it_service_2_feature_1',
+                'type'          => 'text',
+                'default_value' => 'Zero-Trust Architektur',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_2_feature_2',
+                'label'         => 'Özellik 2',
+                'name'          => 'it_service_2_feature_2',
+                'type'          => 'text',
+                'default_value' => 'MFA & Passwordless Authentication',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_2_feature_3',
+                'label'         => 'Özellik 3',
+                'name'          => 'it_service_2_feature_3',
+                'type'          => 'text',
+                'default_value' => 'Privileged Access & Admin-Sicherheit',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_2_feature_4',
+                'label'         => 'Özellik 4',
+                'name'          => 'it_service_2_feature_4',
+                'type'          => 'text',
+                'default_value' => 'Guest- & External-User-Management',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+
+            // IT Service 3
+            array(
+                'key'     => 'field_it_service_3_heading',
+                'label'   => 'Hizmet 3',
+                'name'    => '',
+                'type'    => 'message',
+                'message' => '<hr>',
+            ),
+            array(
+                'key'           => 'field_it_service_3_title',
+                'label'         => 'Başlık',
+                'name'          => 'it_service_3_title',
+                'type'          => 'text',
+                'default_value' => 'IT Governance & Risk Assessment',
+                'maxlength'     => 100,
+            ),
+            array(
+                'key'           => 'field_it_service_3_url',
+                'label'         => 'Link URL',
+                'name'          => 'it_service_3_url',
+                'type'          => 'url',
+                'default_value' => '/beratung-analyse/',
+                'placeholder'   => '/beratung-analyse/',
+            ),
+            array(
+                'key'           => 'field_it_service_3_description',
+                'label'         => 'Açıklama',
+                'name'          => 'it_service_3_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Transparenz über Risiken ist die Basis guter Entscheidungen. Mit strukturierten IT-Governance- und Security-Assessments identifizieren wir Risiken, Sicherheitslücken und Optimierungspotenziale.',
+            ),
+            array(
+                'key'           => 'field_it_service_3_feature_1',
+                'label'         => 'Özellik 1',
+                'name'          => 'it_service_3_feature_1',
+                'type'          => 'text',
+                'default_value' => 'Management-Report (PDF)',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_3_feature_2',
+                'label'         => 'Özellik 2',
+                'name'          => 'it_service_3_feature_2',
+                'type'          => 'text',
+                'default_value' => 'Risiko-Score & Prioritäten',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_3_feature_3',
+                'label'         => 'Özellik 3',
+                'name'          => 'it_service_3_feature_3',
+                'type'          => 'text',
+                'default_value' => 'Konkrete Handlungsempfehlungen',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_3_feature_4',
+                'label'         => 'Özellik 4',
+                'name'          => 'it_service_3_feature_4',
+                'type'          => 'text',
+                'default_value' => 'Compliance- & Sicherheitsübersicht',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+
+            // IT Service 4
+            array(
+                'key'     => 'field_it_service_4_heading',
+                'label'   => 'Hizmet 4',
+                'name'    => '',
+                'type'    => 'message',
+                'message' => '<hr>',
+            ),
+            array(
+                'key'           => 'field_it_service_4_title',
+                'label'         => 'Başlık',
+                'name'          => 'it_service_4_title',
+                'type'          => 'text',
+                'default_value' => 'Cloud & Hybrid IT',
+                'maxlength'     => 100,
+            ),
+            array(
+                'key'           => 'field_it_service_4_url',
+                'label'         => 'Link URL',
+                'name'          => 'it_service_4_url',
+                'type'          => 'url',
+                'default_value' => '/cloud-solutions/',
+                'placeholder'   => '/cloud-solutions/',
+            ),
+            array(
+                'key'           => 'field_it_service_4_description',
+                'label'         => 'Açıklama',
+                'name'          => 'it_service_4_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Cloud-Lösungen, die zu Ihrer Realität passen. Wir planen und betreiben Azure- und Hybrid-Infrastrukturen, die bestehende Systeme nahtlos integrieren und zukunftssicher skalierbar sind.',
+            ),
+            array(
+                'key'           => 'field_it_service_4_feature_1',
+                'label'         => 'Özellik 1',
+                'name'          => 'it_service_4_feature_1',
+                'type'          => 'text',
+                'default_value' => 'Azure Architektur & Landing Zones',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_4_feature_2',
+                'label'         => 'Özellik 2',
+                'name'          => 'it_service_4_feature_2',
+                'type'          => 'text',
+                'default_value' => 'Hybrid AD / Entra ID',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_4_feature_3',
+                'label'         => 'Özellik 3',
+                'name'          => 'it_service_4_feature_3',
+                'type'          => 'text',
+                'default_value' => 'Backup & Disaster Recovery',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_4_feature_4',
+                'label'         => 'Özellik 4',
+                'name'          => 'it_service_4_feature_4',
+                'type'          => 'text',
+                'default_value' => 'Kosten- & Sicherheitsoptimierung',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+
+            // IT Service 5
+            array(
+                'key'     => 'field_it_service_5_heading',
+                'label'   => 'Hizmet 5',
+                'name'    => '',
+                'type'    => 'message',
+                'message' => '<hr>',
+            ),
+            array(
+                'key'           => 'field_it_service_5_title',
+                'label'         => 'Başlık',
+                'name'          => 'it_service_5_title',
+                'type'          => 'text',
+                'default_value' => 'Automation & IT Efficiency',
+                'maxlength'     => 100,
+            ),
+            array(
+                'key'           => 'field_it_service_5_url',
+                'label'         => 'Link URL',
+                'name'          => 'it_service_5_url',
+                'type'          => 'url',
+                'default_value' => '/it-services/',
+                'placeholder'   => '/it-services/',
+            ),
+            array(
+                'key'           => 'field_it_service_5_description',
+                'label'         => 'Açıklama',
+                'name'          => 'it_service_5_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Weniger manuelle Arbeit. Mehr Kontrolle. Durch gezielte Automatisierung reduzieren wir Fehler, beschleunigen Prozesse und erhöhen die Betriebssicherheit Ihrer IT.',
+            ),
+            array(
+                'key'           => 'field_it_service_5_feature_1',
+                'label'         => 'Özellik 1',
+                'name'          => 'it_service_5_feature_1',
+                'type'          => 'text',
+                'default_value' => 'Benutzer- & Zugriffsautomatisierung',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_5_feature_2',
+                'label'         => 'Özellik 2',
+                'name'          => 'it_service_5_feature_2',
+                'type'          => 'text',
+                'default_value' => 'Microsoft 365 Provisioning',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_5_feature_3',
+                'label'         => 'Özellik 3',
+                'name'          => 'it_service_5_feature_3',
+                'type'          => 'text',
+                'default_value' => 'Security Checks & Reports',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_5_feature_4',
+                'label'         => 'Özellik 4',
+                'name'          => 'it_service_5_feature_4',
+                'type'          => 'text',
+                'default_value' => 'Skript- & Prozessautomatisierung',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+
+            // IT Service 6
+            array(
+                'key'     => 'field_it_service_6_heading',
+                'label'   => 'Hizmet 6',
+                'name'    => '',
+                'type'    => 'message',
+                'message' => '<hr>',
+            ),
+            array(
+                'key'           => 'field_it_service_6_title',
+                'label'         => 'Başlık',
+                'name'          => 'it_service_6_title',
+                'type'          => 'text',
+                'default_value' => 'IT Support & Managed Services',
+                'maxlength'     => 100,
+            ),
+            array(
+                'key'           => 'field_it_service_6_url',
+                'label'         => 'Link URL',
+                'name'          => 'it_service_6_url',
+                'type'          => 'url',
+                'default_value' => '/it-outsourcing/',
+                'placeholder'   => '/it-outsourcing/',
+            ),
+            array(
+                'key'           => 'field_it_service_6_description',
+                'label'         => 'Açıklama',
+                'name'          => 'it_service_6_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Zuverlässiger IT-Betrieb ohne Komplexität. Wir übernehmen den stabilen Betrieb Ihrer IT-Umgebung – strukturiert, transparent und mit klaren Zuständigkeiten.',
+            ),
+            array(
+                'key'           => 'field_it_service_6_feature_1',
+                'label'         => 'Özellik 1',
+                'name'          => 'it_service_6_feature_1',
+                'type'          => 'text',
+                'default_value' => '1st & 2nd Level Support',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_6_feature_2',
+                'label'         => 'Özellik 2',
+                'name'          => 'it_service_6_feature_2',
+                'type'          => 'text',
+                'default_value' => 'Monitoring & Wartung',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_6_feature_3',
+                'label'         => 'Özellik 3',
+                'name'          => 'it_service_6_feature_3',
+                'type'          => 'text',
+                'default_value' => 'Incident- & Problem-Management',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_it_service_6_feature_4',
+                'label'         => 'Özellik 4',
+                'name'          => 'it_service_6_feature_4',
+                'type'          => 'text',
+                'default_value' => 'SLA-basierte Services',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+
+            // SEKME 3: KURUMSAL
             array(
                 'key'       => 'field_about_tab',
                 'label'     => 'Kurumsal',
@@ -396,18 +802,6 @@ function dataenergie_register_about_page_fields() {
         return;
     }
 
-    // İkon seçenekleri (tekrar kullanım için)
-    $icon_choices = array(
-        'target' => 'Hedef (Target)',
-        'users'  => 'Kullanıcılar (Users)',
-        'leaf'   => 'Yaprak (Leaf)',
-        'shield' => 'Kalkan (Shield)',
-        'heart'  => 'Kalp (Heart)',
-        'star'   => 'Yıldız (Star)',
-        'check'  => 'Onay (Check)',
-        'zap'    => 'Şimşek (Zap)',
-    );
-
     acf_add_local_field_group( array(
         'key'    => 'group_about_page',
         'title'  => 'Über Uns Sayfa Ayarları',
@@ -426,691 +820,111 @@ function dataenergie_register_about_page_fields() {
                 'key'           => 'field_about_hero_subtitle',
                 'label'         => 'Hero Alt Başlık',
                 'name'          => 'about_hero_subtitle',
-                'type'          => 'textarea',
-                'instructions'  => 'Hero bölümünde sayfa başlığının altında görünecek metin',
-                'rows'          => 3,
-                'maxlength'     => 300,
-                'default_value' => 'Wir verbinden IT-Expertise mit nachhaltigen Energielösungen. Seit über 15 Jahren sind wir Ihr zuverlässiger Partner in der Schweiz.',
+                'type'          => 'text',
+                'instructions'  => 'Hero bölümünde görünecek slogan',
+                'default_value' => 'DataEnergie – Strukturierte IT, digitale Lösungen und nachhaltige Energie',
             ),
 
             // =========================================
-            // SEKME 2: HİKAYE
+            // SEKME 2: UNSERE HALTUNG
             // =========================================
             array(
-                'key'       => 'field_about_story_tab',
-                'label'     => 'Unsere Geschichte',
+                'key'       => 'field_about_haltung_tab',
+                'label'     => 'Unsere Haltung',
                 'name'      => '',
                 'type'      => 'tab',
                 'placement' => 'left',
             ),
             array(
-                'key'           => 'field_about_story_tag',
-                'label'         => 'Etiket',
-                'name'          => 'about_story_tag',
-                'type'          => 'text',
-                'instructions'  => 'Bölüm etiketi (badge)',
-                'maxlength'     => 50,
-                'default_value' => 'Unsere Geschichte',
-            ),
-            array(
-                'key'           => 'field_about_story_title',
+                'key'           => 'field_about_haltung_title',
                 'label'         => 'Başlık',
-                'name'          => 'about_story_title',
+                'name'          => 'about_haltung_title',
                 'type'          => 'text',
-                'instructions'  => 'Hikaye bölümü başlığı',
-                'maxlength'     => 100,
-                'default_value' => 'Von der Vision zur Realität',
+                'default_value' => 'Klarheit statt Komplexität',
             ),
             array(
-                'key'           => 'field_about_story_text_1',
-                'label'         => 'Paragraf 1',
-                'name'          => 'about_story_text_1',
+                'key'           => 'field_about_haltung_text',
+                'label'         => 'Açıklama',
+                'name'          => 'about_haltung_text',
                 'type'          => 'textarea',
-                'instructions'  => 'İlk paragraf',
                 'rows'          => 4,
-                'default_value' => 'Was als kleine IT-Beratung begann, ist heute ein umfassendes Dienstleistungsunternehmen für Technologie und nachhaltige Energie. Unsere Reise startete mit dem Ziel, Schweizer Unternehmen mit modernster IT-Infrastruktur zu versorgen.',
+                'default_value' => 'In einer zunehmend digitalen Welt entstehen Risiken oft dort, wo Übersicht fehlt. Unsere Arbeit zielt darauf ab, Komplexität zu reduzieren, Risiken sichtbar zu machen und tragfähige Entscheidungen zu ermöglichen.',
             ),
             array(
-                'key'           => 'field_about_story_text_2',
-                'label'         => 'Paragraf 2',
-                'name'          => 'about_story_text_2',
-                'type'          => 'textarea',
-                'instructions'  => 'İkinci paragraf',
-                'rows'          => 4,
-                'default_value' => 'Mit der wachsenden Bedeutung erneuerbarer Energien haben wir unser Portfolio erweitert und bieten heute ganzheitliche Lösungen: von der Cloud-Migration bis zur Photovoltaik-Installation, alles aus einer Hand.',
-            ),
-            array(
-                'key'           => 'field_about_story_image',
-                'label'         => 'Görsel',
-                'name'          => 'about_story_image',
-                'type'          => 'image',
-                'instructions'  => 'Hikaye bölümü görseli (Önerilen: 600x400px)',
-                'return_format' => 'array',
-                'preview_size'  => 'medium',
-                'library'       => 'all',
-                'mime_types'    => 'jpg, jpeg, png, webp',
+                'key'           => 'field_about_haltung_note',
+                'label'         => 'Alt Not',
+                'name'          => 'about_haltung_note',
+                'type'          => 'text',
+                'default_value' => 'Wir glauben nicht an Standardlösungen, sondern an passende Lösungen.',
             ),
 
             // =========================================
-            // SEKME 3: DEĞERLER (4 sabit alan)
+            // SEKME 3: WAS UNS AUSZEICHNET
             // =========================================
             array(
-                'key'       => 'field_about_values_tab',
-                'label'     => 'Werte',
+                'key'       => 'field_about_auszeichnet_tab',
+                'label'     => 'Was uns auszeichnet',
                 'name'      => '',
                 'type'      => 'tab',
                 'placement' => 'left',
             ),
-            array(
-                'key'           => 'field_about_values_title',
-                'label'         => 'Bölüm Başlığı',
-                'name'          => 'about_values_title',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Unsere Werte',
-            ),
-            array(
-                'key'           => 'field_about_values_description',
-                'label'         => 'Bölüm Açıklaması',
-                'name'          => 'about_values_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Diese Grundsätze leiten unser Handeln und definieren, wer wir sind.',
-            ),
-            // Değer 1
-            array(
-                'key'   => 'field_value_1_heading',
-                'label' => 'Değer 1',
-                'name'  => '',
-                'type'  => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_value_1_icon',
-                'label'         => 'İkon',
-                'name'          => 'value_1_icon',
-                'type'          => 'select',
-                'choices'       => $icon_choices,
-                'default_value' => 'target',
-                'wrapper'       => array( 'width' => '33' ),
-            ),
-            array(
-                'key'           => 'field_value_1_title',
-                'label'         => 'Başlık',
-                'name'          => 'value_1_title',
-                'type'          => 'text',
-                'maxlength'     => 50,
-                'default_value' => 'Zuverlässigkeit',
-                'wrapper'       => array( 'width' => '67' ),
-            ),
-            array(
-                'key'           => 'field_value_1_description',
-                'label'         => 'Açıklama',
-                'name'          => 'value_1_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Wir halten, was wir versprechen. Unsere Kunden können sich auf uns verlassen.',
-            ),
-            // Değer 2
-            array(
-                'key'   => 'field_value_2_heading',
-                'label' => 'Değer 2',
-                'name'  => '',
-                'type'  => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_value_2_icon',
-                'label'         => 'İkon',
-                'name'          => 'value_2_icon',
-                'type'          => 'select',
-                'choices'       => $icon_choices,
-                'default_value' => 'users',
-                'wrapper'       => array( 'width' => '33' ),
-            ),
-            array(
-                'key'           => 'field_value_2_title',
-                'label'         => 'Başlık',
-                'name'          => 'value_2_title',
-                'type'          => 'text',
-                'maxlength'     => 50,
-                'default_value' => 'Kundennähe',
-                'wrapper'       => array( 'width' => '67' ),
-            ),
-            array(
-                'key'           => 'field_value_2_description',
-                'label'         => 'Açıklama',
-                'name'          => 'value_2_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Wir verstehen Ihre Bedürfnisse und entwickeln massgeschneiderte Lösungen.',
-            ),
-            // Değer 3
-            array(
-                'key'   => 'field_value_3_heading',
-                'label' => 'Değer 3',
-                'name'  => '',
-                'type'  => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_value_3_icon',
-                'label'         => 'İkon',
-                'name'          => 'value_3_icon',
-                'type'          => 'select',
-                'choices'       => $icon_choices,
-                'default_value' => 'leaf',
-                'wrapper'       => array( 'width' => '33' ),
-            ),
-            array(
-                'key'           => 'field_value_3_title',
-                'label'         => 'Başlık',
-                'name'          => 'value_3_title',
-                'type'          => 'text',
-                'maxlength'     => 50,
-                'default_value' => 'Nachhaltigkeit',
-                'wrapper'       => array( 'width' => '67' ),
-            ),
-            array(
-                'key'           => 'field_value_3_description',
-                'label'         => 'Açıklama',
-                'name'          => 'value_3_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Wir setzen auf zukunftsfähige Technologien für Umwelt und Gesellschaft.',
-            ),
-            // Değer 4
-            array(
-                'key'   => 'field_value_4_heading',
-                'label' => 'Değer 4',
-                'name'  => '',
-                'type'  => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_value_4_icon',
-                'label'         => 'İkon',
-                'name'          => 'value_4_icon',
-                'type'          => 'select',
-                'choices'       => $icon_choices,
-                'default_value' => 'shield',
-                'wrapper'       => array( 'width' => '33' ),
-            ),
-            array(
-                'key'           => 'field_value_4_title',
-                'label'         => 'Başlık',
-                'name'          => 'value_4_title',
-                'type'          => 'text',
-                'maxlength'     => 50,
-                'default_value' => 'Qualität',
-                'wrapper'       => array( 'width' => '67' ),
-            ),
-            array(
-                'key'           => 'field_value_4_description',
-                'label'         => 'Açıklama',
-                'name'          => 'value_4_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Höchste Standards bei Produkten, Services und Kundenbetreuung.',
-            ),
+            array( 'key' => 'field_about_auszeichnet_1', 'label' => 'Özellik 1', 'name' => 'about_auszeichnet_1', 'type' => 'text', 'default_value' => 'Strukturierte Vorgehensweise statt Ad-hoc-IT' ),
+            array( 'key' => 'field_about_auszeichnet_2', 'label' => 'Özellik 2', 'name' => 'about_auszeichnet_2', 'type' => 'text', 'default_value' => 'Fokus auf Microsoft 365, Security & Governance' ),
+            array( 'key' => 'field_about_auszeichnet_3', 'label' => 'Özellik 3', 'name' => 'about_auszeichnet_3', 'type' => 'text', 'default_value' => 'Eigene digitale Lösungen mit klar definiertem Nutzen' ),
+            array( 'key' => 'field_about_auszeichnet_4', 'label' => 'Özellik 4', 'name' => 'about_auszeichnet_4', 'type' => 'text', 'default_value' => 'Kombination aus Beratung, Umsetzung und Betrieb' ),
+            array( 'key' => 'field_about_auszeichnet_5', 'label' => 'Özellik 5', 'name' => 'about_auszeichnet_5', 'type' => 'text', 'default_value' => 'Verständnis für technische und geschäftliche Anforderungen' ),
+            array( 'key' => 'field_about_auszeichnet_6', 'label' => 'Özellik 6', 'name' => 'about_auszeichnet_6', 'type' => 'text', 'default_value' => 'Ausrichtung auf den Schweizer Markt' ),
 
             // =========================================
-            // SEKME 4: İSTATİSTİKLER (4 sabit alan)
+            // SEKME 4: UNSERE SCHWERPUNKTE
             // =========================================
             array(
-                'key'       => 'field_about_stats_tab',
-                'label'     => 'Statistiken',
+                'key'       => 'field_about_schwerpunkt_tab',
+                'label'     => 'Unsere Schwerpunkte',
                 'name'      => '',
                 'type'      => 'tab',
                 'placement' => 'left',
             ),
-            // Stat 1
-            array(
-                'key'           => 'field_stat_1_number',
-                'label'         => 'İstatistik 1 - Sayı',
-                'name'          => 'stat_1_number',
-                'type'          => 'text',
-                'placeholder'   => '15+',
-                'maxlength'     => 20,
-                'default_value' => '15+',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_stat_1_label',
-                'label'         => 'İstatistik 1 - Etiket',
-                'name'          => 'stat_1_label',
-                'type'          => 'text',
-                'placeholder'   => 'Jahre Erfahrung',
-                'maxlength'     => 50,
-                'default_value' => 'Jahre Erfahrung',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            // Stat 2
-            array(
-                'key'           => 'field_stat_2_number',
-                'label'         => 'İstatistik 2 - Sayı',
-                'name'          => 'stat_2_number',
-                'type'          => 'text',
-                'placeholder'   => '500+',
-                'maxlength'     => 20,
-                'default_value' => '500+',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_stat_2_label',
-                'label'         => 'İstatistik 2 - Etiket',
-                'name'          => 'stat_2_label',
-                'type'          => 'text',
-                'placeholder'   => 'Zufriedene Kunden',
-                'maxlength'     => 50,
-                'default_value' => 'Zufriedene Kunden',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            // Stat 3
-            array(
-                'key'           => 'field_stat_3_number',
-                'label'         => 'İstatistik 3 - Sayı',
-                'name'          => 'stat_3_number',
-                'type'          => 'text',
-                'placeholder'   => '1000+',
-                'maxlength'     => 20,
-                'default_value' => '1000+',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_stat_3_label',
-                'label'         => 'İstatistik 3 - Etiket',
-                'name'          => 'stat_3_label',
-                'type'          => 'text',
-                'placeholder'   => 'Projekte realisiert',
-                'maxlength'     => 50,
-                'default_value' => 'Projekte realisiert',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            // Stat 4
-            array(
-                'key'           => 'field_stat_4_number',
-                'label'         => 'İstatistik 4 - Sayı',
-                'name'          => 'stat_4_number',
-                'type'          => 'text',
-                'placeholder'   => '24/7',
-                'maxlength'     => 20,
-                'default_value' => '24/7',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_stat_4_label',
-                'label'         => 'İstatistik 4 - Etiket',
-                'name'          => 'stat_4_label',
-                'type'          => 'text',
-                'placeholder'   => 'Support verfügbar',
-                'maxlength'     => 50,
-                'default_value' => 'Support verfügbar',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
+            array( 'key' => 'field_about_schwerpunkt_1_title', 'label' => 'Schwerpunkt 1 - Başlık', 'name' => 'about_schwerpunkt_1_title', 'type' => 'text', 'default_value' => 'IT Services', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_about_schwerpunkt_1_desc', 'label' => 'Schwerpunkt 1 - Açıklama', 'name' => 'about_schwerpunkt_1_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Governance-orientierte IT-Services mit Fokus auf Microsoft 365, Security, Cloud und Automatisierung.', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_about_schwerpunkt_2_title', 'label' => 'Schwerpunkt 2 - Başlık', 'name' => 'about_schwerpunkt_2_title', 'type' => 'text', 'default_value' => 'Digitale Lösungen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_about_schwerpunkt_2_desc', 'label' => 'Schwerpunkt 2 - Açıklama', 'name' => 'about_schwerpunkt_2_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Eigene, modulare Lösungen wie Workforce Management & Zeiterfassung sowie Smart-Building-Anwendungen.', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_about_schwerpunkt_3_title', 'label' => 'Schwerpunkt 3 - Başlık', 'name' => 'about_schwerpunkt_3_title', 'type' => 'text', 'default_value' => 'Energielösungen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_about_schwerpunkt_3_desc', 'label' => 'Schwerpunkt 3 - Açıklama', 'name' => 'about_schwerpunkt_3_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Planung und Umsetzung nachhaltiger Photovoltaik-Systeme für Unternehmen und Immobilien.', 'wrapper' => array( 'width' => '50' ) ),
 
             // =========================================
-            // SEKME 5: EKİP (4 sabit üye)
+            // SEKME 5: FÜR WEN WIR ARBEITEN
             // =========================================
             array(
-                'key'       => 'field_about_team_tab',
-                'label'     => 'Team',
+                'key'       => 'field_about_zielgruppe_tab',
+                'label'     => 'Für wen wir arbeiten',
                 'name'      => '',
                 'type'      => 'tab',
                 'placement' => 'left',
             ),
-            array(
-                'key'           => 'field_about_team_title',
-                'label'         => 'Bölüm Başlığı',
-                'name'          => 'about_team_title',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Unser Team',
-            ),
-            array(
-                'key'           => 'field_about_team_description',
-                'label'         => 'Bölüm Açıklaması',
-                'name'          => 'about_team_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Die Menschen hinter Dataenergie - engagiert, kompetent und für Sie da.',
-            ),
-            // Ekip Üyesi 1
-            array(
-                'key'     => 'field_member_1_heading',
-                'label'   => 'Ekip Üyesi 1',
-                'name'    => '',
-                'type'    => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_member_1_name',
-                'label'         => 'İsim',
-                'name'          => 'member_1_name',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Max Mustermann',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_member_1_role',
-                'label'         => 'Pozisyon',
-                'name'          => 'member_1_role',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Geschäftsführer',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_member_1_bio',
-                'label'         => 'Kısa Biyografi',
-                'name'          => 'member_1_bio',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Über 20 Jahre Erfahrung in IT und erneuerbaren Energien.',
-            ),
-            array(
-                'key'           => 'field_member_1_image',
-                'label'         => 'Fotoğraf',
-                'name'          => 'member_1_image',
-                'type'          => 'image',
-                'instructions'  => 'Kare fotoğraf önerilir (300x300px)',
-                'return_format' => 'array',
-                'preview_size'  => 'thumbnail',
-                'library'       => 'all',
-                'mime_types'    => 'jpg, jpeg, png, webp',
-            ),
-            // Ekip Üyesi 2
-            array(
-                'key'     => 'field_member_2_heading',
-                'label'   => 'Ekip Üyesi 2',
-                'name'    => '',
-                'type'    => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_member_2_name',
-                'label'         => 'İsim',
-                'name'          => 'member_2_name',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Anna Schmidt',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_member_2_role',
-                'label'         => 'Pozisyon',
-                'name'          => 'member_2_role',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Leiterin IT-Services',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_member_2_bio',
-                'label'         => 'Kısa Biyografi',
-                'name'          => 'member_2_bio',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Expertin für Cloud-Lösungen und IT-Infrastruktur.',
-            ),
-            array(
-                'key'           => 'field_member_2_image',
-                'label'         => 'Fotoğraf',
-                'name'          => 'member_2_image',
-                'type'          => 'image',
-                'instructions'  => 'Kare fotoğraf önerilir (300x300px)',
-                'return_format' => 'array',
-                'preview_size'  => 'thumbnail',
-                'library'       => 'all',
-                'mime_types'    => 'jpg, jpeg, png, webp',
-            ),
-            // Ekip Üyesi 3
-            array(
-                'key'     => 'field_member_3_heading',
-                'label'   => 'Ekip Üyesi 3',
-                'name'    => '',
-                'type'    => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_member_3_name',
-                'label'         => 'İsim',
-                'name'          => 'member_3_name',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Thomas Weber',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_member_3_role',
-                'label'         => 'Pozisyon',
-                'name'          => 'member_3_role',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Leiter Solar-Projekte',
-                'wrapper'       => array( 'width' => '50' ),
-            ),
-            array(
-                'key'           => 'field_member_3_bio',
-                'label'         => 'Kısa Biyografi',
-                'name'          => 'member_3_bio',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Spezialist für Photovoltaik und Energiespeicher.',
-            ),
-            array(
-                'key'           => 'field_member_3_image',
-                'label'         => 'Fotoğraf',
-                'name'          => 'member_3_image',
-                'type'          => 'image',
-                'instructions'  => 'Kare fotoğraf önerilir (300x300px)',
-                'return_format' => 'array',
-                'preview_size'  => 'thumbnail',
-                'library'       => 'all',
-                'mime_types'    => 'jpg, jpeg, png, webp',
-            ),
-            // Ekip Üyesi 4 (opsiyonel - boş bırakılabilir)
-            array(
-                'key'     => 'field_member_4_heading',
-                'label'   => 'Ekip Üyesi 4 (Opsiyonel)',
-                'name'    => '',
-                'type'    => 'message',
-                'message' => '<hr style="margin:0;"><small>Bu alanları boş bırakırsanız 4. üye gösterilmez.</small>',
-            ),
-            array(
-                'key'       => 'field_member_4_name',
-                'label'     => 'İsim',
-                'name'      => 'member_4_name',
-                'type'      => 'text',
-                'maxlength' => 100,
-                'wrapper'   => array( 'width' => '50' ),
-            ),
-            array(
-                'key'       => 'field_member_4_role',
-                'label'     => 'Pozisyon',
-                'name'      => 'member_4_role',
-                'type'      => 'text',
-                'maxlength' => 100,
-                'wrapper'   => array( 'width' => '50' ),
-            ),
-            array(
-                'key'  => 'field_member_4_bio',
-                'label' => 'Kısa Biyografi',
-                'name'  => 'member_4_bio',
-                'type'  => 'textarea',
-                'rows'  => 2,
-            ),
-            array(
-                'key'           => 'field_member_4_image',
-                'label'         => 'Fotoğraf',
-                'name'          => 'member_4_image',
-                'type'          => 'image',
-                'instructions'  => 'Kare fotoğraf önerilir (300x300px)',
-                'return_format' => 'array',
-                'preview_size'  => 'thumbnail',
-                'library'       => 'all',
-                'mime_types'    => 'jpg, jpeg, png, webp',
-            ),
+            array( 'key' => 'field_about_zielgruppe_1', 'label' => 'Zielgruppe 1', 'name' => 'about_zielgruppe_1', 'type' => 'text', 'default_value' => 'KMU und Organisationen' ),
+            array( 'key' => 'field_about_zielgruppe_2', 'label' => 'Zielgruppe 2', 'name' => 'about_zielgruppe_2', 'type' => 'text', 'default_value' => 'IT-Leitungen und Geschäftsführungen' ),
+            array( 'key' => 'field_about_zielgruppe_3', 'label' => 'Zielgruppe 3', 'name' => 'about_zielgruppe_3', 'type' => 'text', 'default_value' => 'HR- und Verwaltungsabteilungen' ),
+            array( 'key' => 'field_about_zielgruppe_4', 'label' => 'Zielgruppe 4', 'name' => 'about_zielgruppe_4', 'type' => 'text', 'default_value' => 'Immobilienverwaltungen' ),
+            array( 'key' => 'field_about_zielgruppe_5', 'label' => 'Zielgruppe 5', 'name' => 'about_zielgruppe_5', 'type' => 'text', 'default_value' => 'Unternehmen mit hohen Anforderungen an Sicherheit und Struktur' ),
 
             // =========================================
-            // SEKME 6: ZAMAN ÇİZELGESİ (4 sabit milestone)
+            // SEKME 6: UNSERE ARBEITSWEISE
             // =========================================
             array(
-                'key'       => 'field_about_timeline_tab',
-                'label'     => 'Meilensteine',
+                'key'       => 'field_about_arbeitsweise_tab',
+                'label'     => 'Unsere Arbeitsweise',
                 'name'      => '',
                 'type'      => 'tab',
                 'placement' => 'left',
             ),
-            array(
-                'key'           => 'field_about_timeline_title',
-                'label'         => 'Bölüm Başlığı',
-                'name'          => 'about_timeline_title',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Unsere Meilensteine',
-            ),
-            // Milestone 1
-            array(
-                'key'     => 'field_milestone_1_heading',
-                'label'   => 'Kilometre Taşı 1',
-                'name'    => '',
-                'type'    => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_milestone_1_year',
-                'label'         => 'Yıl',
-                'name'          => 'milestone_1_year',
-                'type'          => 'text',
-                'placeholder'   => '2008',
-                'maxlength'     => 10,
-                'default_value' => '2008',
-                'wrapper'       => array( 'width' => '25' ),
-            ),
-            array(
-                'key'           => 'field_milestone_1_title',
-                'label'         => 'Başlık',
-                'name'          => 'milestone_1_title',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Gründung',
-                'wrapper'       => array( 'width' => '75' ),
-            ),
-            array(
-                'key'           => 'field_milestone_1_description',
-                'label'         => 'Açıklama',
-                'name'          => 'milestone_1_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Dataenergie wurde als IT-Dienstleister in Zürich gegründet.',
-            ),
-            // Milestone 2
-            array(
-                'key'     => 'field_milestone_2_heading',
-                'label'   => 'Kilometre Taşı 2',
-                'name'    => '',
-                'type'    => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_milestone_2_year',
-                'label'         => 'Yıl',
-                'name'          => 'milestone_2_year',
-                'type'          => 'text',
-                'placeholder'   => '2012',
-                'maxlength'     => 10,
-                'default_value' => '2012',
-                'wrapper'       => array( 'width' => '25' ),
-            ),
-            array(
-                'key'           => 'field_milestone_2_title',
-                'label'         => 'Başlık',
-                'name'          => 'milestone_2_title',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Erweiterung Solar',
-                'wrapper'       => array( 'width' => '75' ),
-            ),
-            array(
-                'key'           => 'field_milestone_2_description',
-                'label'         => 'Açıklama',
-                'name'          => 'milestone_2_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Aufnahme von Solarenergie-Lösungen in unser Portfolio.',
-            ),
-            // Milestone 3
-            array(
-                'key'     => 'field_milestone_3_heading',
-                'label'   => 'Kilometre Taşı 3',
-                'name'    => '',
-                'type'    => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_milestone_3_year',
-                'label'         => 'Yıl',
-                'name'          => 'milestone_3_year',
-                'type'          => 'text',
-                'placeholder'   => '2018',
-                'maxlength'     => 10,
-                'default_value' => '2018',
-                'wrapper'       => array( 'width' => '25' ),
-            ),
-            array(
-                'key'           => 'field_milestone_3_title',
-                'label'         => 'Başlık',
-                'name'          => 'milestone_3_title',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Cloud-Transformation',
-                'wrapper'       => array( 'width' => '75' ),
-            ),
-            array(
-                'key'           => 'field_milestone_3_description',
-                'label'         => 'Açıklama',
-                'name'          => 'milestone_3_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Fokus auf Microsoft 365 und Azure Cloud-Services.',
-            ),
-            // Milestone 4
-            array(
-                'key'     => 'field_milestone_4_heading',
-                'label'   => 'Kilometre Taşı 4',
-                'name'    => '',
-                'type'    => 'message',
-                'message' => '<hr style="margin:0;">',
-            ),
-            array(
-                'key'           => 'field_milestone_4_year',
-                'label'         => 'Yıl',
-                'name'          => 'milestone_4_year',
-                'type'          => 'text',
-                'placeholder'   => '2023',
-                'maxlength'     => 10,
-                'default_value' => '2023',
-                'wrapper'       => array( 'width' => '25' ),
-            ),
-            array(
-                'key'           => 'field_milestone_4_title',
-                'label'         => 'Başlık',
-                'name'          => 'milestone_4_title',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Heute',
-                'wrapper'       => array( 'width' => '75' ),
-            ),
-            array(
-                'key'           => 'field_milestone_4_description',
-                'label'         => 'Açıklama',
-                'name'          => 'milestone_4_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Ihr zuverlässiger Partner für IT und erneuerbare Energien.',
-            ),
+            array( 'key' => 'field_about_arbeitsweise_title', 'label' => 'Slogan', 'name' => 'about_arbeitsweise_title', 'type' => 'text', 'default_value' => 'Strukturiert. Transparent. Verlässlich.' ),
+            array( 'key' => 'field_about_arbeitsweise_1', 'label' => 'Punkt 1', 'name' => 'about_arbeitsweise_1', 'type' => 'text', 'default_value' => 'Klare Zieldefinition' ),
+            array( 'key' => 'field_about_arbeitsweise_2', 'label' => 'Punkt 2', 'name' => 'about_arbeitsweise_2', 'type' => 'text', 'default_value' => 'Verständliche Kommunikation' ),
+            array( 'key' => 'field_about_arbeitsweise_3', 'label' => 'Punkt 3', 'name' => 'about_arbeitsweise_3', 'type' => 'text', 'default_value' => 'Nachvollziehbare Ergebnisse' ),
+            array( 'key' => 'field_about_arbeitsweise_4', 'label' => 'Punkt 4', 'name' => 'about_arbeitsweise_4', 'type' => 'text', 'default_value' => 'Saubere Dokumentation' ),
+            array( 'key' => 'field_about_arbeitsweise_5', 'label' => 'Punkt 5', 'name' => 'about_arbeitsweise_5', 'type' => 'text', 'default_value' => 'Langfristige Partnerschaften' ),
+            array( 'key' => 'field_about_arbeitsweise_note', 'label' => 'Alt Not', 'name' => 'about_arbeitsweise_note', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Unser Anspruch ist nicht, möglichst viel zu verkaufen – sondern sinnvolle und nachhaltige Lösungen zu liefern.' ),
 
             // =========================================
             // SEKME 7: CTA
@@ -1122,32 +936,11 @@ function dataenergie_register_about_page_fields() {
                 'type'      => 'tab',
                 'placement' => 'left',
             ),
-            array(
-                'key'           => 'field_about_cta_title',
-                'label'         => 'CTA Başlık',
-                'name'          => 'about_cta_title',
-                'type'          => 'text',
-                'maxlength'     => 100,
-                'default_value' => 'Möchten Sie mehr erfahren?',
-            ),
-            array(
-                'key'           => 'field_about_cta_description',
-                'label'         => 'CTA Açıklama',
-                'name'          => 'about_cta_description',
-                'type'          => 'textarea',
-                'rows'          => 2,
-                'default_value' => 'Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.',
-            ),
-            array(
-                'key'           => 'field_about_cta_button_text',
-                'label'         => 'Buton Metni',
-                'name'          => 'about_cta_button_text',
-                'type'          => 'text',
-                'maxlength'     => 50,
-                'default_value' => 'Kontakt aufnehmen',
-            ),
+            array( 'key' => 'field_about_cta_title', 'label' => 'CTA Başlık', 'name' => 'about_cta_title', 'type' => 'text', 'default_value' => 'Möchten Sie mehr über DataEnergie erfahren?' ),
+            array( 'key' => 'field_about_cta_description', 'label' => 'CTA Açıklama', 'name' => 'about_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Gerne stellen wir uns und unsere Arbeitsweise in einem unverbindlichen Gespräch vor.' ),
+            array( 'key' => 'field_about_cta_button_text', 'label' => 'Buton Metni', 'name' => 'about_cta_button_text', 'type' => 'text', 'default_value' => 'Erstgespräch anfragen' ),
         ),
-        'location' => array(
+        'location'       => array(
             array(
                 array(
                     'param'    => 'page_template',
@@ -1156,25 +949,22 @@ function dataenergie_register_about_page_fields() {
                 ),
             ),
         ),
-        'menu_order'            => 0,
-        'position'              => 'normal',
-        'style'                 => 'default',
-        'label_placement'       => 'top',
+        'menu_order'     => 0,
+        'position'       => 'normal',
+        'style'          => 'default',
+        'label_placement'=> 'top',
         'instruction_placement' => 'label',
-        'hide_on_screen'        => array(
-            0 => 'the_content',
-            1 => 'excerpt',
-            2 => 'discussion',
-            3 => 'comments',
-            4 => 'revisions',
-            5 => 'author',
-            6 => 'format',
-            7 => 'categories',
-            8 => 'tags',
-            9 => 'send-trackbacks',
+        'hide_on_screen' => array(
+            'excerpt',
+            'discussion',
+            'comments',
+            'revisions',
+            'author',
+            'format',
+            'categories',
+            'tags',
         ),
-        'active'       => true,
-        'show_in_rest' => false,
+        'active'         => true,
     ) );
 }
 add_action( 'acf/init', 'dataenergie_register_about_page_fields' );
@@ -3560,3 +3350,389 @@ function dataenergie_register_outsourcing_page_fields() {
     ) );
 }
 add_action( 'acf/init', 'dataenergie_register_outsourcing_page_fields' );
+
+/* ==========================================================================
+   IT SERVICES PAGE - 6 SERVICE CARDS
+   ========================================================================== */
+function dataenergie_register_it_services_page_fields() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+        return;
+    }
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_it_services_page',
+        'title'  => 'IT Services Sayfası - 6 Hizmet Kartı',
+        'fields' => array(
+            // SERVICE 1
+            array( 'key' => 'field_itsp_service1_tab', 'label' => 'Service 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_itsp_service_1_title', 'label' => 'Başlık', 'name' => 'itsp_service_1_title', 'type' => 'text', 'default_value' => 'Microsoft 365 & Modern Workplace' ),
+            array( 'key' => 'field_itsp_service_1_desc', 'label' => 'Açıklama', 'name' => 'itsp_service_1_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Effiziente Zusammenarbeit beginnt mit der richtigen Plattform. Wir konzipieren, implementieren und betreiben Microsoft-365-Umgebungen, die Sicherheit, Governance und Benutzerfreundlichkeit vereinen.' ),
+            array( 'key' => 'field_itsp_service_1_f1', 'label' => 'Feature 1', 'name' => 'itsp_service_1_f1', 'type' => 'text', 'default_value' => 'Tenant-Design & Migration', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_1_f2', 'label' => 'Feature 2', 'name' => 'itsp_service_1_f2', 'type' => 'text', 'default_value' => 'Microsoft Teams & SharePoint Strukturen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_1_f3', 'label' => 'Feature 3', 'name' => 'itsp_service_1_f3', 'type' => 'text', 'default_value' => 'Entra ID, Conditional Access & MFA', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_1_f4', 'label' => 'Feature 4', 'name' => 'itsp_service_1_f4', 'type' => 'text', 'default_value' => 'Governance & Zugriffskonzepte', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2
+            array( 'key' => 'field_itsp_service2_tab', 'label' => 'Service 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_itsp_service_2_title', 'label' => 'Başlık', 'name' => 'itsp_service_2_title', 'type' => 'text', 'default_value' => 'Security & Zero Trust' ),
+            array( 'key' => 'field_itsp_service_2_desc', 'label' => 'Açıklama', 'name' => 'itsp_service_2_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'IT-Sicherheit beginnt bei Identitäten. Wir entwickeln ganzheitliche Sicherheitskonzepte nach dem Zero-Trust-Prinzip und schützen Benutzer, Daten und Systeme vor modernen Bedrohungen.' ),
+            array( 'key' => 'field_itsp_service_2_f1', 'label' => 'Feature 1', 'name' => 'itsp_service_2_f1', 'type' => 'text', 'default_value' => 'Zero-Trust Architektur', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_2_f2', 'label' => 'Feature 2', 'name' => 'itsp_service_2_f2', 'type' => 'text', 'default_value' => 'MFA & Passwordless Authentication', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_2_f3', 'label' => 'Feature 3', 'name' => 'itsp_service_2_f3', 'type' => 'text', 'default_value' => 'Privileged Access & Admin-Sicherheit', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_2_f4', 'label' => 'Feature 4', 'name' => 'itsp_service_2_f4', 'type' => 'text', 'default_value' => 'Guest- & External-User-Management', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3
+            array( 'key' => 'field_itsp_service3_tab', 'label' => 'Service 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_itsp_service_3_title', 'label' => 'Başlık', 'name' => 'itsp_service_3_title', 'type' => 'text', 'default_value' => 'IT Governance & Risk Assessment' ),
+            array( 'key' => 'field_itsp_service_3_desc', 'label' => 'Açıklama', 'name' => 'itsp_service_3_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Transparenz über Risiken ist die Basis guter Entscheidungen. Mit strukturierten IT-Governance- und Security-Assessments identifizieren wir Risiken, Sicherheitslücken und Optimierungspotenziale.' ),
+            array( 'key' => 'field_itsp_service_3_f1', 'label' => 'Feature 1', 'name' => 'itsp_service_3_f1', 'type' => 'text', 'default_value' => 'Management-Report (PDF)', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_3_f2', 'label' => 'Feature 2', 'name' => 'itsp_service_3_f2', 'type' => 'text', 'default_value' => 'Risiko-Score & Prioritäten', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_3_f3', 'label' => 'Feature 3', 'name' => 'itsp_service_3_f3', 'type' => 'text', 'default_value' => 'Konkrete Handlungsempfehlungen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_3_f4', 'label' => 'Feature 4', 'name' => 'itsp_service_3_f4', 'type' => 'text', 'default_value' => 'Compliance- & Sicherheitsübersicht', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4
+            array( 'key' => 'field_itsp_service4_tab', 'label' => 'Service 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_itsp_service_4_title', 'label' => 'Başlık', 'name' => 'itsp_service_4_title', 'type' => 'text', 'default_value' => 'Cloud & Hybrid IT' ),
+            array( 'key' => 'field_itsp_service_4_desc', 'label' => 'Açıklama', 'name' => 'itsp_service_4_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Cloud-Lösungen, die zu Ihrer Realität passen. Wir planen und betreiben Azure- und Hybrid-Infrastrukturen, die bestehende Systeme nahtlos integrieren und zukunftssicher skalierbar sind.' ),
+            array( 'key' => 'field_itsp_service_4_f1', 'label' => 'Feature 1', 'name' => 'itsp_service_4_f1', 'type' => 'text', 'default_value' => 'Azure Architektur & Landing Zones', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_4_f2', 'label' => 'Feature 2', 'name' => 'itsp_service_4_f2', 'type' => 'text', 'default_value' => 'Hybrid AD / Entra ID', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_4_f3', 'label' => 'Feature 3', 'name' => 'itsp_service_4_f3', 'type' => 'text', 'default_value' => 'Backup & Disaster Recovery', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_4_f4', 'label' => 'Feature 4', 'name' => 'itsp_service_4_f4', 'type' => 'text', 'default_value' => 'Kosten- & Sicherheitsoptimierung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 5
+            array( 'key' => 'field_itsp_service5_tab', 'label' => 'Service 5', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_itsp_service_5_title', 'label' => 'Başlık', 'name' => 'itsp_service_5_title', 'type' => 'text', 'default_value' => 'Automation & IT Efficiency' ),
+            array( 'key' => 'field_itsp_service_5_desc', 'label' => 'Açıklama', 'name' => 'itsp_service_5_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Weniger manuelle Arbeit. Mehr Kontrolle. Durch gezielte Automatisierung reduzieren wir Fehler, beschleunigen Prozesse und erhöhen die Betriebssicherheit Ihrer IT.' ),
+            array( 'key' => 'field_itsp_service_5_f1', 'label' => 'Feature 1', 'name' => 'itsp_service_5_f1', 'type' => 'text', 'default_value' => 'Benutzer- & Zugriffsautomatisierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_5_f2', 'label' => 'Feature 2', 'name' => 'itsp_service_5_f2', 'type' => 'text', 'default_value' => 'Microsoft 365 Provisioning', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_5_f3', 'label' => 'Feature 3', 'name' => 'itsp_service_5_f3', 'type' => 'text', 'default_value' => 'Security Checks & Reports', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_5_f4', 'label' => 'Feature 4', 'name' => 'itsp_service_5_f4', 'type' => 'text', 'default_value' => 'Skript- & Prozessautomatisierung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 6
+            array( 'key' => 'field_itsp_service6_tab', 'label' => 'Service 6', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_itsp_service_6_title', 'label' => 'Başlık', 'name' => 'itsp_service_6_title', 'type' => 'text', 'default_value' => 'IT Support & Managed Services' ),
+            array( 'key' => 'field_itsp_service_6_desc', 'label' => 'Açıklama', 'name' => 'itsp_service_6_desc', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Zuverlässiger IT-Betrieb ohne Komplexität. Wir übernehmen den stabilen Betrieb Ihrer IT-Umgebung – strukturiert, transparent und mit klaren Zuständigkeiten.' ),
+            array( 'key' => 'field_itsp_service_6_f1', 'label' => 'Feature 1', 'name' => 'itsp_service_6_f1', 'type' => 'text', 'default_value' => '1st & 2nd Level Support', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_6_f2', 'label' => 'Feature 2', 'name' => 'itsp_service_6_f2', 'type' => 'text', 'default_value' => 'Monitoring & Wartung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_6_f3', 'label' => 'Feature 3', 'name' => 'itsp_service_6_f3', 'type' => 'text', 'default_value' => 'Incident- & Problem-Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_itsp_service_6_f4', 'label' => 'Feature 4', 'name' => 'itsp_service_6_f4', 'type' => 'text', 'default_value' => 'SLA-basierte Services', 'wrapper' => array( 'width' => '50' ) ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-it-services.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_it_services_page_fields' );
+
+/* ==========================================================================
+   MICROSOFT 365 PAGE - 4 SERVICE CARDS
+   ========================================================================== */
+function dataenergie_register_microsoft_365_fields() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+        return;
+    }
+
+    $icon_choices = dataenergie_get_icon_choices();
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_microsoft_365',
+        'title'  => 'Microsoft 365 - Sayfa İçerikleri',
+        'fields' => array(
+            // HERO
+            array( 'key' => 'field_m365_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_m365_hero_tag', 'label' => 'Hero Tag', 'name' => 'm365_hero_tag', 'type' => 'text', 'default_value' => 'IT Solutions' ),
+            array( 'key' => 'field_m365_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'm365_hero_subtitle', 'type' => 'text', 'default_value' => 'Produktive Zusammenarbeit mit Microsoft Cloud-Lösungen' ),
+
+            // SERVICE 1
+            array( 'key' => 'field_m365_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_m365_service_1_icon', 'label' => 'İkon', 'name' => 'm365_service_1_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'mail', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_m365_service_1_title', 'label' => 'Başlık', 'name' => 'm365_service_1_title', 'type' => 'text', 'default_value' => 'Exchange Online', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_m365_service_1_description', 'label' => 'Açıklama', 'name' => 'm365_service_1_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Professionelle E-Mail-Kommunikation mit Exchange Online. Sicherer, zuverlässiger und überall verfügbar.' ),
+            array( 'key' => 'field_m365_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'm365_service_1_feature_1', 'type' => 'text', 'default_value' => '50 GB Postfach pro Benutzer', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'm365_service_1_feature_2', 'type' => 'text', 'default_value' => 'Erweiterte Sicherheit & Spam-Filter', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'm365_service_1_feature_3', 'type' => 'text', 'default_value' => 'Kalender & Kontaktverwaltung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'm365_service_1_feature_4', 'type' => 'text', 'default_value' => 'Mobile Apps für iOS & Android', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2
+            array( 'key' => 'field_m365_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_m365_service_2_icon', 'label' => 'İkon', 'name' => 'm365_service_2_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'users', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_m365_service_2_title', 'label' => 'Başlık', 'name' => 'm365_service_2_title', 'type' => 'text', 'default_value' => 'Microsoft Teams', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_m365_service_2_description', 'label' => 'Açıklama', 'name' => 'm365_service_2_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Moderne Teamarbeit mit Chat, Videobesprechungen und gemeinsamer Dokumentenbearbeitung in Echtzeit.' ),
+            array( 'key' => 'field_m365_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'm365_service_2_feature_1', 'type' => 'text', 'default_value' => 'HD-Videokonferenzen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'm365_service_2_feature_2', 'type' => 'text', 'default_value' => 'Team-Channels & Chat', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'm365_service_2_feature_3', 'type' => 'text', 'default_value' => 'Bildschirmfreigabe', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'm365_service_2_feature_4', 'type' => 'text', 'default_value' => 'Integration mit Office-Apps', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3
+            array( 'key' => 'field_m365_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_m365_service_3_icon', 'label' => 'İkon', 'name' => 'm365_service_3_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'cloud', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_m365_service_3_title', 'label' => 'Başlık', 'name' => 'm365_service_3_title', 'type' => 'text', 'default_value' => 'SharePoint & OneDrive', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_m365_service_3_description', 'label' => 'Açıklama', 'name' => 'm365_service_3_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Sichere Dokumentenverwaltung und Cloud-Speicher für Ihr Unternehmen mit nahtloser Office-Integration.' ),
+            array( 'key' => 'field_m365_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'm365_service_3_feature_1', 'type' => 'text', 'default_value' => '1 TB Cloud-Speicher pro Benutzer', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'm365_service_3_feature_2', 'type' => 'text', 'default_value' => 'Dokumenten-Versionierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'm365_service_3_feature_3', 'type' => 'text', 'default_value' => 'Intranet & Team-Sites', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'm365_service_3_feature_4', 'type' => 'text', 'default_value' => 'Externe Freigabe mit Kontrolle', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4
+            array( 'key' => 'field_m365_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_m365_service_4_icon', 'label' => 'İkon', 'name' => 'm365_service_4_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'shield', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_m365_service_4_title', 'label' => 'Başlık', 'name' => 'm365_service_4_title', 'type' => 'text', 'default_value' => 'Entra ID & Security', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_m365_service_4_description', 'label' => 'Açıklama', 'name' => 'm365_service_4_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Zentrale Identitäts- und Zugriffsverwaltung mit Microsoft Entra ID (ehemals Azure AD). Sicherheit und Compliance für Ihr Unternehmen.' ),
+            array( 'key' => 'field_m365_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'm365_service_4_feature_1', 'type' => 'text', 'default_value' => 'Single Sign-On (SSO)', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'm365_service_4_feature_2', 'type' => 'text', 'default_value' => 'Multi-Factor Authentication', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'm365_service_4_feature_3', 'type' => 'text', 'default_value' => 'Conditional Access Policies', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_m365_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'm365_service_4_feature_4', 'type' => 'text', 'default_value' => 'Identity Protection', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_m365_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_m365_cta_title', 'label' => 'CTA Başlık', 'name' => 'm365_cta_title', 'type' => 'text', 'default_value' => 'Bereit für Microsoft 365?' ),
+            array( 'key' => 'field_m365_cta_description', 'label' => 'CTA Açıklama', 'name' => 'm365_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Wir beraten Sie gerne zu den passenden Lizenzen und der optimalen Konfiguration für Ihr Unternehmen.' ),
+            array( 'key' => 'field_m365_cta_button_text', 'label' => 'Buton Metni', 'name' => 'm365_cta_button_text', 'type' => 'text', 'default_value' => 'Jetzt beraten lassen' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-microsoft-365.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_microsoft_365_fields' );
+
+/* ==========================================================================
+   AUTOMATION & IT EFFICIENCY PAGE - 4 SERVICE CARDS
+   ========================================================================== */
+function dataenergie_register_automation_efficiency_fields() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+        return;
+    }
+
+    $icon_choices = dataenergie_get_icon_choices();
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_automation_efficiency',
+        'title'  => 'Automation & IT Efficiency - Sayfa İçerikleri',
+        'fields' => array(
+            // HERO
+            array( 'key' => 'field_auto_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_auto_hero_tag', 'label' => 'Hero Tag', 'name' => 'auto_hero_tag', 'type' => 'text', 'default_value' => 'IT Solutions' ),
+            array( 'key' => 'field_auto_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'auto_hero_subtitle', 'type' => 'text', 'default_value' => 'Automatisieren Sie Ihre IT-Prozesse für mehr Effizienz und Sicherheit' ),
+
+            // SERVICE 1
+            array( 'key' => 'field_auto_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_auto_service_1_icon', 'label' => 'İkon', 'name' => 'auto_service_1_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'workflow', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_auto_service_1_title', 'label' => 'Başlık', 'name' => 'auto_service_1_title', 'type' => 'text', 'default_value' => 'Benutzer-Automatisierung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_auto_service_1_description', 'label' => 'Açıklama', 'name' => 'auto_service_1_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Automatische Benutzerkonten-Verwaltung von der Einstellung bis zum Austritt. Zugriffsrechte werden konsistent und fehlerfrei zugewiesen.' ),
+            array( 'key' => 'field_auto_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'auto_service_1_feature_1', 'type' => 'text', 'default_value' => 'Onboarding-Workflows', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'auto_service_1_feature_2', 'type' => 'text', 'default_value' => 'Automatische Rechtevergabe', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'auto_service_1_feature_3', 'type' => 'text', 'default_value' => 'Offboarding-Prozesse', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'auto_service_1_feature_4', 'type' => 'text', 'default_value' => 'Lifecycle-Management', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2
+            array( 'key' => 'field_auto_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_auto_service_2_icon', 'label' => 'İkon', 'name' => 'auto_service_2_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'zap', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_auto_service_2_title', 'label' => 'Başlık', 'name' => 'auto_service_2_title', 'type' => 'text', 'default_value' => 'Microsoft 365 Provisioning', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_auto_service_2_description', 'label' => 'Açıklama', 'name' => 'auto_service_2_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Standardisierte und automatisierte Bereitstellung von Teams, SharePoint-Sites und Mailboxen nach Ihren Governance-Vorgaben.' ),
+            array( 'key' => 'field_auto_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'auto_service_2_feature_1', 'type' => 'text', 'default_value' => 'Teams-Provisioning', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'auto_service_2_feature_2', 'type' => 'text', 'default_value' => 'SharePoint Site Creation', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'auto_service_2_feature_3', 'type' => 'text', 'default_value' => 'Exchange-Automatisierung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'auto_service_2_feature_4', 'type' => 'text', 'default_value' => 'Template-basierte Deployment', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3
+            array( 'key' => 'field_auto_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_auto_service_3_icon', 'label' => 'İkon', 'name' => 'auto_service_3_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'activity', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_auto_service_3_title', 'label' => 'Başlık', 'name' => 'auto_service_3_title', 'type' => 'text', 'default_value' => 'Security Checks & Monitoring', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_auto_service_3_description', 'label' => 'Açıklama', 'name' => 'auto_service_3_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Kontinuierliche automatische Sicherheitsüberprüfungen und Compliance-Monitoring Ihrer IT-Umgebung.' ),
+            array( 'key' => 'field_auto_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'auto_service_3_feature_1', 'type' => 'text', 'default_value' => 'Security Compliance Checks', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'auto_service_3_feature_2', 'type' => 'text', 'default_value' => 'Automated Reporting', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'auto_service_3_feature_3', 'type' => 'text', 'default_value' => 'Anomalie-Erkennung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'auto_service_3_feature_4', 'type' => 'text', 'default_value' => 'Alerting & Notifications', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4
+            array( 'key' => 'field_auto_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_auto_service_4_icon', 'label' => 'İkon', 'name' => 'auto_service_4_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'cpu', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_auto_service_4_title', 'label' => 'Başlık', 'name' => 'auto_service_4_title', 'type' => 'text', 'default_value' => 'PowerShell & API Integration', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_auto_service_4_description', 'label' => 'Açıklama', 'name' => 'auto_service_4_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Individuelle Automatisierungslösungen durch PowerShell-Skripte und API-Integrationen für Ihre spezifischen Anforderungen.' ),
+            array( 'key' => 'field_auto_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'auto_service_4_feature_1', 'type' => 'text', 'default_value' => 'Custom PowerShell Scripts', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'auto_service_4_feature_2', 'type' => 'text', 'default_value' => 'Microsoft Graph API', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'auto_service_4_feature_3', 'type' => 'text', 'default_value' => 'Azure Automation', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_auto_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'auto_service_4_feature_4', 'type' => 'text', 'default_value' => 'Third-Party Integrationen', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_auto_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_auto_cta_title', 'label' => 'CTA Başlık', 'name' => 'auto_cta_title', 'type' => 'text', 'default_value' => 'Bereit für effizientere IT-Prozesse?' ),
+            array( 'key' => 'field_auto_cta_description', 'label' => 'CTA Açıklama', 'name' => 'auto_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Lassen Sie uns gemeinsam evaluieren, welche Prozesse in Ihrer IT automatisiert werden können.' ),
+            array( 'key' => 'field_auto_cta_button_text', 'label' => 'Buton Metni', 'name' => 'auto_cta_button_text', 'type' => 'text', 'default_value' => 'Automation-Potenzial analysieren' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-automation-efficiency.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_automation_efficiency_fields' );
+
+
+/* ==========================================================================
+   WORKFORCE MANAGEMENT PAGE - 4 SERVICE CARDS
+   ========================================================================== */
+function dataenergie_register_workforce_fields() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+        return;
+    }
+
+    $icon_choices = array(
+        'clock'      => 'Clock',
+        'users'      => 'Users',
+        'calendar'   => 'Calendar',
+        'clipboard'  => 'Clipboard',
+        'bar-chart'  => 'Bar Chart',
+        'smartphone' => 'Smartphone',
+    );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_workforce_management',
+        'title'  => 'Workforce Management - Sayfa İçerikleri',
+        'fields' => array(
+            // HERO
+            array( 'key' => 'field_wfm_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_wfm_hero_tag', 'label' => 'Hero Tag', 'name' => 'wfm_hero_tag', 'type' => 'text', 'default_value' => 'Business Solutions' ),
+            array( 'key' => 'field_wfm_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'wfm_hero_subtitle', 'type' => 'text', 'default_value' => 'Digitale Zeiterfassung und Mitarbeiterverwaltung für Ihr Unternehmen' ),
+
+            // SERVICE 1
+            array( 'key' => 'field_wfm_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_wfm_service_1_icon', 'label' => 'İkon', 'name' => 'wfm_service_1_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'clock', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_wfm_service_1_title', 'label' => 'Başlık', 'name' => 'wfm_service_1_title', 'type' => 'text', 'default_value' => 'Digitale Zeiterfassung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_wfm_service_1_description', 'label' => 'Açıklama', 'name' => 'wfm_service_1_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Moderne und rechtskonforme Zeiterfassung für alle Mitarbeiter. Einfache Bedienung via Web, Terminal oder mobiler App.' ),
+            array( 'key' => 'field_wfm_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'wfm_service_1_feature_1', 'type' => 'text', 'default_value' => 'Web-basierte Stempeluhr', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'wfm_service_1_feature_2', 'type' => 'text', 'default_value' => 'Mobile App für Aussendienst', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'wfm_service_1_feature_3', 'type' => 'text', 'default_value' => 'Hardware-Terminals', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'wfm_service_1_feature_4', 'type' => 'text', 'default_value' => 'Gesetzeskonforme Erfassung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2
+            array( 'key' => 'field_wfm_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_wfm_service_2_icon', 'label' => 'İkon', 'name' => 'wfm_service_2_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'calendar', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_wfm_service_2_title', 'label' => 'Başlık', 'name' => 'wfm_service_2_title', 'type' => 'text', 'default_value' => 'Absenzen & Ferien', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_wfm_service_2_description', 'label' => 'Açıklama', 'name' => 'wfm_service_2_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Übersichtliche Verwaltung von Ferien, Krankheit und anderen Abwesenheiten mit automatischen Genehmigungsworkflows.' ),
+            array( 'key' => 'field_wfm_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'wfm_service_2_feature_1', 'type' => 'text', 'default_value' => 'Ferienplanung & Anträge', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'wfm_service_2_feature_2', 'type' => 'text', 'default_value' => 'Krankheitsmeldungen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'wfm_service_2_feature_3', 'type' => 'text', 'default_value' => 'Genehmigungsworkflows', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'wfm_service_2_feature_4', 'type' => 'text', 'default_value' => 'Saldo-Übersicht', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3
+            array( 'key' => 'field_wfm_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_wfm_service_3_icon', 'label' => 'İkon', 'name' => 'wfm_service_3_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'users', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_wfm_service_3_title', 'label' => 'Başlık', 'name' => 'wfm_service_3_title', 'type' => 'text', 'default_value' => 'Personalplanung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_wfm_service_3_description', 'label' => 'Açıklama', 'name' => 'wfm_service_3_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Effiziente Schicht- und Einsatzplanung. Ressourcen optimal einsetzen und Engpässe frühzeitig erkennen.' ),
+            array( 'key' => 'field_wfm_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'wfm_service_3_feature_1', 'type' => 'text', 'default_value' => 'Schichtplanung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'wfm_service_3_feature_2', 'type' => 'text', 'default_value' => 'Ressourcenübersicht', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'wfm_service_3_feature_3', 'type' => 'text', 'default_value' => 'Skill-Management', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'wfm_service_3_feature_4', 'type' => 'text', 'default_value' => 'Kapazitätsplanung', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4
+            array( 'key' => 'field_wfm_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_wfm_service_4_icon', 'label' => 'İkon', 'name' => 'wfm_service_4_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'bar-chart', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_wfm_service_4_title', 'label' => 'Başlık', 'name' => 'wfm_service_4_title', 'type' => 'text', 'default_value' => 'Reporting & Analytics', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_wfm_service_4_description', 'label' => 'Açıklama', 'name' => 'wfm_service_4_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Detaillierte Auswertungen und Berichte für bessere Entscheidungen. Export für Lohnbuchhaltung und Controlling.' ),
+            array( 'key' => 'field_wfm_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'wfm_service_4_feature_1', 'type' => 'text', 'default_value' => 'Arbeitszeit-Reports', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'wfm_service_4_feature_2', 'type' => 'text', 'default_value' => 'Überstunden-Analyse', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'wfm_service_4_feature_3', 'type' => 'text', 'default_value' => 'Lohnexport-Schnittstelle', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_wfm_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'wfm_service_4_feature_4', 'type' => 'text', 'default_value' => 'Dashboard & KPIs', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_wfm_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_wfm_cta_title', 'label' => 'CTA Başlık', 'name' => 'wfm_cta_title', 'type' => 'text', 'default_value' => 'Bereit für effizientes Workforce Management?' ),
+            array( 'key' => 'field_wfm_cta_description', 'label' => 'CTA Açıklama', 'name' => 'wfm_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Wir zeigen Ihnen, wie Sie Zeiterfassung und Personalplanung digitalisieren können.' ),
+            array( 'key' => 'field_wfm_cta_button_text', 'label' => 'Buton Metni', 'name' => 'wfm_cta_button_text', 'type' => 'text', 'default_value' => 'Demo anfordern' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-workforce-management.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_workforce_fields' );
+
+/* ==========================================================================
+   SMART BUILDING PAGE - 4 SERVICE CARDS
+   ========================================================================== */
+function dataenergie_register_smart_building_fields() {
+    if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+        return;
+    }
+
+    $icon_choices = array(
+        'home'        => 'Home',
+        'calendar'    => 'Calendar',
+        'smartphone'  => 'Smartphone',
+        'droplet'     => 'Droplet',
+        'credit-card' => 'Credit Card',
+        'settings'    => 'Settings',
+    );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_smart_building',
+        'title'  => 'Smart Building - Sayfa İçerikleri',
+        'fields' => array(
+            // HERO
+            array( 'key' => 'field_sb_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_sb_hero_tag', 'label' => 'Hero Tag', 'name' => 'sb_hero_tag', 'type' => 'text', 'default_value' => 'Business Solutions' ),
+            array( 'key' => 'field_sb_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'sb_hero_subtitle', 'type' => 'text', 'default_value' => 'Intelligente Buchungssysteme für Gemeinschaftsräume und Waschküchen' ),
+
+            // SERVICE 1
+            array( 'key' => 'field_sb_service1_tab', 'label' => 'Hizmet 1', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_sb_service_1_icon', 'label' => 'İkon', 'name' => 'sb_service_1_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'droplet', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_sb_service_1_title', 'label' => 'Başlık', 'name' => 'sb_service_1_title', 'type' => 'text', 'default_value' => 'WashSlot Waschküchen-Buchung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_sb_service_1_description', 'label' => 'Açıklama', 'name' => 'sb_service_1_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Digitales Buchungssystem für Waschküchen in Mehrfamilienhäusern. Schluss mit Konflikten und handschriftlichen Listen.' ),
+            array( 'key' => 'field_sb_service_1_feature_1', 'label' => 'Özellik 1', 'name' => 'sb_service_1_feature_1', 'type' => 'text', 'default_value' => 'Online-Buchung via App', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_1_feature_2', 'label' => 'Özellik 2', 'name' => 'sb_service_1_feature_2', 'type' => 'text', 'default_value' => 'Automatische Erinnerungen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_1_feature_3', 'label' => 'Özellik 3', 'name' => 'sb_service_1_feature_3', 'type' => 'text', 'default_value' => 'Konfliktfreie Zeitslots', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_1_feature_4', 'label' => 'Özellik 4', 'name' => 'sb_service_1_feature_4', 'type' => 'text', 'default_value' => 'Buchungshistorie', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 2
+            array( 'key' => 'field_sb_service2_tab', 'label' => 'Hizmet 2', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_sb_service_2_icon', 'label' => 'İkon', 'name' => 'sb_service_2_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'home', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_sb_service_2_title', 'label' => 'Başlık', 'name' => 'sb_service_2_title', 'type' => 'text', 'default_value' => 'Gemeinschaftsraum-Buchung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_sb_service_2_description', 'label' => 'Açıklama', 'name' => 'sb_service_2_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Einfache Reservierung von Gemeinschaftsräumen, Sitzungszimmern oder Hobbyräumen für alle Bewohner.' ),
+            array( 'key' => 'field_sb_service_2_feature_1', 'label' => 'Özellik 1', 'name' => 'sb_service_2_feature_1', 'type' => 'text', 'default_value' => 'Raumverwaltung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_2_feature_2', 'label' => 'Özellik 2', 'name' => 'sb_service_2_feature_2', 'type' => 'text', 'default_value' => 'Kapazitätsplanung', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_2_feature_3', 'label' => 'Özellik 3', 'name' => 'sb_service_2_feature_3', 'type' => 'text', 'default_value' => 'Nutzungsregeln', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_2_feature_4', 'label' => 'Özellik 4', 'name' => 'sb_service_2_feature_4', 'type' => 'text', 'default_value' => 'Verfügbarkeitsanzeige', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 3
+            array( 'key' => 'field_sb_service3_tab', 'label' => 'Hizmet 3', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_sb_service_3_icon', 'label' => 'İkon', 'name' => 'sb_service_3_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'smartphone', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_sb_service_3_title', 'label' => 'Başlık', 'name' => 'sb_service_3_title', 'type' => 'text', 'default_value' => 'Mobile App & Benachrichtigungen', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_sb_service_3_description', 'label' => 'Açıklama', 'name' => 'sb_service_3_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Benutzerfreundliche App für alle Bewohner mit Push-Benachrichtigungen und automatischen Erinnerungen.' ),
+            array( 'key' => 'field_sb_service_3_feature_1', 'label' => 'Özellik 1', 'name' => 'sb_service_3_feature_1', 'type' => 'text', 'default_value' => 'iOS & Android App', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_3_feature_2', 'label' => 'Özellik 2', 'name' => 'sb_service_3_feature_2', 'type' => 'text', 'default_value' => 'Push-Benachrichtigungen', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_3_feature_3', 'label' => 'Özellik 3', 'name' => 'sb_service_3_feature_3', 'type' => 'text', 'default_value' => 'Kalender-Integration', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_3_feature_4', 'label' => 'Özellik 4', 'name' => 'sb_service_3_feature_4', 'type' => 'text', 'default_value' => 'Mehrsprachig', 'wrapper' => array( 'width' => '50' ) ),
+
+            // SERVICE 4
+            array( 'key' => 'field_sb_service4_tab', 'label' => 'Hizmet 4', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_sb_service_4_icon', 'label' => 'İkon', 'name' => 'sb_service_4_icon', 'type' => 'select', 'choices' => $icon_choices, 'default_value' => 'settings', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_sb_service_4_title', 'label' => 'Başlık', 'name' => 'sb_service_4_title', 'type' => 'text', 'default_value' => 'Verwaltung & Abrechnung', 'wrapper' => array( 'width' => '70' ) ),
+            array( 'key' => 'field_sb_service_4_description', 'label' => 'Açıklama', 'name' => 'sb_service_4_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Zentrale Verwaltungsoberfläche für Hauswarte und Immobilienverwaltungen mit Nutzungsstatistiken.' ),
+            array( 'key' => 'field_sb_service_4_feature_1', 'label' => 'Özellik 1', 'name' => 'sb_service_4_feature_1', 'type' => 'text', 'default_value' => 'Admin-Dashboard', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_4_feature_2', 'label' => 'Özellik 2', 'name' => 'sb_service_4_feature_2', 'type' => 'text', 'default_value' => 'Nutzungsstatistiken', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_4_feature_3', 'label' => 'Özellik 3', 'name' => 'sb_service_4_feature_3', 'type' => 'text', 'default_value' => 'Kostenumlage', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_sb_service_4_feature_4', 'label' => 'Özellik 4', 'name' => 'sb_service_4_feature_4', 'type' => 'text', 'default_value' => 'Multi-Liegenschaft', 'wrapper' => array( 'width' => '50' ) ),
+
+            // CTA
+            array( 'key' => 'field_sb_cta_tab', 'label' => 'CTA', 'type' => 'tab', 'placement' => 'left' ),
+            array( 'key' => 'field_sb_cta_title', 'label' => 'CTA Başlık', 'name' => 'sb_cta_title', 'type' => 'text', 'default_value' => 'Interesse an Smart Building Lösungen?' ),
+            array( 'key' => 'field_sb_cta_description', 'label' => 'CTA Açıklama', 'name' => 'sb_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Wir beraten Sie gerne zu WashSlot und weiteren digitalen Lösungen für Ihre Liegenschaft.' ),
+            array( 'key' => 'field_sb_cta_button_text', 'label' => 'Buton Metni', 'name' => 'sb_cta_button_text', 'type' => 'text', 'default_value' => 'Beratung anfordern' ),
+        ),
+        'location' => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-smart-building.php' ) ) ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'hide_on_screen' => array( 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'categories', 'tags' ),
+        'active' => true,
+    ) );
+}
+add_action( 'acf/init', 'dataenergie_register_smart_building_fields' );

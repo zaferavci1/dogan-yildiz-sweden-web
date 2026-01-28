@@ -35,130 +35,93 @@ $icon_svgs = array(
 // =============================================================================
 
 // Hero Section
-$hero_tag      = get_field( 'beratung_hero_tag' ) ?: 'Beratung & Analyse';
-$hero_subtitle = get_field( 'beratung_hero_subtitle' ) ?: 'Strategische IT-Beratung für nachhaltigen Unternehmenserfolg';
+$hero_tag      = get_field( 'beratung_hero_tag' ) ?: 'Governance & Risk Assessment';
+$hero_subtitle = get_field( 'beratung_hero_subtitle' ) ?: 'DataEnergie analysiert Ihre Microsoft-365-Umgebung systematisch und erstellt eine klare, managementtaugliche Übersicht über Risiken, Sicherheitsstatus und Optimierungspotenziale.';
 
-// Prozessschritte
+// Intro tagline
+$intro_tagline = 'Kein Tool-Chaos. Keine unverständlichen Reports. Klare Aussagen und priorisierte Empfehlungen.';
+
+// Was wir analysieren - Analyse-Schwerpunkte
+$analyse_schwerpunkte = array(
+	'Identity & Access Security (Entra ID)',
+	'MFA-Abdeckung & Authentifizierungsmethoden',
+	'Administrator- & Privileged-Rollen',
+	'Conditional-Access-Policies',
+	'Guest- & External-User-Risiken',
+	'Governance- und Policy-Lücken',
+	'Technische Sicherheits- und Konfigurationsrisiken',
+);
+
+// Ergebnisse für Sie
+$ergebnisse = array(
+	'Management-Report (PDF)',
+	'Übersichtlicher Risiko-Score',
+	'Klar priorisierte Top-Risiken',
+	'Konkrete Handlungsempfehlungen',
+	'Technische und strategische Sicht',
+);
+
+$ideal_fuer = array(
+	'IT-Leitung',
+	'Geschäftsführung',
+	'Compliance / Security-Verantwortliche',
+);
+
+// Warum DataEnergie?
+$vorteile = array(
+	'Fokus auf Microsoft 365 & Security',
+	'Governance- und Risiko-Know-how',
+	'Klare, strukturierte Methodik',
+	'Schweizer Markt & Anforderungen',
+	'Verständlich für Management UND Technik',
+);
+
+$vorteil_tagline = 'Wir zeigen nicht nur was falsch ist, sondern was als Nächstes sinnvoll ist.';
+
+// Für wen ist dieses Assessment geeignet?
+$zielgruppen = array(
+	'KMU & Organisationen mit Microsoft 365',
+	'Unternehmen vor Security- oder MFA-Einführung',
+	'IT-Leitungen, die Transparenz brauchen',
+	'Management, das fundierte Entscheidungen treffen will',
+	'Vorbereitung auf Audits oder interne Reviews',
+);
+
+// Ablauf (Prozessschritte)
 $process_steps = array(
 	array(
 		'number' => '01',
 		'icon'   => $icon_svgs['clipboard'],
-		'title'  => get_field( 'beratung_step_1_title' ) ?: 'Anfrage & Erstgespräch',
-		'desc'   => get_field( 'beratung_step_1_desc' ) ?: 'Erstes Kennenlernen und Erfassung Ihrer Anforderungen und Ziele in einem unverbindlichen Beratungsgespräch.',
+		'title'  => 'Erstgespräch & Zieldefinition',
+		'desc'   => 'Gemeinsame Definition Ihrer Ziele und Anforderungen in einem unverbindlichen Erstgespräch.',
 	),
 	array(
 		'number' => '02',
 		'icon'   => $icon_svgs['search'],
-		'title'  => get_field( 'beratung_step_2_title' ) ?: 'Ist-Analyse',
-		'desc'   => get_field( 'beratung_step_2_desc' ) ?: 'Detaillierte Analyse Ihrer bestehenden IT-Infrastruktur, Prozesse und Systeme.',
+		'title'  => 'Technische Analyse',
+		'desc'   => 'Systematische Analyse Ihrer Microsoft-365-Umgebung und Sicherheitskonfiguration.',
 	),
 	array(
 		'number' => '03',
-		'icon'   => $icon_svgs['compass'],
-		'title'  => get_field( 'beratung_step_3_title' ) ?: 'Strategieentwicklung',
-		'desc'   => get_field( 'beratung_step_3_desc' ) ?: 'Entwicklung einer massgeschneiderten IT-Strategie mit konkreten Handlungsempfehlungen.',
+		'icon'   => $icon_svgs['bar-chart'],
+		'title'  => 'Auswertung & Risiko-Bewertung',
+		'desc'   => 'Strukturierte Bewertung der identifizierten Risiken und Priorisierung der Massnahmen.',
 	),
 	array(
 		'number' => '04',
 		'icon'   => $icon_svgs['check-circle'],
-		'title'  => get_field( 'beratung_step_4_title' ) ?: 'Implementierung',
-		'desc'   => get_field( 'beratung_step_4_desc' ) ?: 'Begleitung bei der Umsetzung und kontinuierliche Optimierung Ihrer IT-Landschaft.',
-	),
-);
-
-// Beratungsleistungen
-$services = array(
-	array(
-		'icon'        => $icon_svgs['target'],
-		'title'       => get_field( 'beratung_service_1_title' ) ?: 'IT-Strategie Beratung',
-		'description' => get_field( 'beratung_service_1_desc' ) ?: 'Entwicklung einer zukunftssicheren IT-Strategie, die Ihre Geschäftsziele optimal unterstützt.',
-		'features'    => array_filter( array(
-			get_field( 'beratung_service_1_f1' ) ?: 'Strategische IT-Roadmap',
-			get_field( 'beratung_service_1_f2' ) ?: 'Technology Assessment',
-			get_field( 'beratung_service_1_f3' ) ?: 'Vendor-unabhängige Beratung',
-			get_field( 'beratung_service_1_f4' ) ?: 'ROI-Analyse',
-		) ),
-	),
-	array(
-		'icon'        => $icon_svgs['bar-chart'],
-		'title'       => get_field( 'beratung_service_2_title' ) ?: 'Infrastruktur-Analyse',
-		'description' => get_field( 'beratung_service_2_desc' ) ?: 'Umfassende Analyse Ihrer IT-Infrastruktur mit konkreten Optimierungsvorschlägen.',
-		'features'    => array_filter( array(
-			get_field( 'beratung_service_2_f1' ) ?: 'Netzwerk-Assessment',
-			get_field( 'beratung_service_2_f2' ) ?: 'Server & Storage Analyse',
-			get_field( 'beratung_service_2_f3' ) ?: 'Performance-Monitoring',
-			get_field( 'beratung_service_2_f4' ) ?: 'Kapazitätsplanung',
-		) ),
-	),
-	array(
-		'icon'        => $icon_svgs['shield'],
-		'title'       => get_field( 'beratung_service_3_title' ) ?: 'Security Assessment',
-		'description' => get_field( 'beratung_service_3_desc' ) ?: 'Identifikation von Sicherheitslücken und Entwicklung einer robusten Security-Strategie.',
-		'features'    => array_filter( array(
-			get_field( 'beratung_service_3_f1' ) ?: 'Schwachstellen-Analyse',
-			get_field( 'beratung_service_3_f2' ) ?: 'Penetrationstests',
-			get_field( 'beratung_service_3_f3' ) ?: 'Compliance-Check',
-			get_field( 'beratung_service_3_f4' ) ?: 'Security-Roadmap',
-		) ),
-	),
-	array(
-		'icon'        => $icon_svgs['cloud'],
-		'title'       => get_field( 'beratung_service_4_title' ) ?: 'Cloud-Readiness Assessment',
-		'description' => get_field( 'beratung_service_4_desc' ) ?: 'Analyse Ihrer Cloud-Bereitschaft und Entwicklung einer optimalen Migrationsstrategie.',
-		'features'    => array_filter( array(
-			get_field( 'beratung_service_4_f1' ) ?: 'Workload-Analyse',
-			get_field( 'beratung_service_4_f2' ) ?: 'TCO-Berechnung',
-			get_field( 'beratung_service_4_f3' ) ?: 'Migrations-Roadmap',
-			get_field( 'beratung_service_4_f4' ) ?: 'Hybrid-Cloud Strategie',
-		) ),
-	),
-	array(
-		'icon'        => $icon_svgs['trending-up'],
-		'title'       => get_field( 'beratung_service_5_title' ) ?: 'Digitale Transformation',
-		'description' => get_field( 'beratung_service_5_desc' ) ?: 'Begleitung Ihres Unternehmens auf dem Weg zur digitalen Exzellenz.',
-		'features'    => array_filter( array(
-			get_field( 'beratung_service_5_f1' ) ?: 'Prozessoptimierung',
-			get_field( 'beratung_service_5_f2' ) ?: 'Automatisierung',
-			get_field( 'beratung_service_5_f3' ) ?: 'Change Management',
-			get_field( 'beratung_service_5_f4' ) ?: 'Schulung & Enablement',
-		) ),
-	),
-	array(
-		'icon'        => $icon_svgs['dollar-sign'],
-		'title'       => get_field( 'beratung_service_6_title' ) ?: 'IT-Kosten Optimierung',
-		'description' => get_field( 'beratung_service_6_desc' ) ?: 'Identifikation von Einsparpotenzialen ohne Kompromisse bei Qualität und Leistung.',
-		'features'    => array_filter( array(
-			get_field( 'beratung_service_6_f1' ) ?: 'Lizenz-Optimierung',
-			get_field( 'beratung_service_6_f2' ) ?: 'Vertragsverhandlungen',
-			get_field( 'beratung_service_6_f3' ) ?: 'Konsolidierung',
-			get_field( 'beratung_service_6_f4' ) ?: 'Kostencontrolling',
-		) ),
-	),
-);
-
-// Vorteile
-$advantages = array(
-	array(
-		'icon'  => $icon_svgs['users'],
-		'title' => 'Erfahrenes Expertenteam',
-		'desc'  => 'Zertifizierte IT-Berater mit langjähriger Praxiserfahrung.',
-	),
-	array(
-		'icon'  => $icon_svgs['target'],
-		'title' => 'Massgeschneiderte Lösungen',
-		'desc'  => 'Individuelle Strategien statt Standard-Konzepte.',
-	),
-	array(
-		'icon'  => $icon_svgs['award'],
-		'title' => 'Vendor-unabhängig',
-		'desc'  => 'Objektive Beratung ohne versteckte Interessen.',
+		'title'  => 'Management-Report & Besprechung',
+		'desc'   => 'Präsentation der Ergebnisse mit konkreten Handlungsempfehlungen für Ihr Management.',
 	),
 );
 
 // CTA Section
-$cta_title       = get_field( 'beratung_cta_title' ) ?: 'Bereit für die Zukunft?';
-$cta_description = get_field( 'beratung_cta_desc' ) ?: 'Vereinbaren Sie jetzt ein unverbindliches Erstgespräch und entdecken Sie Ihr IT-Potenzial.';
-$cta_button_text = get_field( 'beratung_cta_button' ) ?: 'Kostenlose Erstberatung';
+$cta_title       = get_field( 'beratung_cta_title' ) ?: 'Möchten Sie Klarheit über Ihre IT-Risiken?';
+$cta_description = get_field( 'beratung_cta_desc' ) ?: 'Vereinbaren Sie ein unverbindliches Erstgespräch. Wir zeigen Ihnen, wo Sie stehen – und was wirklich zählt.';
+$cta_button_text = get_field( 'beratung_cta_button' ) ?: 'Erstgespräch anfragen';
+
+// Check SVG for lists
+$check_svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 ?>
 
 <?php
@@ -170,25 +133,117 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 ) );
 ?>
 
-<section class="page-content" aria-labelledby="beratung-services-heading">
+<section class="page-content governance-assessment" aria-labelledby="governance-heading">
 	<div class="container">
 
-		<!-- Intro Content -->
-		<div class="page-intro">
-			<div class="page-intro__content entry-content">
-				<?php
-				while ( have_posts() ) :
-					the_post();
-					the_content();
-				endwhile;
-				?>
+		<!-- Intro Tagline -->
+		<div class="assessment-intro" style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-xl);">
+			<p style="font-size: 1.125rem; color: var(--color-primary); font-weight: 500; font-style: italic;">
+				<?php echo esc_html( $intro_tagline ); ?>
+			</p>
+		</div>
+
+		<!-- Was wir analysieren -->
+		<div class="assessment-section" style="margin-bottom: var(--spacing-xl);">
+			<h2 id="governance-heading" class="section-title">Was wir analysieren</h2>
+			<p class="section-description" style="margin-bottom: var(--spacing-md);">Analyse-Schwerpunkte</p>
+			<div class="assessment-card" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+				<ul class="check-list-modern" role="list">
+					<?php foreach ( $analyse_schwerpunkte as $item ) : ?>
+						<li>
+							<?php
+							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG
+							echo $check_svg;
+							?>
+							<span><?php echo esc_html( $item ); ?></span>
+						</li>
+					<?php endforeach; ?>
+				</ul>
 			</div>
 		</div>
 
-		<!-- Process Steps -->
-		<div class="process-section" aria-labelledby="process-heading">
-			<h2 id="process-heading" class="section-title text-center">Unser Beratungsprozess</h2>
-			<p class="section-description text-center mb-xl">In vier Schritten zu Ihrer optimalen IT-Strategie</p>
+		<!-- Ergebnisse für Sie -->
+		<div class="assessment-section" style="margin-bottom: var(--spacing-xl);">
+			<h2 class="section-title">Ergebnisse für Sie</h2>
+			<p class="section-description" style="margin-bottom: var(--spacing-md);">Klare Resultate statt Rohdaten</p>
+			<div class="assessment-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);">
+				<!-- Sie erhalten -->
+				<div class="assessment-card" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+					<h3 style="font-size: 1rem; font-weight: 600; color: var(--color-primary); margin-bottom: var(--spacing-sm);">Sie erhalten:</h3>
+					<ul class="check-list-modern" role="list">
+						<?php foreach ( $ergebnisse as $item ) : ?>
+							<li>
+								<?php
+								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG
+								echo $check_svg;
+								?>
+								<span><?php echo esc_html( $item ); ?></span>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+				<!-- Ideal für -->
+				<div class="assessment-card" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+					<h3 style="font-size: 1rem; font-weight: 600; color: var(--color-primary); margin-bottom: var(--spacing-sm);">Ideal für:</h3>
+					<ul class="check-list-modern" role="list">
+						<?php foreach ( $ideal_fuer as $item ) : ?>
+							<li>
+								<?php
+								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG
+								echo $check_svg;
+								?>
+								<span><?php echo esc_html( $item ); ?></span>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Warum DataEnergie? -->
+		<div class="assessment-section" style="margin-bottom: var(--spacing-xl);">
+			<h2 class="section-title">Warum DataEnergie?</h2>
+			<p class="section-description" style="margin-bottom: var(--spacing-md);">Ihr Vorteil</p>
+			<div class="assessment-card" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+				<ul class="check-list-modern" role="list">
+					<?php foreach ( $vorteile as $item ) : ?>
+						<li>
+							<?php
+							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG
+							echo $check_svg;
+							?>
+							<span><?php echo esc_html( $item ); ?></span>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+				<p style="font-size: 1rem; color: var(--color-primary); font-weight: 500; font-style: italic; margin-top: var(--spacing-md); padding-top: var(--spacing-md); border-top: 1px solid var(--color-border);">
+					<?php echo esc_html( $vorteil_tagline ); ?>
+				</p>
+			</div>
+		</div>
+
+		<!-- Für wen ist dieses Assessment geeignet? -->
+		<div class="assessment-section" style="margin-bottom: var(--spacing-xl);">
+			<h2 class="section-title">Für wen ist dieses Assessment geeignet?</h2>
+			<div class="assessment-card" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-lg);">
+				<ul class="check-list-modern" role="list">
+					<?php foreach ( $zielgruppen as $item ) : ?>
+						<li>
+							<?php
+							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Static SVG
+							echo $check_svg;
+							?>
+							<span><?php echo esc_html( $item ); ?></span>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Ablauf -->
+		<div class="process-section" aria-labelledby="process-heading" style="margin-bottom: var(--spacing-xl);">
+			<h2 id="process-heading" class="section-title text-center">Ablauf</h2>
+			<p class="section-description text-center mb-xl">Einfach & effizient</p>
 
 			<div class="process-steps">
 				<?php foreach ( $process_steps as $index => $step ) : ?>
@@ -208,44 +263,10 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 					</article>
 				<?php endforeach; ?>
 			</div>
-		</div>
 
-		<!-- Advantages -->
-		<div class="advantages-section">
-			<div class="advantages-grid">
-				<?php foreach ( $advantages as $advantage ) : ?>
-					<div class="advantage-card">
-						<div class="advantage-card__icon" aria-hidden="true">
-							<?php
-							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG is sanitized above
-							echo $advantage['icon'];
-							?>
-						</div>
-						<div class="advantage-card__content">
-							<h3 class="advantage-card__title"><?php echo esc_html( $advantage['title'] ); ?></h3>
-							<p class="advantage-card__text"><?php echo esc_html( $advantage['desc'] ); ?></p>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-
-		<!-- Services Grid -->
-		<h2 id="beratung-services-heading" class="section-title text-center mt-xl">Unsere Beratungsleistungen</h2>
-		<p class="section-description text-center mb-xl">Umfassende IT-Beratung für Ihren Erfolg</p>
-
-		<div class="feature-grid feature-grid--3col">
-			<?php foreach ( $services as $service ) : ?>
-				<?php
-				get_template_part( 'template-parts/sections/feature-card', null, array(
-					'icon_svg'    => $service['icon'],
-					'title'       => $service['title'],
-					'description' => $service['description'],
-					'features'    => $service['features'],
-					'variant'     => 'it',
-				) );
-				?>
-			<?php endforeach; ?>
+			<p style="text-align: center; font-size: 0.9375rem; color: var(--color-text-secondary); margin-top: var(--spacing-lg);">
+				Dauer: wenige Tage – kein Betriebsunterbruch
+			</p>
 		</div>
 
 		<!-- CTA -->

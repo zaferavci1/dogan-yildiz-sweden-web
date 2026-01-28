@@ -403,6 +403,32 @@ ul, ol {
     color: var(--color-text-light);
 }
 
+/* Top Bar Navigation */
+.top-bar-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-bar-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar-menu li a {
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.top-bar-menu li a:hover {
+    color: var(--color-primary);
+}
+
 /* -----------------------------------------------------------------------------
    Main Header
    -------------------------------------------------------------------------- */
@@ -1439,6 +1465,169 @@ ul, ol {
     margin: 0;
 }
 
+/* Detailed Service Cards with Features */
+.service-card-mini--detailed {
+    flex-direction: column;
+    padding: var(--spacing-lg);
+}
+
+.service-card-mini--detailed .service-card-mini__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.service-card-mini--detailed .service-card-mini__content {
+    width: 100%;
+}
+
+.service-card-mini--detailed .service-card-mini__title {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-card-mini--detailed .service-card-mini__description {
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.service-card-mini__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.service-card-mini__features li {
+    font-size: 0.8125rem;
+    color: var(--color-text);
+    padding-left: var(--spacing-md);
+    position: relative;
+    line-height: 1.5;
+}
+
+.service-card-mini__features li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.service-card-mini--it .service-card-mini__features li::before {
+    color: var(--color-primary);
+}
+
+.service-card-mini--solar .service-card-mini__features li::before {
+    color: #0891B2;
+}
+
+/* Extended Grid for 6 Cards */
+.services-container__grid--extended {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+/* 2x2 Grid for Homepage (4 Cards) */
+.services-container__grid--2x2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .services-container__grid--2x2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================================================
+   11.1 EXPANDABLE SERVICE CARDS
+   ========================================================================== */
+
+/* Expandable card base styles */
+.service-card-mini--expandable {
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+/* Short description - truncated to 2 lines */
+.service-card-mini__description--short {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Full description - hidden by default */
+.service-card-mini__description--full[hidden] {
+    display: none;
+}
+
+/* Features hidden by default in expandable cards */
+.service-card-mini--expandable .service-card-mini__features[hidden] {
+    display: none;
+}
+
+/* Expanded state - hide short description */
+.service-card-mini--expanded .service-card-mini__description--short {
+    display: none;
+}
+
+/* Expanded state - show full description */
+.service-card-mini--expanded .service-card-mini__description--full {
+    display: block;
+}
+
+/* Expanded state - show features */
+.service-card-mini--expanded .service-card-mini__features {
+    display: flex !important;
+}
+
+/* Toggle button styling */
+.service-card-mini__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    margin-top: var(--spacing-sm);
+    transition: color var(--transition-fast);
+}
+
+.service-card-mini__toggle:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+.service-card-mini__toggle:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.service-card-mini__toggle svg {
+    transition: transform 0.2s ease;
+}
+
+/* Expanded state - rotate arrow */
+.service-card-mini--expanded .service-card-mini__toggle svg {
+    transform: rotate(180deg);
+}
+
+/* Expanded state - visual feedback */
+.service-card-mini--expanded {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
 /* ==========================================================================
    12. FRONT PAGE - CTA SECTION
    ========================================================================== */
@@ -1512,6 +1701,11 @@ ul, ol {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Extended grid for 6 cards - 2 columns on tablet */
+    .services-container__grid--extended {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .services-container {
         padding: var(--spacing-xl) var(--spacing-xl);
     }
@@ -1551,6 +1745,11 @@ ul, ol {
 
     .services-container__title {
         font-size: 1.75rem;
+    }
+
+    /* Extended grid for 6 cards - 3 columns on desktop */
+    .services-container__grid--extended {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .section-services {
@@ -1935,6 +2134,14 @@ ul, ol {
     margin: 0 auto;
 }
 
+.page-hero-modern__tagline {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9375rem;
+    max-width: 600px;
+    margin: var(--spacing-sm) auto 0;
+    font-style: italic;
+}
+
 /* Feature Grid */
 .feature-grid {
     display: grid;
@@ -2034,6 +2241,147 @@ ul, ol {
     height: 20px;
     color: var(--color-secondary);
     margin-top: 2px;
+}
+
+/* Expandable Feature Card (Accordion Mode) */
+.feature-card--expandable {
+    cursor: pointer;
+}
+
+.feature-card--expandable .feature-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    cursor: pointer;
+    position: relative;
+}
+
+.feature-card--expandable .feature-card__header-content {
+    flex: 1;
+}
+
+.feature-card--expandable .feature-card__toggle {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: rgba(100, 116, 139, 0.08);
+    transition: all var(--transition-base);
+    margin-top: 4px;
+}
+
+.feature-card--expandable .feature-card__chevron {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-light);
+    transition: transform var(--transition-base);
+}
+
+.feature-card--expandable[aria-expanded="true"] .feature-card__chevron {
+    transform: rotate(180deg);
+}
+
+.feature-card--expandable[aria-expanded="true"] .feature-card__toggle {
+    background: rgba(37, 99, 235, 0.1);
+}
+
+.feature-card--expandable[aria-expanded="true"] .feature-card__chevron {
+    color: var(--color-primary);
+}
+
+.feature-card--expandable .feature-card__body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                margin-top 0.3s ease;
+}
+
+.feature-card--expandable[aria-expanded="true"] .feature-card__body {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: var(--spacing-lg);
+}
+
+.feature-card--expandable .feature-card__expanded-content {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+.feature-card__link-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    margin-top: var(--spacing-sm);
+}
+
+.feature-card__link-button:hover {
+    background: #1e3a8a;
+    transform: translateX(4px);
+}
+
+/* Features Label */
+.feature-card__features-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Enhanced check list styling */
+.check-list-modern {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.check-list-modern li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.check-list-modern li:last-child {
+    border-bottom: none;
+}
+
+.check-list-modern li svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--color-primary);
+    margin-top: 2px;
+}
+
+.check-list-modern li span {
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+/* Non-expandable cards keep original layout */
+.feature-card:not(.feature-card--expandable) .feature-card__body {
+    margin-top: var(--spacing-lg);
 }
 
 /* Intro Section */
@@ -4933,5 +5281,503 @@ a.impressum-contact-item__value:hover {
 
     .sla-info__title {
         color: #0f172a;
+    }
+}
+
+/* ==========================================================================
+   Feature Card Link Styles
+   ========================================================================== */
+.feature-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.feature-card__link:hover,
+.feature-card__link:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+.feature-card--clickable {
+    cursor: pointer;
+}
+
+.feature-card__link:hover .feature-card,
+.feature-card__link:focus .feature-card {
+    border-color: rgba(37, 99, 235, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card__link:focus {
+    outline: none;
+}
+
+.feature-card__link:focus .feature-card {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   MICROSOFT 365 PAGE STYLES
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Problem Section
+   -------------------------------------------------------------------------- */
+.m365-problem-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.problem-box {
+    display: flex;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, #fef2f2 0%, #fef9f9 100%);
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid #ef4444;
+}
+
+.problem-box__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #ef4444;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.problem-box__icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.problem-box__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #991b1b;
+    margin-bottom: var(--spacing-md);
+}
+
+.problem-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.problem-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+    color: #7f1d1d;
+    font-size: 0.9375rem;
+}
+
+.problem-list__bullet {
+    color: #ef4444;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.4;
+}
+
+.problem-box__intro {
+    font-size: 0.9375rem;
+    color: #7f1d1d;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.problem-box__result {
+    font-weight: 600;
+    color: #dc2626;
+    font-size: 1rem;
+    margin: 0;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid #fecaca;
+}
+
+/* -----------------------------------------------------------------------------
+   Solution Section
+   -------------------------------------------------------------------------- */
+.m365-solution-section {
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-2xl) 0;
+}
+
+.solution-header {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.solution-tagline {
+    margin-top: var(--spacing-lg);
+    font-size: 1.125rem;
+    color: var(--color-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   Two Columns Layout (Leistungsumfang & Mehrwert)
+   -------------------------------------------------------------------------- */
+.m365-two-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+    .m365-two-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.m365-column {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-base);
+}
+
+.m365-column:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.column-header {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.column-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+    color: #fff;
+    margin-bottom: var(--spacing-md);
+}
+
+.column-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.column-icon--success {
+    background: #10b981;
+}
+
+.column-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-xs);
+}
+
+.column-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+}
+
+.column-tagline {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* Check List */
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+}
+
+.check-list__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    color: #fff;
+    margin-top: 2px;
+}
+
+.check-list__icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+.check-list--success .check-list__icon {
+    background: #10b981;
+}
+
+/* -----------------------------------------------------------------------------
+   Vorteile Section
+   -------------------------------------------------------------------------- */
+.m365-vorteile-section {
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-2xl);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+}
+
+.vorteile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+@media (min-width: 640px) {
+    .vorteile-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .vorteile-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.vorteil-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.vorteil-item:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.vorteil-item__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    color: #fff;
+}
+
+.vorteil-item__icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.vorteil-item__text {
+    font-size: 0.9375rem;
+    color: var(--color-heading);
+    font-weight: 500;
+}
+
+.vorteile-tagline {
+    font-size: 1rem;
+    color: var(--color-text);
+    font-style: italic;
+    margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Zielgruppe Section
+   -------------------------------------------------------------------------- */
+.m365-zielgruppe-section {
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
+}
+
+.zielgruppe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.zielgruppe-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+}
+
+.zielgruppe-tag:hover {
+    border-color: var(--color-primary);
+    background: var(--color-bg-alt);
+}
+
+.zielgruppe-tag__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+}
+
+.zielgruppe-tag__icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* -----------------------------------------------------------------------------
+   Ablauf Section (Process Steps)
+   -------------------------------------------------------------------------- */
+.m365-ablauf-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.ablauf-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    max-width: 900px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .ablauf-steps {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
+.ablauf-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.ablauf-step__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+}
+
+.ablauf-step__title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-heading);
+    max-width: 160px;
+}
+
+.ablauf-step__arrow {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .ablauf-step__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: -20px;
+        top: 12px;
+        width: 24px;
+        height: 24px;
+        color: var(--color-text-light);
+    }
+
+    .ablauf-step__arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .ablauf-step:last-child .ablauf-step__arrow {
+        display: none;
+    }
+}
+
+.ablauf-tagline {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Mobile Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+    .problem-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .problem-box__icon {
+        margin: 0 auto var(--spacing-md);
+    }
+
+    .problem-list__item {
+        justify-content: center;
+    }
+
+    .problem-box__result {
+        text-align: center;
     }
 }

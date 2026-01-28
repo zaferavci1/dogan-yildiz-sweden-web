@@ -7,170 +7,79 @@
  * ACF Free uyumlu - Sabit alan yapısı ile dinamik içerik.
  *
  * @package Dataenergie
- * @version 2.2.0
+ * @version 3.0.0
  */
 
 get_header();
-
-// SVG Icons for Values (key => svg)
-$value_icons = array(
-    'target' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>',
-    'users'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
-    'leaf'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>',
-    'shield' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>',
-    'heart'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>',
-    'star'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
-    'check'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
-    'zap'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
-);
-
-// Placeholder icon for team
-$icon_user_placeholder = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
 
 // =============================================================================
 // ACF VERILERINI AL (FALLBACK ILE) - ACF FREE UYUMLU
 // =============================================================================
 
 // Hero
-$hero_subtitle = get_field( 'about_hero_subtitle' ) ?: 'Wir verbinden IT-Expertise mit nachhaltigen Energielösungen. Seit über 15 Jahren sind wir Ihr zuverlässiger Partner in der Schweiz.';
+$hero_subtitle = get_field( 'about_hero_subtitle' ) ?: 'DataEnergie – Strukturierte IT, digitale Lösungen und nachhaltige Energie';
 
-// Story Section
-$story_tag    = get_field( 'about_story_tag' ) ?: 'Unsere Geschichte';
-$story_title  = get_field( 'about_story_title' ) ?: 'Von der Vision zur Realität';
-$story_text_1 = get_field( 'about_story_text_1' ) ?: 'Was als kleine IT-Beratung begann, ist heute ein umfassendes Dienstleistungsunternehmen für Technologie und nachhaltige Energie. Unsere Reise startete mit dem Ziel, Schweizer Unternehmen mit modernster IT-Infrastruktur zu versorgen.';
-$story_text_2 = get_field( 'about_story_text_2' ) ?: 'Mit der wachsenden Bedeutung erneuerbarer Energien haben wir unser Portfolio erweitert und bieten heute ganzheitliche Lösungen: von der Cloud-Migration bis zur Photovoltaik-Installation, alles aus einer Hand.';
-$story_image  = get_field( 'about_story_image' );
+// Unsere Haltung
+$haltung_title = get_field( 'about_haltung_title' ) ?: 'Klarheit statt Komplexität';
+$haltung_text  = get_field( 'about_haltung_text' ) ?: 'In einer zunehmend digitalen Welt entstehen Risiken oft dort, wo Übersicht fehlt. Unsere Arbeit zielt darauf ab, Komplexität zu reduzieren, Risiken sichtbar zu machen und tragfähige Entscheidungen zu ermöglichen.';
+$haltung_note  = get_field( 'about_haltung_note' ) ?: 'Wir glauben nicht an Standardlösungen, sondern an passende Lösungen.';
 
-// Values Section
-$values_title       = get_field( 'about_values_title' ) ?: 'Unsere Werte';
-$values_description = get_field( 'about_values_description' ) ?: 'Diese Grundsätze leiten unser Handeln und definieren, wer wir sind.';
-
-// Build values array from individual fields
-$values_items = array(
-    array(
-        'icon'        => get_field( 'value_1_icon' ) ?: 'target',
-        'title'       => get_field( 'value_1_title' ) ?: 'Zuverlässigkeit',
-        'description' => get_field( 'value_1_description' ) ?: 'Wir halten, was wir versprechen. Unsere Kunden können sich auf uns verlassen.',
-    ),
-    array(
-        'icon'        => get_field( 'value_2_icon' ) ?: 'users',
-        'title'       => get_field( 'value_2_title' ) ?: 'Kundennähe',
-        'description' => get_field( 'value_2_description' ) ?: 'Wir verstehen Ihre Bedürfnisse und entwickeln massgeschneiderte Lösungen.',
-    ),
-    array(
-        'icon'        => get_field( 'value_3_icon' ) ?: 'leaf',
-        'title'       => get_field( 'value_3_title' ) ?: 'Nachhaltigkeit',
-        'description' => get_field( 'value_3_description' ) ?: 'Wir setzen auf zukunftsfähige Technologien für Umwelt und Gesellschaft.',
-    ),
-    array(
-        'icon'        => get_field( 'value_4_icon' ) ?: 'shield',
-        'title'       => get_field( 'value_4_title' ) ?: 'Qualität',
-        'description' => get_field( 'value_4_description' ) ?: 'Höchste Standards bei Produkten, Services und Kundenbetreuung.',
-    ),
+// Was uns auszeichnet
+$auszeichnet_items = array(
+	get_field( 'about_auszeichnet_1' ) ?: 'Strukturierte Vorgehensweise statt Ad-hoc-IT',
+	get_field( 'about_auszeichnet_2' ) ?: 'Fokus auf Microsoft 365, Security & Governance',
+	get_field( 'about_auszeichnet_3' ) ?: 'Eigene digitale Lösungen mit klar definiertem Nutzen',
+	get_field( 'about_auszeichnet_4' ) ?: 'Kombination aus Beratung, Umsetzung und Betrieb',
+	get_field( 'about_auszeichnet_5' ) ?: 'Verständnis für technische und geschäftliche Anforderungen',
+	get_field( 'about_auszeichnet_6' ) ?: 'Ausrichtung auf den Schweizer Markt',
 );
 
-// Stats Section - Build from individual fields
-$stats_items = array(
-    array(
-        'number' => get_field( 'stat_1_number' ) ?: '15+',
-        'label'  => get_field( 'stat_1_label' ) ?: 'Jahre Erfahrung',
-    ),
-    array(
-        'number' => get_field( 'stat_2_number' ) ?: '500+',
-        'label'  => get_field( 'stat_2_label' ) ?: 'Zufriedene Kunden',
-    ),
-    array(
-        'number' => get_field( 'stat_3_number' ) ?: '1000+',
-        'label'  => get_field( 'stat_3_label' ) ?: 'Projekte realisiert',
-    ),
-    array(
-        'number' => get_field( 'stat_4_number' ) ?: '24/7',
-        'label'  => get_field( 'stat_4_label' ) ?: 'Support verfügbar',
-    ),
+// Unsere Schwerpunkte
+$schwerpunkte = array(
+	array(
+		'title'       => get_field( 'about_schwerpunkt_1_title' ) ?: 'IT Services',
+		'description' => get_field( 'about_schwerpunkt_1_desc' ) ?: 'Governance-orientierte IT-Services mit Fokus auf Microsoft 365, Security, Cloud und Automatisierung.',
+		'link'        => home_url( '/it-services/' ),
+		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+	),
+	array(
+		'title'       => get_field( 'about_schwerpunkt_2_title' ) ?: 'Digitale Lösungen',
+		'description' => get_field( 'about_schwerpunkt_2_desc' ) ?: 'Eigene, modulare Lösungen wie Workforce Management & Zeiterfassung sowie Smart-Building-Anwendungen.',
+		'link'        => home_url( '/workforce-management/' ),
+		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
+	),
+	array(
+		'title'       => get_field( 'about_schwerpunkt_3_title' ) ?: 'Energielösungen',
+		'description' => get_field( 'about_schwerpunkt_3_desc' ) ?: 'Planung und Umsetzung nachhaltiger Photovoltaik-Systeme für Unternehmen und Immobilien.',
+		'link'        => home_url( '/solar-systems/' ),
+		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>',
+	),
 );
 
-// Team Section
-$team_title       = get_field( 'about_team_title' ) ?: 'Unser Team';
-$team_description = get_field( 'about_team_description' ) ?: 'Die Menschen hinter Dataenergie - engagiert, kompetent und für Sie da.';
-
-// Build team members array from individual fields
-$team_members = array();
-
-// Member 1
-$member_1_name = get_field( 'member_1_name' ) ?: 'Max Mustermann';
-if ( $member_1_name ) {
-    $team_members[] = array(
-        'name'  => $member_1_name,
-        'role'  => get_field( 'member_1_role' ) ?: 'Geschäftsführer',
-        'bio'   => get_field( 'member_1_bio' ) ?: 'Über 20 Jahre Erfahrung in IT und erneuerbaren Energien.',
-        'image' => get_field( 'member_1_image' ),
-    );
-}
-
-// Member 2
-$member_2_name = get_field( 'member_2_name' ) ?: 'Anna Schmidt';
-if ( $member_2_name ) {
-    $team_members[] = array(
-        'name'  => $member_2_name,
-        'role'  => get_field( 'member_2_role' ) ?: 'Leiterin IT-Services',
-        'bio'   => get_field( 'member_2_bio' ) ?: 'Expertin für Cloud-Lösungen und IT-Infrastruktur.',
-        'image' => get_field( 'member_2_image' ),
-    );
-}
-
-// Member 3
-$member_3_name = get_field( 'member_3_name' ) ?: 'Thomas Weber';
-if ( $member_3_name ) {
-    $team_members[] = array(
-        'name'  => $member_3_name,
-        'role'  => get_field( 'member_3_role' ) ?: 'Leiter Solar-Projekte',
-        'bio'   => get_field( 'member_3_bio' ) ?: 'Spezialist für Photovoltaik und Energiespeicher.',
-        'image' => get_field( 'member_3_image' ),
-    );
-}
-
-// Member 4 (optional - only show if name is filled)
-$member_4_name = get_field( 'member_4_name' );
-if ( $member_4_name ) {
-    $team_members[] = array(
-        'name'  => $member_4_name,
-        'role'  => get_field( 'member_4_role' ) ?: '',
-        'bio'   => get_field( 'member_4_bio' ) ?: '',
-        'image' => get_field( 'member_4_image' ),
-    );
-}
-
-// Timeline Section
-$timeline_title = get_field( 'about_timeline_title' ) ?: 'Unsere Meilensteine';
-
-// Build timeline array from individual fields
-$timeline_items = array(
-    array(
-        'year'        => get_field( 'milestone_1_year' ) ?: '2008',
-        'title'       => get_field( 'milestone_1_title' ) ?: 'Gründung',
-        'description' => get_field( 'milestone_1_description' ) ?: 'Dataenergie wurde als IT-Dienstleister in Zürich gegründet.',
-    ),
-    array(
-        'year'        => get_field( 'milestone_2_year' ) ?: '2012',
-        'title'       => get_field( 'milestone_2_title' ) ?: 'Erweiterung Solar',
-        'description' => get_field( 'milestone_2_description' ) ?: 'Aufnahme von Solarenergie-Lösungen in unser Portfolio.',
-    ),
-    array(
-        'year'        => get_field( 'milestone_3_year' ) ?: '2018',
-        'title'       => get_field( 'milestone_3_title' ) ?: 'Cloud-Transformation',
-        'description' => get_field( 'milestone_3_description' ) ?: 'Fokus auf Microsoft 365 und Azure Cloud-Services.',
-    ),
-    array(
-        'year'        => get_field( 'milestone_4_year' ) ?: '2023',
-        'title'       => get_field( 'milestone_4_title' ) ?: 'Heute',
-        'description' => get_field( 'milestone_4_description' ) ?: 'Ihr zuverlässiger Partner für IT und erneuerbare Energien.',
-    ),
+// Für wen wir arbeiten
+$zielgruppen = array(
+	get_field( 'about_zielgruppe_1' ) ?: 'KMU und Organisationen',
+	get_field( 'about_zielgruppe_2' ) ?: 'IT-Leitungen und Geschäftsführungen',
+	get_field( 'about_zielgruppe_3' ) ?: 'HR- und Verwaltungsabteilungen',
+	get_field( 'about_zielgruppe_4' ) ?: 'Immobilienverwaltungen',
+	get_field( 'about_zielgruppe_5' ) ?: 'Unternehmen mit hohen Anforderungen an Sicherheit und Struktur',
 );
+
+// Unsere Arbeitsweise
+$arbeitsweise_title = get_field( 'about_arbeitsweise_title' ) ?: 'Strukturiert. Transparent. Verlässlich.';
+$arbeitsweise_items = array(
+	get_field( 'about_arbeitsweise_1' ) ?: 'Klare Zieldefinition',
+	get_field( 'about_arbeitsweise_2' ) ?: 'Verständliche Kommunikation',
+	get_field( 'about_arbeitsweise_3' ) ?: 'Nachvollziehbare Ergebnisse',
+	get_field( 'about_arbeitsweise_4' ) ?: 'Saubere Dokumentation',
+	get_field( 'about_arbeitsweise_5' ) ?: 'Langfristige Partnerschaften',
+);
+$arbeitsweise_note = get_field( 'about_arbeitsweise_note' ) ?: 'Unser Anspruch ist nicht, möglichst viel zu verkaufen – sondern sinnvolle und nachhaltige Lösungen zu liefern.';
 
 // CTA Section
-$cta_title       = get_field( 'about_cta_title' ) ?: 'Möchten Sie mehr erfahren?';
-$cta_description = get_field( 'about_cta_description' ) ?: 'Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.';
-$cta_button_text = get_field( 'about_cta_button_text' ) ?: 'Kontakt aufnehmen';
+$cta_title       = get_field( 'about_cta_title' ) ?: 'Möchten Sie mehr über DataEnergie erfahren?';
+$cta_description = get_field( 'about_cta_description' ) ?: 'Gerne stellen wir uns und unsere Arbeitsweise in einem unverbindlichen Gespräch vor.';
+$cta_button_text = get_field( 'about_cta_button_text' ) ?: 'Erstgespräch anfragen';
 ?>
 
 <!-- ========================================
@@ -180,79 +89,57 @@ $cta_button_text = get_field( 'about_cta_button_text' ) ?: 'Kontakt aufnehmen';
     <div class="container">
         <div class="about-hero__content">
             <span class="about-hero__tag">Über uns</span>
-            <h1 id="about-hero-title" class="about-hero__title"><?php echo esc_html( get_the_title() ); ?></h1>
+            <h1 id="about-hero-title" class="about-hero__title">Wer wir sind</h1>
             <p class="about-hero__subtitle"><?php echo esc_html( $hero_subtitle ); ?></p>
+            <p class="about-hero__intro" style="margin-top: var(--spacing-md); max-width: 700px; color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; line-height: 1.7;">
+                DataEnergie unterstützt Unternehmen und Immobilien mit klar strukturierten IT-Services, eigenen digitalen Lösungen und nachhaltigen Energiekonzepten. Unser Fokus liegt auf Sicherheit, Transparenz und langfristiger Betriebssicherheit.
+            </p>
+            <p style="margin-top: var(--spacing-sm); color: rgba(255, 255, 255, 0.7); font-style: italic;">
+                Wir verbinden technisches Know-how mit unternehmerischem Denken – pragmatisch, verständlich und lösungsorientiert.
+            </p>
         </div>
     </div>
 </section>
 
 <!-- ========================================
-     STORY SECTION
+     UNSERE HALTUNG
      ======================================== -->
-<section class="about-story" aria-labelledby="story-title">
+<section class="about-haltung" aria-labelledby="haltung-title" style="padding: var(--spacing-xl) 0; background-color: var(--color-background-alt);">
     <div class="container">
-        <div class="about-story__grid">
-            <div class="about-story__content">
-                <span class="about-story__tag"><?php echo esc_html( $story_tag ); ?></span>
-                <h2 id="story-title" class="about-story__title"><?php echo esc_html( $story_title ); ?></h2>
-                <p class="about-story__text"><?php echo esc_html( $story_text_1 ); ?></p>
-                <p class="about-story__text"><?php echo esc_html( $story_text_2 ); ?></p>
-            </div>
-            <div class="about-story__image">
-                <?php if ( $story_image ) : ?>
-                    <img src="<?php echo esc_url( $story_image['url'] ); ?>"
-                         alt="<?php echo esc_attr( $story_image['alt'] ?: 'Dataenergie' ); ?>"
-                         loading="lazy">
-                <?php elseif ( has_post_thumbnail() ) : ?>
-                    <?php the_post_thumbnail( 'large', array( 'loading' => 'lazy' ) ); ?>
-                <?php else : ?>
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/about-placeholder.jpg' ); ?>"
-                         alt="Dataenergie Team"
-                         loading="lazy">
-                <?php endif; ?>
-            </div>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <span class="section-tag">Unsere Haltung</span>
+            <h2 id="haltung-title" style="font-size: 2rem; margin-top: var(--spacing-sm); margin-bottom: var(--spacing-md);">
+                <?php echo esc_html( $haltung_title ); ?>
+            </h2>
+            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
+                <?php echo esc_html( $haltung_text ); ?>
+            </p>
+            <p style="font-size: 1rem; color: var(--color-primary); font-weight: 500; font-style: italic;">
+                <?php echo esc_html( $haltung_note ); ?>
+            </p>
         </div>
     </div>
 </section>
 
 <!-- ========================================
-     VALUES SECTION
+     WAS UNS AUSZEICHNET
      ======================================== -->
-<section class="values-section" aria-labelledby="values-title">
+<section class="about-auszeichnet" aria-labelledby="auszeichnet-title" style="padding: var(--spacing-xl) 0;">
     <div class="container">
-        <div class="values-section__header">
-            <h2 id="values-title" class="values-section__title"><?php echo esc_html( $values_title ); ?></h2>
-            <p class="values-section__description"><?php echo esc_html( $values_description ); ?></p>
+        <div class="section-header" style="margin-bottom: var(--spacing-lg);">
+            <span class="section-tag">Differenzierung</span>
+            <h2 id="auszeichnet-title" class="section-title">Was uns auszeichnet</h2>
         </div>
 
-        <div class="values-grid">
-            <?php foreach ( $values_items as $value ) : ?>
-                <?php
-                $icon_key = $value['icon'] ?? 'target';
-                $icon_svg = $value_icons[ $icon_key ] ?? $value_icons['target'];
-                ?>
-                <article class="value-card">
-                    <div class="value-card__icon" aria-hidden="true">
-                        <?php echo $icon_svg; ?>
+        <div class="feature-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md); max-width: 1000px; margin: 0 auto;">
+            <?php foreach ( $auszeichnet_items as $item ) : ?>
+                <div class="feature-list__item" style="display: flex; align-items: flex-start; gap: var(--spacing-sm); padding: var(--spacing-md); background: var(--color-background-alt); border-radius: var(--radius-md);">
+                    <div style="flex-shrink: 0; width: 24px; height: 24px; color: var(--color-primary);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                     </div>
-                    <h3 class="value-card__title"><?php echo esc_html( $value['title'] ?? '' ); ?></h3>
-                    <p class="value-card__description"><?php echo esc_html( $value['description'] ?? '' ); ?></p>
-                </article>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<!-- ========================================
-     STATS SECTION
-     ======================================== -->
-<section class="stats-section" aria-label="Unternehmenskennzahlen">
-    <div class="container">
-        <div class="stats-grid">
-            <?php foreach ( $stats_items as $stat ) : ?>
-                <div class="stat-card">
-                    <div class="stat-card__number"><?php echo esc_html( $stat['number'] ?? '' ); ?></div>
-                    <div class="stat-card__label"><?php echo esc_html( $stat['label'] ?? '' ); ?></div>
+                    <span style="color: var(--color-text-primary); font-weight: 500;"><?php echo esc_html( $item ); ?></span>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -260,58 +147,88 @@ $cta_button_text = get_field( 'about_cta_button_text' ) ?: 'Kontakt aufnehmen';
 </section>
 
 <!-- ========================================
-     TEAM SECTION
+     UNSERE SCHWERPUNKTE
      ======================================== -->
-<section class="team-section" aria-labelledby="team-title">
+<section class="about-schwerpunkte" aria-labelledby="schwerpunkte-title" style="padding: var(--spacing-xl) 0; background-color: var(--color-background-alt);">
     <div class="container">
-        <div class="team-section__header">
-            <h2 id="team-title" class="team-section__title"><?php echo esc_html( $team_title ); ?></h2>
-            <p class="team-section__description"><?php echo esc_html( $team_description ); ?></p>
+        <div class="section-header" style="margin-bottom: var(--spacing-lg);">
+            <span class="section-tag">Leistungsbereiche</span>
+            <h2 id="schwerpunkte-title" class="section-title">Unsere Schwerpunkte</h2>
         </div>
 
-        <div class="team-grid">
-            <?php foreach ( $team_members as $member ) : ?>
-                <?php
-                $member_image = $member['image'] ?? null;
-                $has_image    = ! empty( $member_image );
-                ?>
-                <article class="team-card">
-                    <div class="team-card__image <?php echo ! $has_image ? 'team-card__image--placeholder' : ''; ?>">
-                        <?php if ( $has_image ) : ?>
-                            <img src="<?php echo esc_url( $member_image['url'] ); ?>"
-                                 alt="<?php echo esc_attr( $member['name'] ?? '' ); ?>"
-                                 loading="lazy">
-                        <?php else : ?>
-                            <?php echo $icon_user_placeholder; ?>
-                        <?php endif; ?>
+        <div class="feature-grid feature-grid--3col">
+            <?php foreach ( $schwerpunkte as $schwerpunkt ) : ?>
+                <a href="<?php echo esc_url( $schwerpunkt['link'] ); ?>" class="service-card-mini service-card-mini--it" style="text-decoration: none;">
+                    <div class="service-card-mini__icon">
+                        <?php echo $schwerpunkt['icon']; ?>
                     </div>
-                    <h3 class="team-card__name"><?php echo esc_html( $member['name'] ?? '' ); ?></h3>
-                    <p class="team-card__role"><?php echo esc_html( $member['role'] ?? '' ); ?></p>
-                    <p class="team-card__bio"><?php echo esc_html( $member['bio'] ?? '' ); ?></p>
-                </article>
+                    <div class="service-card-mini__content">
+                        <h3 class="service-card-mini__title"><?php echo esc_html( $schwerpunkt['title'] ); ?></h3>
+                        <p class="service-card-mini__description"><?php echo esc_html( $schwerpunkt['description'] ); ?></p>
+                    </div>
+                </a>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
 
 <!-- ========================================
-     TIMELINE SECTION
+     FÜR WEN WIR ARBEITEN
      ======================================== -->
-<section class="timeline-section" aria-labelledby="timeline-title">
+<section class="about-zielgruppen" aria-labelledby="zielgruppen-title" style="padding: var(--spacing-xl) 0;">
     <div class="container">
-        <div class="timeline-section__header">
-            <h2 id="timeline-title" class="timeline-section__title"><?php echo esc_html( $timeline_title ); ?></h2>
-        </div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="section-header" style="margin-bottom: var(--spacing-lg);">
+                <span class="section-tag">Zielgruppen</span>
+                <h2 id="zielgruppen-title" class="section-title">Für wen wir arbeiten</h2>
+            </div>
 
-        <div class="timeline">
-            <?php foreach ( $timeline_items as $item ) : ?>
-                <div class="timeline-item">
-                    <div class="timeline-item__marker"></div>
-                    <span class="timeline-item__year"><?php echo esc_html( $item['year'] ?? '' ); ?></span>
-                    <h3 class="timeline-item__title"><?php echo esc_html( $item['title'] ?? '' ); ?></h3>
-                    <p class="timeline-item__description"><?php echo esc_html( $item['description'] ?? '' ); ?></p>
-                </div>
-            <?php endforeach; ?>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                <?php foreach ( $zielgruppen as $zielgruppe ) : ?>
+                    <li style="display: flex; align-items: center; gap: var(--spacing-sm); padding: var(--spacing-sm) var(--spacing-md); background: var(--color-background-alt); border-radius: var(--radius-md); border-left: 3px solid var(--color-primary);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span style="color: var(--color-text-primary); font-weight: 500;"><?php echo esc_html( $zielgruppe ); ?></span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================
+     UNSERE ARBEITSWEISE
+     ======================================== -->
+<section class="about-arbeitsweise" aria-labelledby="arbeitsweise-title" style="padding: var(--spacing-xl) 0; background-color: var(--color-background-alt);">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <span class="section-tag">Methodik</span>
+            <h2 id="arbeitsweise-title" style="font-size: 2rem; margin-top: var(--spacing-sm); margin-bottom: var(--spacing-lg);">
+                Unsere Arbeitsweise
+            </h2>
+
+            <p style="font-size: 1.25rem; font-weight: 600; color: var(--color-primary); margin-bottom: var(--spacing-lg);">
+                <?php echo esc_html( $arbeitsweise_title ); ?>
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-lg);">
+                <?php foreach ( $arbeitsweise_items as $item ) : ?>
+                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: var(--spacing-sm) var(--spacing-md); background: var(--color-background); border-radius: var(--radius-full); border: 1px solid var(--color-border); font-weight: 500; color: var(--color-text-primary);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <?php echo esc_html( $item ); ?>
+                    </span>
+                <?php endforeach; ?>
+            </div>
+
+            <p style="font-size: 1rem; color: var(--color-text-secondary); font-style: italic; max-width: 600px; margin: 0 auto;">
+                <?php echo esc_html( $arbeitsweise_note ); ?>
+            </p>
         </div>
     </div>
 </section>

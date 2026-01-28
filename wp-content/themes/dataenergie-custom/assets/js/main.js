@@ -18,6 +18,8 @@
         initStickyHeader();
         initSmoothScroll();
         initProjectGalleryLightbox();
+        initFeatureCardAccordions();
+        initServiceCardExpand();
     });
 
     /**
@@ -434,6 +436,100 @@
                 }
             }
         }
+    }
+
+    /**
+     * Feature Card Accordions
+     * Click to expand/collapse feature card details
+     */
+    function initFeatureCardAccordions() {
+        const expandableCards = document.querySelectorAll('.feature-card--expandable');
+        
+        expandableCards.forEach(function(card) {
+            const header = card.querySelector('.feature-card__header');
+            if (!header) return;
+
+            // Click event
+            header.addEventListener('click', function() {
+                toggleCard(card);
+            });
+
+            // Keyboard support (Enter or Space)
+            header.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCard(card);
+                }
+            });
+        });
+
+        /**
+         * Toggle single card
+         */
+        function toggleCard(card) {
+            const header = card.querySelector('.feature-card__header');
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+            // Toggle aria-expanded
+            header.setAttribute('aria-expanded', !isExpanded);
+
+            // Toggle body visibility
+            const body = card.querySelector('.feature-card__body');
+            if (body) {
+                body.setAttribute('aria-hidden', isExpanded);
+            }
+        }
+    }
+
+    /**
+     * Service Card Mini - Expand/Navigate functionality
+     * First click: expand card, show full description
+     * Second click: navigate to page
+     */
+    function initServiceCardExpand() {
+        const expandableCards = document.querySelectorAll('.service-card-mini--expandable');
+
+        expandableCards.forEach(function(card) {
+            const toggleBtn = card.querySelector('.service-card-mini__toggle');
+            const href = card.dataset.href;
+
+            if (!toggleBtn) return;
+
+            // Click on toggle button
+            toggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const isExpanded = card.classList.contains('service-card-mini--expanded');
+
+                if (isExpanded) {
+                    // Second click - navigate to page
+                    if (href) {
+                        window.location.href = href;
+                    }
+                } else {
+                    // First click - expand card
+                    card.classList.add('service-card-mini--expanded');
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+
+                    // Update button text
+                    toggleBtn.querySelector('.toggle-text').textContent = 'Zur Seite';
+
+                    // Show hidden elements
+                    const fullDesc = card.querySelector('.service-card-mini__description--full');
+                    const features = card.querySelector('.service-card-mini__features');
+                    if (fullDesc) fullDesc.removeAttribute('hidden');
+                    if (features) features.removeAttribute('hidden');
+                }
+            });
+
+            // Click anywhere on card also triggers toggle
+            card.addEventListener('click', function(e) {
+                // Don't trigger if clicking on toggle button
+                if (e.target === toggleBtn || toggleBtn.contains(e.target)) return;
+                toggleBtn.click();
+            });
+        });
     }
 
 })();

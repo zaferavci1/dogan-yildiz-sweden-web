@@ -41,7 +41,7 @@
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
                             <a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>">IT Services</a>
                             <a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>">Solar Systems</a>
-                            <a href="<?php echo esc_url( home_url( '/ueber-uns/' ) ); ?>">Über uns</a>
+                            <a href="<?php echo esc_url( home_url( '/uber-uns/' ) ); ?>">Über uns</a>
                             <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Kontakt</a>
                             <?php
                         }

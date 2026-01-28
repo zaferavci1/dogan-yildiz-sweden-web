@@ -2,12 +2,11 @@
 /**
  * Template Name: Cloud Solutions
  *
- * Modern SaaS Cloud hizmetleri sayfası.
- * Vercel/Linear design estetiğinde tasarlanmıştır.
- * ACF Free uyumlu - Sabit alan yapısı ile dinamik içerik.
+ * Cloud & Hybrid Architekturen Beratungsseite.
+ * Strukturierte Darstellung von Problem, Lösung und Mehrwert.
  *
  * @package Dataenergie
- * @version 2.1.0
+ * @version 3.0.0
  */
 
 get_header();
@@ -16,73 +15,103 @@ get_header();
 // SVG ICONS MAP
 // =============================================================================
 $icon_svgs = array(
-	'cloud'      => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>',
-	'grid'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>',
-	'refresh'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>',
-	'shield'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-	'server'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>',
-	'database'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>',
-	'lock'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
-	'headphones' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>',
+	'alert'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+	'check'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+	'cloud'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>',
+	'star'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
+	'users'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+	'arrow-right' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
 );
 
 // =============================================================================
-// ACF VERILERINI AL (FALLBACK ILE) - ACF FREE UYUMLU
+// CONTENT DATA
 // =============================================================================
 
 // Hero Section
-$hero_tag      = get_field( 'cloud_hero_tag' ) ?: 'Cloud Services';
-$hero_subtitle = get_field( 'cloud_hero_subtitle' ) ?: 'Sichere Cloud-Migration und moderne Arbeitsplatzlösungen';
+$hero_tag      = 'Cloud Solutions';
+$hero_subtitle = 'Strukturierte Cloud- & Hybrid-Architekturen';
 
-// Service 1
-$service_1_icon_key = get_field( 'cloud_service_1_icon' ) ?: 'grid';
-$service_1 = array(
-	'icon'        => $icon_svgs[ $service_1_icon_key ] ?? $icon_svgs['cloud'],
-	'title'       => get_field( 'cloud_service_1_title' ) ?: 'Microsoft 365',
-	'description' => get_field( 'cloud_service_1_description' ) ?: 'Wir unterstützen Sie bei der Migration in die Cloud. Mit Microsoft 365, Exchange Online und Teams optimieren wir Ihre Zusammenarbeit.',
-	'features'    => array_filter( array(
-		get_field( 'cloud_service_1_feature_1' ) ?: 'Exchange Online & Outlook',
-		get_field( 'cloud_service_1_feature_2' ) ?: 'Teams & SharePoint',
-		get_field( 'cloud_service_1_feature_3' ) ?: 'OneDrive for Business',
-		get_field( 'cloud_service_1_feature_4' ) ?: 'Microsoft 365 Lizenzverwaltung',
-	) ),
+// Problem Section
+$problem_intro = 'Viele Unternehmen stehen zwischen zwei Welten:';
+$problems = array(
+	'On-Premises-Infrastruktur ist gewachsen',
+	'Cloud wird punktuell genutzt',
+	'Keine klare Zielarchitektur',
+	'Sicherheits- und Kostenrisiken',
+	'Unklare Zuständigkeiten zwischen Cloud und Betrieb',
+);
+$problem_result = 'Ergebnis: Komplexität statt Klarheit.';
+
+// Solution Section
+$solution_title       = 'Unsere Lösung';
+$solution_subtitle    = 'Strukturierte Cloud- & Hybrid-Architekturen';
+$solution_description = 'DataEnergie entwickelt Cloud- und Hybrid-Konzepte, die technisch sinnvoll, sicher und betriebsfähig sind – abgestimmt auf Ihre Organisation.';
+$solution_tagline     = 'Nicht alles in die Cloud. Sondern das Richtige.';
+
+// Leistungsumfang (Was wir umsetzen)
+$leistungen = array(
+	'Azure Architektur & Design',
+	'Hybrid AD / Entra ID Integration',
+	'Azure Landing Zones',
+	'File- & Collaboration-Lösungen',
+	'Backup & Disaster Recovery',
+	'Sicherheits- & Kostenoptimierung',
 );
 
-// Service 2
-$service_2_icon_key = get_field( 'cloud_service_2_icon' ) ?: 'cloud';
-$service_2 = array(
-	'icon'        => $icon_svgs[ $service_2_icon_key ] ?? $icon_svgs['cloud'],
-	'title'       => get_field( 'cloud_service_2_title' ) ?: 'Microsoft Azure',
-	'description' => get_field( 'cloud_service_2_description' ) ?: 'Azure-Integration und hybride Infrastrukturen für flexible Arbeitsmodelle und skalierbare Geschäftslösungen.',
-	'features'    => array_filter( array(
-		get_field( 'cloud_service_2_feature_1' ) ?: 'Azure Virtual Machines',
-		get_field( 'cloud_service_2_feature_2' ) ?: 'Azure Active Directory',
-		get_field( 'cloud_service_2_feature_3' ) ?: 'Hybride Cloud-Lösungen',
-		get_field( 'cloud_service_2_feature_4' ) ?: 'Azure Backup & Site Recovery',
-	) ),
+// Mehrwert (Ergebnisse für Sie)
+$mehrwert = array(
+	'Klare Zielarchitektur (On-Prem & Cloud)',
+	'Reduzierte Betriebs- und Sicherheitsrisiken',
+	'Skalierbare und wartbare Systeme',
+	'Transparente Kostenstrukturen',
+	'Zukunftssichere IT-Entscheidungen',
+);
+$mehrwert_tagline = 'Technik, die mitwächst – nicht blockiert.';
+
+// Warum DataEnergie?
+$vorteile = array(
+	'Erfahrung mit Hybrid-Umgebungen',
+	'Microsoft- & Azure-Fokus',
+	'Security- und Governance-getriebener Ansatz',
+	'Praxisnahe Architekturentscheidungen',
+	'Schweizer Betriebs- und Compliance-Verständnis',
+);
+$vorteile_tagline = 'Wir bauen Cloud-Architekturen, die im Alltag funktionieren – nicht nur auf dem Papier.';
+
+// Zielgruppe
+$zielgruppen = array(
+	'Unternehmen mit bestehender On-Prem-IT',
+	'Organisationen mit Hybrid-Anforderungen',
+	'IT-Leitungen vor Cloud-Entscheidungen',
+	'Firmen mit Sicherheits- & Compliance-Fokus',
+	'KMU und mittlere Organisationen',
 );
 
-// Service 3
-$service_3_icon_key = get_field( 'cloud_service_3_icon' ) ?: 'refresh';
-$service_3 = array(
-	'icon'        => $icon_svgs[ $service_3_icon_key ] ?? $icon_svgs['refresh'],
-	'title'       => get_field( 'cloud_service_3_title' ) ?: 'Cloud-Migration',
-	'description' => get_field( 'cloud_service_3_description' ) ?: 'Sichere und reibungslose Migration Ihrer bestehenden Infrastruktur in die Cloud mit minimaler Ausfallzeit.',
-	'features'    => array_filter( array(
-		get_field( 'cloud_service_3_feature_1' ) ?: 'Migrationsplanung & Strategie',
-		get_field( 'cloud_service_3_feature_2' ) ?: 'Datenmigration',
-		get_field( 'cloud_service_3_feature_3' ) ?: 'Anwendungs-Modernisierung',
-		get_field( 'cloud_service_3_feature_4' ) ?: 'Post-Migration Support',
-	) ),
+// Ablauf
+$ablauf_steps = array(
+	array(
+		'number' => '1',
+		'title'  => 'Analyse der bestehenden Umgebung',
+	),
+	array(
+		'number' => '2',
+		'title'  => 'Zielarchitektur & Roadmap',
+	),
+	array(
+		'number' => '3',
+		'title'  => 'Technische Umsetzung',
+	),
+	array(
+		'number' => '4',
+		'title'  => 'Dokumentation & Übergabe / Betrieb',
+	),
 );
-
-// Build services array
-$services = array( $service_1, $service_2, $service_3 );
+$ablauf_tagline = 'Strukturiert, planbar, ohne Überraschungen.';
 
 // CTA Section
-$cta_title       = get_field( 'cloud_cta_title' ) ?: 'Bereit für die Cloud?';
-$cta_description = get_field( 'cloud_cta_description' ) ?: 'Wir beraten Sie gerne unverbindlich zu Ihren individuellen Cloud-Anforderungen.';
-$cta_button_text = get_field( 'cloud_cta_button_text' ) ?: 'Kontakt aufnehmen';
+$cta_title       = 'Möchten Sie Ihre Cloud-Strategie klar definieren?';
+$cta_description = 'Vereinbaren Sie ein unverbindliches Erstgespräch. Wir helfen Ihnen, die richtige Balance zwischen Cloud und Betrieb zu finden.';
+$cta_button_text = 'Erstgespräch anfragen';
 ?>
 
 <?php
@@ -94,10 +123,10 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 ) );
 ?>
 
-<section class="page-content" aria-labelledby="services-heading">
+<section class="page-content" aria-labelledby="cloud-main-heading">
 	<div class="container">
 
-		<!-- Intro -->
+		<!-- Intro Content -->
 		<div class="page-intro">
 			<div class="page-intro__content entry-content">
 				<?php
@@ -109,20 +138,124 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 			</div>
 		</div>
 
-		<!-- Services Grid -->
-		<h2 id="services-heading" class="sr-only">Unsere Cloud-Lösungen</h2>
-		<div class="feature-grid feature-grid--3col">
-			<?php foreach ( $services as $service ) : ?>
-				<?php
-				get_template_part( 'template-parts/sections/feature-card', null, array(
-					'icon_svg'    => $service['icon'],
-					'title'       => $service['title'],
-					'description' => $service['description'],
-					'features'    => $service['features'],
-					'variant'     => 'it',
-				) );
-				?>
-			<?php endforeach; ?>
+		<!-- Problem Section -->
+		<div class="m365-problem-section">
+			<div class="problem-box">
+				<div class="problem-box__icon" aria-hidden="true">
+					<?php echo $icon_svgs['alert']; ?>
+				</div>
+				<div class="problem-box__content">
+					<h2 class="problem-box__title">Das Problem</h2>
+					<p class="problem-box__intro"><?php echo esc_html( $problem_intro ); ?></p>
+					<ul class="problem-list">
+						<?php foreach ( $problems as $problem ) : ?>
+							<li class="problem-list__item">
+								<span class="problem-list__bullet" aria-hidden="true">&times;</span>
+								<?php echo esc_html( $problem ); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+					<p class="problem-box__result"><?php echo esc_html( $problem_result ); ?></p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Solution Section -->
+		<div class="m365-solution-section">
+			<div class="solution-header text-center">
+				<span class="section-tag"><?php echo esc_html( $solution_title ); ?></span>
+				<h2 id="cloud-main-heading" class="section-title"><?php echo esc_html( $solution_subtitle ); ?></h2>
+				<p class="section-description"><?php echo esc_html( $solution_description ); ?></p>
+				<p class="solution-tagline"><strong><?php echo esc_html( $solution_tagline ); ?></strong></p>
+			</div>
+		</div>
+
+		<!-- Two Column: Leistungsumfang & Mehrwert -->
+		<div class="m365-two-columns">
+			<!-- Leistungsumfang -->
+			<div class="m365-column">
+				<div class="column-header">
+					<div class="column-icon" aria-hidden="true">
+						<?php echo $icon_svgs['cloud']; ?>
+					</div>
+					<h3 class="column-title">Was wir umsetzen</h3>
+					<span class="column-subtitle">Leistungsumfang</span>
+				</div>
+				<ul class="check-list">
+					<?php foreach ( $leistungen as $item ) : ?>
+						<li class="check-list__item">
+							<span class="check-list__icon" aria-hidden="true"><?php echo $icon_svgs['check']; ?></span>
+							<?php echo esc_html( $item ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+
+			<!-- Mehrwert -->
+			<div class="m365-column">
+				<div class="column-header">
+					<div class="column-icon column-icon--success" aria-hidden="true">
+						<?php echo $icon_svgs['star']; ?>
+					</div>
+					<h3 class="column-title">Ergebnisse für Sie</h3>
+					<span class="column-subtitle">Mehrwert für Ihr Unternehmen</span>
+				</div>
+				<ul class="check-list check-list--success">
+					<?php foreach ( $mehrwert as $item ) : ?>
+						<li class="check-list__item">
+							<span class="check-list__icon" aria-hidden="true"><?php echo $icon_svgs['check']; ?></span>
+							<?php echo esc_html( $item ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+				<p class="column-tagline"><?php echo esc_html( $mehrwert_tagline ); ?></p>
+			</div>
+		</div>
+
+		<!-- Warum DataEnergie? -->
+		<div class="m365-vorteile-section">
+			<h2 class="section-title text-center">Warum DataEnergie?</h2>
+			<p class="section-description text-center mb-xl">Ihr Vorteil</p>
+			<div class="vorteile-grid">
+				<?php foreach ( $vorteile as $vorteil ) : ?>
+					<div class="vorteil-item">
+						<span class="vorteil-item__icon" aria-hidden="true"><?php echo $icon_svgs['check']; ?></span>
+						<span class="vorteil-item__text"><?php echo esc_html( $vorteil ); ?></span>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<p class="vorteile-tagline text-center"><?php echo esc_html( $vorteile_tagline ); ?></p>
+		</div>
+
+		<!-- Zielgruppe -->
+		<div class="m365-zielgruppe-section">
+			<h2 class="section-title text-center">Für wen ist diese Lösung geeignet?</h2>
+			<div class="zielgruppe-tags">
+				<?php foreach ( $zielgruppen as $zielgruppe ) : ?>
+					<span class="zielgruppe-tag">
+						<span class="zielgruppe-tag__icon" aria-hidden="true"><?php echo $icon_svgs['users']; ?></span>
+						<?php echo esc_html( $zielgruppe ); ?>
+					</span>
+				<?php endforeach; ?>
+			</div>
+		</div>
+
+		<!-- Ablauf -->
+		<div class="m365-ablauf-section">
+			<h2 class="section-title text-center">Ablauf</h2>
+			<p class="section-description text-center mb-xl">Klar & effizient</p>
+			<div class="ablauf-steps">
+				<?php foreach ( $ablauf_steps as $index => $step ) : ?>
+					<div class="ablauf-step">
+						<div class="ablauf-step__number"><?php echo esc_html( $step['number'] ); ?></div>
+						<div class="ablauf-step__title"><?php echo esc_html( $step['title'] ); ?></div>
+						<?php if ( $index < count( $ablauf_steps ) - 1 ) : ?>
+							<div class="ablauf-step__arrow" aria-hidden="true"><?php echo $icon_svgs['arrow-right']; ?></div>
+						<?php endif; ?>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<p class="ablauf-tagline text-center"><?php echo esc_html( $ablauf_tagline ); ?></p>
 		</div>
 
 		<!-- CTA -->

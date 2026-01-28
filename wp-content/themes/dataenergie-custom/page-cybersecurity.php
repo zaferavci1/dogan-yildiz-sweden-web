@@ -2,12 +2,11 @@
 /**
  * Template Name: Cybersecurity
  *
- * Modern SaaS Siber Güvenlik hizmetleri sayfası.
- * Vercel/Linear design estetiğinde tasarlanmıştır.
- * ACF Free uyumlu - Sabit alan yapısı ile dinamik içerik.
+ * Security & Zero Trust Beratungsseite.
+ * Strukturierte Darstellung von Problem, Lösung und Mehrwert.
  *
  * @package Dataenergie
- * @version 2.1.0
+ * @version 3.0.0
  */
 
 get_header();
@@ -16,87 +15,104 @@ get_header();
 // SVG ICONS MAP
 // =============================================================================
 $icon_svgs = array(
-	'shield'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-	'lock'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
-	'database'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>',
-	'users'      => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
-	'cloud'      => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>',
-	'server'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>',
-	'headphones' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>',
-	'monitor'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>',
+	'alert'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+	'check'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>',
+	'shield'      => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+	'lock'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
+	'star'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
+	'users'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+	'arrow-right' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
 );
 
 // =============================================================================
-// ACF VERILERINI AL (FALLBACK ILE) - ACF FREE UYUMLU
+// CONTENT DATA
 // =============================================================================
 
 // Hero Section
-$hero_tag      = get_field( 'cyber_hero_tag' ) ?: 'Security';
-$hero_subtitle = get_field( 'cyber_hero_subtitle' ) ?: 'Umfassender Schutz für Ihre IT-Infrastruktur';
+$hero_tag      = 'Security';
+$hero_subtitle = 'Security & Zero Trust – strukturiert umgesetzt';
 
-// Service 1
-$service_1_icon_key = get_field( 'cyber_service_1_icon' ) ?: 'shield';
-$service_1 = array(
-	'icon'        => $icon_svgs[ $service_1_icon_key ] ?? $icon_svgs['shield'],
-	'title'       => get_field( 'cyber_service_1_title' ) ?: 'Firewall & Netzwerksicherheit',
-	'description' => get_field( 'cyber_service_1_description' ) ?: 'Schützen Sie Ihr Unternehmensnetzwerk mit professionellen Firewall-Lösungen und sicheren VPN-Verbindungen.',
-	'features'    => array_filter( array(
-		get_field( 'cyber_service_1_feature_1' ) ?: 'Next-Generation Firewalls',
-		get_field( 'cyber_service_1_feature_2' ) ?: 'VPN & Remote Access',
-		get_field( 'cyber_service_1_feature_3' ) ?: 'Intrusion Detection & Prevention',
-		get_field( 'cyber_service_1_feature_4' ) ?: 'Netzwerk-Segmentierung',
-	) ),
+// Problem Section
+$problem_intro = 'Klassische Sicherheitsmodelle reichen heute nicht mehr aus:';
+$problems = array(
+	'Zu viele privilegierte Benutzer',
+	'MFA unvollständig oder falsch umgesetzt',
+	'Unklare Zugriffsrechte',
+	'Externe Benutzer ohne Kontrolle',
+	'Sicherheitstools vorhanden – aber nicht integriert',
+);
+$problem_result = 'Ergebnis: hohes Risiko trotz Investitionen.';
+
+// Solution Section
+$solution_title       = 'Unsere Lösung';
+$solution_subtitle    = 'Security & Zero Trust – strukturiert umgesetzt';
+$solution_description = 'DataEnergie entwickelt Sicherheitskonzepte nach dem Zero-Trust-Prinzip: Jeder Zugriff wird geprüft – unabhängig von Standort oder Gerät.';
+$solution_tagline     = 'Identitätsbasiert. Transparent. Kontrollierbar.';
+
+// Security-Schwerpunkte (Was wir absichern)
+$leistungen = array(
+	'Identity Security (Entra ID)',
+	'MFA & Passwordless Authentication (FIDO2)',
+	'Conditional Access Strategien',
+	'Privileged Access & Admin-Kontrollen',
+	'Guest- & External-User-Security',
+	'Zugriffskonzepte für Cloud & Hybrid',
 );
 
-// Service 2
-$service_2_icon_key = get_field( 'cyber_service_2_icon' ) ?: 'lock';
-$service_2 = array(
-	'icon'        => $icon_svgs[ $service_2_icon_key ] ?? $icon_svgs['lock'],
-	'title'       => get_field( 'cyber_service_2_title' ) ?: 'Endpoint Protection',
-	'description' => get_field( 'cyber_service_2_description' ) ?: 'Umfassender Schutz für alle Endgeräte in Ihrem Unternehmen - von Workstations bis zu mobilen Geräten.',
-	'features'    => array_filter( array(
-		get_field( 'cyber_service_2_feature_1' ) ?: 'Antivirus & Antimalware',
-		get_field( 'cyber_service_2_feature_2' ) ?: 'Endpoint Detection & Response (EDR)',
-		get_field( 'cyber_service_2_feature_3' ) ?: 'Mobile Device Management',
-		get_field( 'cyber_service_2_feature_4' ) ?: 'Patch Management',
-	) ),
+// Mehrwert (Ergebnisse für Sie)
+$mehrwert = array(
+	'Reduziertes Risiko bei Identitätsangriffen',
+	'Klare Kontrolle über privilegierte Zugriffe',
+	'Sichere Zusammenarbeit mit externen Partnern',
+	'Einheitliche Security-Standards',
+	'Nachvollziehbare Security-Entscheidungen',
+);
+$mehrwert_tagline = 'Sicherheit, die verstanden und akzeptiert wird.';
+
+// Warum DataEnergie?
+$vorteile = array(
+	'Fokus auf Identity & Microsoft-Security',
+	'Zero-Trust nicht als Theorie, sondern Praxis',
+	'Klare Priorisierung statt Tool-Overload',
+	'Erfahrung mit Governance & Risiko-Bewertung',
+	'Schweizer Sicherheits- und Compliance-Verständnis',
+);
+$vorteile_tagline = 'Wir machen Sicherheit umsetzbar – nicht nur dokumentiert.';
+
+// Zielgruppe
+$zielgruppen = array(
+	'Unternehmen mit Microsoft 365',
+	'Organisationen mit sensiblen Daten',
+	'IT-Leitungen mit Security-Verantwortung',
+	'Firmen mit externen Partnern & Gästen',
+	'Vorbereitung auf Audits oder Security-Reviews',
 );
 
-// Service 3
-$service_3_icon_key = get_field( 'cyber_service_3_icon' ) ?: 'database';
-$service_3 = array(
-	'icon'        => $icon_svgs[ $service_3_icon_key ] ?? $icon_svgs['database'],
-	'title'       => get_field( 'cyber_service_3_title' ) ?: 'Backup & Disaster Recovery',
-	'description' => get_field( 'cyber_service_3_description' ) ?: 'Sichern Sie Ihre geschäftskritischen Daten und stellen Sie die Geschäftskontinuität im Notfall sicher.',
-	'features'    => array_filter( array(
-		get_field( 'cyber_service_3_feature_1' ) ?: 'Automatisierte Backups',
-		get_field( 'cyber_service_3_feature_2' ) ?: 'Offsite & Cloud Backup',
-		get_field( 'cyber_service_3_feature_3' ) ?: 'Disaster Recovery Planung',
-		get_field( 'cyber_service_3_feature_4' ) ?: 'Business Continuity',
-	) ),
+// Ablauf
+$ablauf_steps = array(
+	array(
+		'number' => '1',
+		'title'  => 'Analyse & Zieldefinition',
+	),
+	array(
+		'number' => '2',
+		'title'  => 'Security- & Zero-Trust-Konzept',
+	),
+	array(
+		'number' => '3',
+		'title'  => 'Technische Umsetzung',
+	),
+	array(
+		'number' => '4',
+		'title'  => 'Dokumentation & Übergabe',
+	),
 );
-
-// Service 4
-$service_4_icon_key = get_field( 'cyber_service_4_icon' ) ?: 'users';
-$service_4 = array(
-	'icon'        => $icon_svgs[ $service_4_icon_key ] ?? $icon_svgs['users'],
-	'title'       => get_field( 'cyber_service_4_title' ) ?: 'Security Awareness',
-	'description' => get_field( 'cyber_service_4_description' ) ?: 'Schulen Sie Ihre Mitarbeiter im sicheren Umgang mit IT-Systemen und schützen Sie sich vor Social Engineering.',
-	'features'    => array_filter( array(
-		get_field( 'cyber_service_4_feature_1' ) ?: 'Mitarbeiter-Schulungen',
-		get_field( 'cyber_service_4_feature_2' ) ?: 'Phishing-Simulationen',
-		get_field( 'cyber_service_4_feature_3' ) ?: 'Security Policies',
-		get_field( 'cyber_service_4_feature_4' ) ?: 'Compliance-Beratung',
-	) ),
-);
-
-// Build services array
-$services = array( $service_1, $service_2, $service_3, $service_4 );
+$ablauf_tagline = 'Sicher umgesetzt – ohne Betriebsunterbruch.';
 
 // CTA Section
-$cta_title       = get_field( 'cyber_cta_title' ) ?: 'Schützen Sie Ihr Unternehmen vor Cyber-Bedrohungen';
-$cta_description = get_field( 'cyber_cta_description' ) ?: 'Wir analysieren Ihre Sicherheitslage und entwickeln individuelle Schutzkonzepte.';
-$cta_button_text = get_field( 'cyber_cta_button_text' ) ?: 'Kontakt aufnehmen';
+$cta_title       = 'Möchten Sie Ihre IT-Sicherheit auf das nächste Level bringen?';
+$cta_description = 'Vereinbaren Sie ein unverbindliches Erstgespräch. Wir zeigen Ihnen, wo Sie stehen – und wie Zero Trust sinnvoll umgesetzt wird.';
+$cta_button_text = 'Erstgespräch anfragen';
 ?>
 
 <?php
@@ -108,10 +124,10 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 ) );
 ?>
 
-<section class="page-content" aria-labelledby="services-heading">
+<section class="page-content" aria-labelledby="security-main-heading">
 	<div class="container">
 
-		<!-- Intro -->
+		<!-- Intro Content -->
 		<div class="page-intro">
 			<div class="page-intro__content entry-content">
 				<?php
@@ -123,20 +139,124 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 			</div>
 		</div>
 
-		<!-- Services Grid - 2x2 for 4 items -->
-		<h2 id="services-heading" class="sr-only">Unsere Sicherheitslösungen</h2>
-		<div class="feature-grid">
-			<?php foreach ( $services as $service ) : ?>
-				<?php
-				get_template_part( 'template-parts/sections/feature-card', null, array(
-					'icon_svg'    => $service['icon'],
-					'title'       => $service['title'],
-					'description' => $service['description'],
-					'features'    => $service['features'],
-					'variant'     => 'it',
-				) );
-				?>
-			<?php endforeach; ?>
+		<!-- Problem Section -->
+		<div class="m365-problem-section">
+			<div class="problem-box">
+				<div class="problem-box__icon" aria-hidden="true">
+					<?php echo $icon_svgs['alert']; ?>
+				</div>
+				<div class="problem-box__content">
+					<h2 class="problem-box__title">Das Problem</h2>
+					<p class="problem-box__intro"><?php echo esc_html( $problem_intro ); ?></p>
+					<ul class="problem-list">
+						<?php foreach ( $problems as $problem ) : ?>
+							<li class="problem-list__item">
+								<span class="problem-list__bullet" aria-hidden="true">&times;</span>
+								<?php echo esc_html( $problem ); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+					<p class="problem-box__result"><?php echo esc_html( $problem_result ); ?></p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Solution Section -->
+		<div class="m365-solution-section">
+			<div class="solution-header text-center">
+				<span class="section-tag"><?php echo esc_html( $solution_title ); ?></span>
+				<h2 id="security-main-heading" class="section-title"><?php echo esc_html( $solution_subtitle ); ?></h2>
+				<p class="section-description"><?php echo esc_html( $solution_description ); ?></p>
+				<p class="solution-tagline"><strong><?php echo esc_html( $solution_tagline ); ?></strong></p>
+			</div>
+		</div>
+
+		<!-- Two Column: Security-Schwerpunkte & Mehrwert -->
+		<div class="m365-two-columns">
+			<!-- Security-Schwerpunkte -->
+			<div class="m365-column">
+				<div class="column-header">
+					<div class="column-icon" aria-hidden="true">
+						<?php echo $icon_svgs['shield']; ?>
+					</div>
+					<h3 class="column-title">Was wir absichern</h3>
+					<span class="column-subtitle">Security-Schwerpunkte</span>
+				</div>
+				<ul class="check-list">
+					<?php foreach ( $leistungen as $item ) : ?>
+						<li class="check-list__item">
+							<span class="check-list__icon" aria-hidden="true"><?php echo $icon_svgs['check']; ?></span>
+							<?php echo esc_html( $item ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+
+			<!-- Mehrwert -->
+			<div class="m365-column">
+				<div class="column-header">
+					<div class="column-icon column-icon--success" aria-hidden="true">
+						<?php echo $icon_svgs['star']; ?>
+					</div>
+					<h3 class="column-title">Ergebnisse für Sie</h3>
+					<span class="column-subtitle">Konkreter Sicherheitsgewinn</span>
+				</div>
+				<ul class="check-list check-list--success">
+					<?php foreach ( $mehrwert as $item ) : ?>
+						<li class="check-list__item">
+							<span class="check-list__icon" aria-hidden="true"><?php echo $icon_svgs['check']; ?></span>
+							<?php echo esc_html( $item ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+				<p class="column-tagline"><?php echo esc_html( $mehrwert_tagline ); ?></p>
+			</div>
+		</div>
+
+		<!-- Warum DataEnergie? -->
+		<div class="m365-vorteile-section">
+			<h2 class="section-title text-center">Warum DataEnergie?</h2>
+			<p class="section-description text-center mb-xl">Ihr Vorteil</p>
+			<div class="vorteile-grid">
+				<?php foreach ( $vorteile as $vorteil ) : ?>
+					<div class="vorteil-item">
+						<span class="vorteil-item__icon" aria-hidden="true"><?php echo $icon_svgs['check']; ?></span>
+						<span class="vorteil-item__text"><?php echo esc_html( $vorteil ); ?></span>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<p class="vorteile-tagline text-center"><?php echo esc_html( $vorteile_tagline ); ?></p>
+		</div>
+
+		<!-- Zielgruppe -->
+		<div class="m365-zielgruppe-section">
+			<h2 class="section-title text-center">Für wen ist diese Lösung geeignet?</h2>
+			<div class="zielgruppe-tags">
+				<?php foreach ( $zielgruppen as $zielgruppe ) : ?>
+					<span class="zielgruppe-tag">
+						<span class="zielgruppe-tag__icon" aria-hidden="true"><?php echo $icon_svgs['users']; ?></span>
+						<?php echo esc_html( $zielgruppe ); ?>
+					</span>
+				<?php endforeach; ?>
+			</div>
+		</div>
+
+		<!-- Ablauf -->
+		<div class="m365-ablauf-section">
+			<h2 class="section-title text-center">Ablauf</h2>
+			<p class="section-description text-center mb-xl">Klar & effizient</p>
+			<div class="ablauf-steps">
+				<?php foreach ( $ablauf_steps as $index => $step ) : ?>
+					<div class="ablauf-step">
+						<div class="ablauf-step__number"><?php echo esc_html( $step['number'] ); ?></div>
+						<div class="ablauf-step__title"><?php echo esc_html( $step['title'] ); ?></div>
+						<?php if ( $index < count( $ablauf_steps ) - 1 ) : ?>
+							<div class="ablauf-step__arrow" aria-hidden="true"><?php echo $icon_svgs['arrow-right']; ?></div>
+						<?php endif; ?>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<p class="ablauf-tagline text-center"><?php echo esc_html( $ablauf_tagline ); ?></p>
 		</div>
 
 		<!-- CTA -->
