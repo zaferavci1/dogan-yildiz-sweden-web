@@ -2397,6 +2397,58 @@ ul, ol {
     color: var(--color-text);
 }
 
+/* IT-Services Page Intro Paragraphs - Enhanced Styling */
+.page-intro__content.entry-content {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    color: var(--color-text);
+}
+
+.page-intro__content.entry-content p {
+    font-size: 1.125rem;
+    line-height: 1.85;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-intro__content.entry-content strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.page-intro__content.entry-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+}
+
+.page-intro__content.entry-content a:hover {
+    color: var(--color-secondary);
+}
+
+.page-intro__content.entry-content ul,
+.page-intro__content.entry-content ol {
+    margin-bottom: var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+}
+
+.page-intro__content.entry-content li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+.page-intro__content.entry-content li::marker {
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .page-intro__content.entry-content p {
+        font-size: 1rem;
+    }
+}
+
 /* CTA Minimal */
 .cta-minimal {
     background: var(--color-bg-alt);
