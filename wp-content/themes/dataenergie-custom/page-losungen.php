@@ -17,6 +17,7 @@ get_header();
 // SVG ICONS MAP
 // =============================================================================
 $icon_svgs = array(
+	'clock'      => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
 	'droplet'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>',
 	'clipboard'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>',
 	'info'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>',
@@ -30,6 +31,19 @@ $icon_svgs = array(
 $hero_tag      = get_field( 'losungen_hero_tag' ) ?: 'Lösungen';
 $hero_subtitle = get_field( 'losungen_hero_subtitle' ) ?: 'Praktische, skalierbare Lösungen für Unternehmen und Immobilien – entwickelt mit Fokus auf Effizienz, Transparenz und Nachhaltigkeit im Alltag.';
 $hero_tagline  = get_field( 'losungen_hero_tagline' ) ?: 'DataEnergie entwickelt eigene digitale Lösungen für klar definierte Anwendungsfälle. Unsere Lösungen sind modular aufgebaut, lizenzbasiert verfügbar und auf den Schweizer Markt ausgerichtet.';
+
+// Solution 0: Zeiterfassung
+$solution_0 = array(
+	'icon'        => $icon_svgs['clock'],
+	'title'       => get_field( 'losungen_sol0_title' ) ?: 'Zeiterfassung',
+	'description' => get_field( 'losungen_sol0_desc' ) ?: 'Digitale Zeiterfassung für Unternehmen – modular, transparent und an Ihre Organisation angepasst.',
+	'features'    => array_filter( array(
+		get_field( 'losungen_sol0_f1' ) ?: 'Arbeitszeit- & Pausenerfassung',
+		get_field( 'losungen_sol0_f2' ) ?: 'Überstunden & Ferienmanagement',
+		get_field( 'losungen_sol0_f3' ) ?: 'HR-Entlastung & Transparenz',
+	) ),
+	'link'        => home_url( '/workforce-management/' ),
+);
 
 // Solution 1: WashSlot
 $solution_1 = array(
@@ -58,7 +72,7 @@ $solution_2 = array(
 );
 
 // Build solutions array
-$solutions = array( $solution_1, $solution_2 );
+$solutions = array( $solution_0, $solution_1, $solution_2 );
 
 // CTA Section
 $cta_title       = get_field( 'losungen_cta_title' ) ?: 'Welche Lösung passt zu Ihrer Situation?';
@@ -93,7 +107,7 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 
 		<!-- Solutions Grid -->
 		<h2 id="solutions-heading" class="sr-only">Unsere Lösungen</h2>
-		<div class="feature-grid feature-grid--2col">
+		<div class="feature-grid feature-grid--3col">
 			<?php foreach ( $solutions as $solution ) : ?>
 				<?php
 				get_template_part( 'template-parts/sections/feature-card', null, array(

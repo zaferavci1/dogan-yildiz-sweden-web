@@ -34,8 +34,11 @@ function dataenergie_setup() {
 
     // Menü tanımlamaları
     register_nav_menus( array(
-        'main-menu'   => __( 'Main Menu', 'dataenergie' ),
-        'footer-menu' => __( 'Footer Menu', 'dataenergie' ),
+        'main-menu'        => __( 'Main Menu', 'dataenergie' ),
+        'footer-menu'      => __( 'Footer Menu', 'dataenergie' ),
+        'footer-services'  => __( 'Footer Services', 'dataenergie' ),
+        'footer-solutions' => __( 'Footer Lösungen', 'dataenergie' ),
+        'footer-legal'     => __( 'Footer Legal Links', 'dataenergie' ),
     ) );
 
     // Custom logo desteği
@@ -140,6 +143,11 @@ add_filter( 'nav_menu_link_attributes', 'dataenergie_nav_menu_link_attributes', 
  * Custom Post Types ve ACF alanlarını yükle
  */
 require_once get_template_directory() . '/inc/custom-fields.php';
+
+/**
+ * ACF Field Groups - Sayfa bazlı alanlar
+ */
+require_once get_template_directory() . '/inc/acf-fields.php';
 
 /**
  * Mega Menu Walker Class'ları yükle

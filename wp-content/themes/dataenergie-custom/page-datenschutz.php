@@ -18,7 +18,7 @@ $intro_text = get_field('datenschutz_intro');
 
 // Şirket bilgileri - önce bu sayfadan, yoksa Impressum'dan al
 $company_name = dataenergie_get_company_info('company_name', 'Dataenergie GmbH');
-$company_address = dataenergie_get_company_info('company_address', 'Musterstraße 123');
+$company_address = dataenergie_get_company_info('company_address', 'Musterstrasse 123');
 $company_city = dataenergie_get_company_info('company_city', '12345 Musterstadt');
 $company_email = get_field('privacy_email') ?: dataenergie_get_company_info('company_email', 'datenschutz@dataenergie.de');
 $company_phone = dataenergie_get_company_info('company_phone', '+49 123 456789');
@@ -153,7 +153,7 @@ $server_location_text = isset($server_location_labels[$server_location]) ? $serv
                         <p>Diese Daten sind nicht bestimmten Personen zuordenbar. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
 
                         <h3>Rechtsgrundlage</h3>
-                        <p>Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website.</p>
+                        <p>Die Verarbeitung erfolgt gemäss Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website.</p>
                     </div>
                 </section>
 

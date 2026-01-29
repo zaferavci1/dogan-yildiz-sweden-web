@@ -100,6 +100,18 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: 80px; /* Fixed header için alan */
+}
+
+/* WordPress Admin Bar ile fixed header uyumu */
+.admin-bar body {
+    padding-top: 112px; /* 80px header + 32px admin bar */
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar body {
+        padding-top: 126px; /* 80px header + 46px mobile admin bar */
+    }
 }
 
 /* Improve media defaults */
@@ -296,12 +308,25 @@ ul, ol {
    ========================================================================== */
 
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     background-color: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
+}
+
+/* WordPress Admin Bar desteği */
+.admin-bar .site-header {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .site-header {
+        top: 46px;
+    }
 }
 
 .header-inner {
@@ -350,7 +375,7 @@ ul, ol {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md) var(--spacing-sm);
     font-weight: 500;
     color: var(--color-text);
     position: relative;
@@ -408,38 +433,43 @@ ul, ol {
 /* Dropdown Submenu Container */
 .main-nav .sub-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% - 10px);
     left: -12px;
     min-width: 220px;
-    padding: var(--spacing-sm) 0;
-    margin-top: var(--spacing-sm);
+    padding-top: calc(var(--spacing-sm) + 10px);
+    padding-bottom: var(--spacing-sm);
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
     background-color: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
-    transition: all var(--transition-fast);
-    z-index: 100;
+    transition: opacity 0.15s ease, visibility 0s 0.15s;
+    z-index: 1000;
+    pointer-events: none;
 }
 
 /* Dropdown bridge to prevent gap */
 .main-nav .sub-menu::before {
     content: '';
     position: absolute;
-    top: -8px;
-    left: 0;
-    right: 0;
-    height: 8px;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    height: 20px;
 }
 
 /* Show Dropdown on Hover */
 .main-nav .menu-item-has-children:hover > .sub-menu,
-.main-nav .menu-item-has-children:focus-within > .sub-menu {
+.main-nav .menu-item-has-children:focus-within > .sub-menu,
+.main-nav .menu-item-has-children.is-dropdown-open > .sub-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transition: opacity 0.15s ease, visibility 0s 0s;
+    pointer-events: auto;
 }
 
 /* Submenu Items */
@@ -646,6 +676,10 @@ ul, ol {
     padding: var(--spacing-2xl) 0;
 }
 
+.footer-main .container {
+    max-width: 1400px;
+}
+
 .footer-grid {
     display: grid;
     gap: var(--spacing-xl);
@@ -802,7 +836,8 @@ ul, ol {
 
     /* Footer Grid */
     .footer-grid {
-        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr;
+        gap: var(--spacing-lg);
     }
 }
 
@@ -810,6 +845,11 @@ ul, ol {
 @media (min-width: 1280px) {
     .main-nav ul {
         gap: var(--spacing-2xl);
+    }
+
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+        gap: var(--spacing-xl);
     }
 }
 

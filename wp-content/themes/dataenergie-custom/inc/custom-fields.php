@@ -1118,8 +1118,8 @@ function dataenergie_register_options_fields() {
                 'name'         => 'address_text',
                 'type'         => 'textarea',
                 'instructions' => 'Şirket adresi',
-                'rows'         => 3,
-                'placeholder'  => "Gewerbestrasse 19\n6314 Unterägeri\nSchweiz",
+                'rows'         => 4,
+                'placeholder'  => "Dataenergie GmbH\nGewerbestrasse 19\n6314 Unterägeri\nSchweiz",
             ),
 
             // SOSYAL MEDYA SEKMESİ
@@ -1161,6 +1161,53 @@ function dataenergie_register_options_fields() {
                 'type'         => 'url',
                 'instructions' => 'X (Twitter) profil linki',
                 'placeholder'  => 'https://x.com/dataenergie',
+            ),
+
+            // FOOTER SEKMESİ
+            array(
+                'key'       => 'field_footer_tab',
+                'label'     => 'Footer Ayarları',
+                'name'      => '',
+                'type'      => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key'           => 'field_footer_logo_text',
+                'label'         => 'Footer Logo Metni',
+                'name'          => 'footer_logo_text',
+                'type'          => 'text',
+                'instructions'  => 'Footer logo metni (örn: Data)',
+                'default_value' => 'Data',
+                'placeholder'   => 'Data',
+                'maxlength'     => 50,
+            ),
+            array(
+                'key'           => 'field_footer_logo_accent',
+                'label'         => 'Footer Logo Accent',
+                'name'          => 'footer_logo_accent',
+                'type'          => 'text',
+                'instructions'  => 'Footer logo vurgulu kısmı (örn: energie)',
+                'default_value' => 'energie',
+                'placeholder'   => 'energie',
+                'maxlength'     => 50,
+            ),
+            array(
+                'key'           => 'field_footer_description',
+                'label'         => 'Footer Açıklama',
+                'name'          => 'footer_description',
+                'type'          => 'textarea',
+                'instructions'  => 'Footer altındaki şirket açıklaması',
+                'default_value' => 'Ihr zuverlässiger Partner für professionelle IT-Dienstleistungen und nachhaltige Solar-Energielösungen. Wir verbinden technische Expertise mit umweltbewusstem Handeln für eine bessere Zukunft.',
+                'rows'          => 4,
+            ),
+            array(
+                'key'           => 'field_footer_copyright',
+                'label'         => 'Copyright Metni',
+                'name'          => 'footer_copyright',
+                'type'          => 'text',
+                'instructions'  => 'Footer copyright metni. {year} yazarsanız otomatik yıl eklenir.',
+                'default_value' => '© {year} Dataenergie GmbH. Alle Rechte vorbehalten.',
+                'placeholder'   => '© {year} Dataenergie GmbH. Alle Rechte vorbehalten.',
             ),
         ),
         'location' => array(
@@ -1382,13 +1429,13 @@ function dataenergie_register_impressum_fields() {
             ),
             array(
                 'key'           => 'field_impressum_company_address',
-                'label'         => 'Straße und Hausnummer',
+                'label'         => 'Strasse und Hausnummer',
                 'name'          => 'company_address',
                 'type'          => 'text',
                 'instructions'  => 'Sokak adresi ve bina numarası',
-                'placeholder'   => 'Musterstraße 123',
+                'placeholder'   => 'Musterstrasse 123',
                 'maxlength'     => 150,
-                'default_value' => 'Musterstraße 123',
+                'default_value' => 'Musterstrasse 123',
             ),
             array(
                 'key'           => 'field_impressum_company_city',
@@ -3159,7 +3206,7 @@ function dataenergie_register_virtualisierung_page_fields() {
 add_action( 'acf/init', 'dataenergie_register_virtualisierung_page_fields' );
 
 /**
- * Beratung & Analyse Sayfa Alanları
+ * IT Governance & Risk Assessment Sayfa Alanları
  */
 function dataenergie_register_beratung_page_fields() {
     if ( ! dataenergie_check_acf() ) {
@@ -3168,13 +3215,13 @@ function dataenergie_register_beratung_page_fields() {
 
     acf_add_local_field_group( array(
         'key'    => 'group_beratung_page',
-        'title'  => 'Beratung & Analyse Sayfa Ayarları',
+        'title'  => 'IT Governance & Risk Assessment Sayfa Ayarları',
         'fields' => array(
             // =========================================
             // SEKME 1: HERO
             // =========================================
             array( 'key' => 'field_it_beratung_hero_tab', 'label' => 'Hero', 'type' => 'tab', 'placement' => 'left' ),
-            array( 'key' => 'field_it_beratung_hero_tag', 'label' => 'Hero Etiket', 'name' => 'beratung_hero_tag', 'type' => 'text', 'default_value' => 'Beratung & Analyse' ),
+            array( 'key' => 'field_it_beratung_hero_tag', 'label' => 'Hero Etiket', 'name' => 'beratung_hero_tag', 'type' => 'text', 'default_value' => 'IT Governance & Risk Assessment' ),
             array( 'key' => 'field_it_beratung_hero_subtitle', 'label' => 'Hero Alt Başlık', 'name' => 'beratung_hero_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Strategische IT-Beratung für nachhaltigen Unternehmenserfolg' ),
 
             // =========================================

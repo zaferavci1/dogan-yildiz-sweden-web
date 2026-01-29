@@ -13,6 +13,7 @@
      * DOM yüklendikten sonra çalıştır
      */
     document.addEventListener('DOMContentLoaded', function() {
+        initDesktopDropdowns();
         initMobileMenu();
         initMobileDropdowns();
         initStickyHeader();
@@ -21,6 +22,57 @@
         initFeatureCardAccordions();
         initServiceCardExpand();
     });
+
+    /**
+     * Desktop dropdown menüler - hover delay ile flicker önleme
+     */
+    function initDesktopDropdowns() {
+        const menuItems = document.querySelectorAll('.menu-primary > .menu-item-has-children');
+
+        if (!menuItems.length) return;
+
+        // Her menü öğesi için timeout sakla
+        const timeouts = new Map();
+
+        menuItems.forEach(function(item) {
+            // Mouse enter - hemen aç
+            item.addEventListener('mouseenter', function() {
+                // Bu öğenin timeout'unu temizle
+                if (timeouts.has(item)) {
+                    clearTimeout(timeouts.get(item));
+                    timeouts.delete(item);
+                }
+
+                // Diğer tüm açık menüleri kapat
+                menuItems.forEach(function(otherItem) {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('is-dropdown-open');
+                        // Diğerlerinin timeout'larını da temizle
+                        if (timeouts.has(otherItem)) {
+                            clearTimeout(timeouts.get(otherItem));
+                            timeouts.delete(otherItem);
+                        }
+                    }
+                });
+
+                // Bu menüyü aç
+                item.classList.add('is-dropdown-open');
+            });
+
+            // Mouse leave - gecikmeli kapat
+            item.addEventListener('mouseleave', function() {
+                const currentItem = item;
+
+                // 150ms sonra kapat
+                const timeout = setTimeout(function() {
+                    currentItem.classList.remove('is-dropdown-open');
+                    timeouts.delete(currentItem);
+                }, 150);
+
+                timeouts.set(item, timeout);
+            });
+        });
+    }
 
     /**
      * Mobil menü toggle fonksiyonu

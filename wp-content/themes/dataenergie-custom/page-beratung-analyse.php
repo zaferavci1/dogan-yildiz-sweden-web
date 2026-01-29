@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Beratung & Analyse
+ * Template Name: IT Governance & Risk Assessment
  *
  * IT-Beratung und Analyse Dienstleistungen Seite.
  * Modern SaaS Design (Vercel/Linear Ästhetik).
@@ -135,7 +135,7 @@ $check_svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="
 // Hero Section
 get_template_part( 'template-parts/hero/hero-page', null, array(
 	'tag'      => $hero_tag,
-	'title'    => get_the_title(),
+	'title'    => 'IT Governance & Risk Assessment',
 	'subtitle' => $hero_subtitle,
 ) );
 ?>

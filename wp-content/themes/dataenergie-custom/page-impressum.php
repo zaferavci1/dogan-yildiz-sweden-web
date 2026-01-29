@@ -14,7 +14,7 @@ get_header();
 
 // ACF alanları - get_field() ile sayfadan al, yoksa fallback değerler kullan
 $company_name = get_field('company_name') ?: 'Dataenergie GmbH';
-$company_address = get_field('company_address') ?: 'Musterstraße 123';
+$company_address = get_field('company_address') ?: 'Musterstrasse 123';
 $company_city = get_field('company_city') ?: '12345 Musterstadt';
 $company_country = get_field('company_country') ?: 'Deutschland';
 $company_email = get_field('company_email') ?: 'info@dataenergie.de';
@@ -43,7 +43,7 @@ $website_url = get_field('website_url') ?: '';
         <div class="legal-hero__content">
             <span class="legal-hero__tag">Rechtliches</span>
             <h1 id="legal-hero-title" class="legal-hero__title">Impressum</h1>
-            <p class="legal-hero__subtitle">Angaben gemäß § 5 TMG</p>
+            <p class="legal-hero__subtitle">Angaben gemäss § 5 TMG</p>
         </div>
     </div>
 </section>
@@ -229,7 +229,7 @@ $website_url = get_field('website_url') ?: '';
                         Umsatzsteuer-ID
                     </h2>
                     <div class="legal-section__content">
-                        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</p>
+                        <p>Umsatzsteuer-Identifikationsnummer gemäss § 27a Umsatzsteuergesetz:</p>
                         <p class="impressum-vat-number"><?php echo esc_html($vat_id); ?></p>
                     </div>
                 </section>
@@ -300,13 +300,13 @@ $website_url = get_field('website_url') ?: '';
                     </h2>
                     <div class="legal-section__content">
                         <h3>Haftung für Inhalte</h3>
-                        <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+                        <p>Als Diensteanbieter sind wir gemäss § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
 
                         <h3>Haftung für Links</h3>
                         <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
 
                         <h3>Urheberrecht</h3>
-                        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+                        <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
                     </div>
                 </section>
 

@@ -34,7 +34,7 @@ $hero_subtitle = get_field( 'wartung_hero_subtitle' ) ?: 'Professionelle Wartung
 $service_1_icon_key = get_field( 'wartung_service_1_icon' ) ?: 'tool';
 $service_1 = array(
 	'icon'        => $icon_svgs[ $service_1_icon_key ] ?? $icon_svgs['tool'],
-	'title'       => get_field( 'wartung_service_1_title' ) ?: 'Regelmässige Wartung',
+	'title'       => get_field( 'wartung_service_1_title' ) ?: '',
 	'description' => get_field( 'wartung_service_1_description' ) ?: 'Planmässige Wartungsarbeiten für optimale Anlagenleistung.',
 	'features'    => array_filter( array(
 		get_field( 'wartung_service_1_feature_1' ) ?: 'Jährliche Inspektion',

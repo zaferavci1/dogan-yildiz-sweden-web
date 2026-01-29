@@ -2,33 +2,47 @@
 /**
  * Template Name: Solar Installation
  *
- * Solar Kurulum sayfası - Modern SaaS tasarım.
+ * Installation sayfası - Modern SaaS tasarım.
  * Vercel/Linear design estetiğinde.
  * ACF Free uyumlu - Sabit alan yapısı ile dinamik içerik.
  *
  * @package Dataenergie
- * @version 2.1.0
+ * @version 2.3.0
  */
 
 get_header();
-
-// =============================================================================
-// SVG ICONS MAP
-// =============================================================================
-$icon_svgs = array(
-	'tool'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>',
-	'shield' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
-	'check'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
-	'clock'  => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
-);
 
 // =============================================================================
 // ACF VERILERINI AL (FALLBACK ILE) - ACF FREE UYUMLU
 // =============================================================================
 
 // Hero Section
-$hero_tag      = get_field( 'install_hero_tag' ) ?: 'Solar Installation';
-$hero_subtitle = get_field( 'install_hero_subtitle' ) ?: 'Professionelle Montage durch zertifizierte Experten';
+$hero_tag      = get_field( 'install_hero_tag' ) ?: 'Solar Energy';
+$hero_subtitle = get_field( 'install_hero_subtitle' ) ?: 'Professionelle Montage von Photovoltaikanlagen – präzise, sicher und normgerecht.';
+
+// Highlight Text
+$highlight_text = get_field( 'install_highlight_text' ) ?: 'Unsere Installation erfolgt vollständig durch eigenes Fachpersonal. Von der Unterkonstruktion bis zur DC-seitigen Umsetzung setzen wir auf saubere Arbeit, klare Prozesse und höchste Sicherheitsstandards.';
+
+// About Text
+$about_text = get_field( 'install_about_text' ) ?: 'Wir installieren Photovoltaikanlagen für Wohn-, Gewerbe- und Industrieobjekte – präzise abgestimmt auf Planung, Statik und bauliche Gegebenheiten.';
+
+// Dach- und Anlagentypen
+$dach_typen = array(
+	get_field( 'install_dach_1' ) ?: 'Flachdach',
+	get_field( 'install_dach_2' ) ?: 'Schrägdach',
+	get_field( 'install_dach_3' ) ?: 'Indach-Systeme',
+	get_field( 'install_dach_4' ) ?: 'Fassaden-Photovoltaik',
+	get_field( 'install_dach_5' ) ?: 'Carport- & Sonderkonstruktionen',
+);
+
+// Installationsumfang
+$installation_umfang = array(
+	get_field( 'install_umfang_1' ) ?: 'Mechanische Montage',
+	get_field( 'install_umfang_2' ) ?: 'DC-Installation',
+	get_field( 'install_umfang_3' ) ?: 'Vorbereitung AC-Anschluss',
+	get_field( 'install_umfang_4' ) ?: 'Koordination mit Netzbetreiber',
+	get_field( 'install_umfang_5' ) ?: 'Inbetriebnahmevorbereitung',
+);
 
 // Stats
 $stats = array(
@@ -47,94 +61,6 @@ $stats = array(
 	array(
 		'number' => get_field( 'install_stat_4_number' ) ?: '48h',
 		'label'  => get_field( 'install_stat_4_label' ) ?: 'Durchschnittliche Montagezeit',
-	),
-);
-
-// Services Section
-$services_title = get_field( 'install_services_title' ) ?: 'Komplettservice für Ihre Solaranlage';
-$services_desc  = get_field( 'install_services_description' ) ?: 'Von der Planung bis zur Inbetriebnahme – professionell und zuverlässig.';
-
-// Service 1
-$service_1_icon_key = get_field( 'install_service_1_icon' ) ?: 'tool';
-$service_1 = array(
-	'icon'        => $icon_svgs[ $service_1_icon_key ] ?? $icon_svgs['tool'],
-	'title'       => get_field( 'install_service_1_title' ) ?: 'Professionelle Montage',
-	'description' => get_field( 'install_service_1_description' ) ?: 'Unsere zertifizierten Installateure montieren Ihre Anlage fachgerecht und sicher.',
-	'features'    => array_filter( array(
-		get_field( 'install_service_1_feature_1' ) ?: 'Aufdach & Indach-Systeme',
-		get_field( 'install_service_1_feature_2' ) ?: 'Flachdach-Lösungen',
-		get_field( 'install_service_1_feature_3' ) ?: 'Fassadeninstallation',
-		get_field( 'install_service_1_feature_4' ) ?: 'Carport & Terrassenüberdachung',
-	) ),
-);
-
-// Service 2
-$service_2_icon_key = get_field( 'install_service_2_icon' ) ?: 'shield';
-$service_2 = array(
-	'icon'        => $icon_svgs[ $service_2_icon_key ] ?? $icon_svgs['shield'],
-	'title'       => get_field( 'install_service_2_title' ) ?: 'Qualitätsgarantie',
-	'description' => get_field( 'install_service_2_description' ) ?: 'Wir verwenden nur hochwertige Komponenten namhafter Hersteller.',
-	'features'    => array_filter( array(
-		get_field( 'install_service_2_feature_1' ) ?: 'Premium-Solarmodule',
-		get_field( 'install_service_2_feature_2' ) ?: 'Hochwertige Wechselrichter',
-		get_field( 'install_service_2_feature_3' ) ?: '25 Jahre Modulgarantie',
-		get_field( 'install_service_2_feature_4' ) ?: '10 Jahre Installationsgarantie',
-	) ),
-);
-
-// Service 3
-$service_3_icon_key = get_field( 'install_service_3_icon' ) ?: 'check';
-$service_3 = array(
-	'icon'        => $icon_svgs[ $service_3_icon_key ] ?? $icon_svgs['check'],
-	'title'       => get_field( 'install_service_3_title' ) ?: 'Schlüsselfertige Übergabe',
-	'description' => get_field( 'install_service_3_description' ) ?: 'Von der Bewilligung bis zur Inbetriebnahme – alles aus einer Hand.',
-	'features'    => array_filter( array(
-		get_field( 'install_service_3_feature_1' ) ?: 'Baubewilligung',
-		get_field( 'install_service_3_feature_2' ) ?: 'Netzanschluss',
-		get_field( 'install_service_3_feature_3' ) ?: 'Anmeldung beim EVU',
-		get_field( 'install_service_3_feature_4' ) ?: 'Inbetriebnahme & Einweisung',
-	) ),
-);
-
-// Service 4
-$service_4_icon_key = get_field( 'install_service_4_icon' ) ?: 'clock';
-$service_4 = array(
-	'icon'        => $icon_svgs[ $service_4_icon_key ] ?? $icon_svgs['clock'],
-	'title'       => get_field( 'install_service_4_title' ) ?: 'Schnelle Umsetzung',
-	'description' => get_field( 'install_service_4_description' ) ?: 'Effiziente Projektabwicklung für eine zeitnahe Inbetriebnahme.',
-	'features'    => array_filter( array(
-		get_field( 'install_service_4_feature_1' ) ?: 'Kurze Planungszeit',
-		get_field( 'install_service_4_feature_2' ) ?: 'Termingerechte Montage',
-		get_field( 'install_service_4_feature_3' ) ?: 'Minimale Bauzeit',
-		get_field( 'install_service_4_feature_4' ) ?: 'Sofortige Stromproduktion',
-	) ),
-);
-
-// Build services array
-$services = array( $service_1, $service_2, $service_3, $service_4 );
-
-// Timeline
-$timeline_title = get_field( 'install_timeline_title' ) ?: 'Ihre Installation in 5 Schritten';
-$timeline_items = array(
-	array(
-		'title' => get_field( 'install_timeline_1_title' ) ?: 'Beratung & Planung',
-		'text'  => get_field( 'install_timeline_1_text' ) ?: 'Individuelle Beratung und detaillierte Anlagenplanung.',
-	),
-	array(
-		'title' => get_field( 'install_timeline_2_title' ) ?: 'Bewilligung',
-		'text'  => get_field( 'install_timeline_2_text' ) ?: 'Wir kümmern uns um alle notwendigen Bewilligungen.',
-	),
-	array(
-		'title' => get_field( 'install_timeline_3_title' ) ?: 'Materiallieferung',
-		'text'  => get_field( 'install_timeline_3_text' ) ?: 'Termingerechte Lieferung aller Komponenten.',
-	),
-	array(
-		'title' => get_field( 'install_timeline_4_title' ) ?: 'Montage',
-		'text'  => get_field( 'install_timeline_4_text' ) ?: 'Professionelle Installation durch unser Expertenteam.',
-	),
-	array(
-		'title' => get_field( 'install_timeline_5_title' ) ?: 'Inbetriebnahme',
-		'text'  => get_field( 'install_timeline_5_text' ) ?: 'Netzanschluss, Tests und Übergabe an Sie.',
 	),
 );
 
@@ -168,49 +94,43 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 	</div>
 </section>
 
-<!-- Services Grid -->
-<section class="solar-services" aria-labelledby="services-heading">
+<!-- Content Section -->
+<section class="page-content" aria-labelledby="content-heading">
 	<div class="container">
-		<div class="section-header">
-			<span class="section-tag section-tag--solar">Unsere Leistungen</span>
-			<h2 id="services-heading" class="section-title"><?php echo esc_html( $services_title ); ?></h2>
-			<p class="section-description"><?php echo esc_html( $services_desc ); ?></p>
-		</div>
+		<div class="content-card">
+			<div class="content-card__body">
+				<p class="content-card__highlight">
+					<?php echo esc_html( $highlight_text ); ?>
+				</p>
 
-		<div class="feature-grid feature-grid--2col">
-			<?php foreach ( $services as $service ) : ?>
-				<?php
-				get_template_part( 'template-parts/sections/feature-card', null, array(
-					'icon_svg'    => $service['icon'],
-					'title'       => $service['title'],
-					'description' => $service['description'],
-					'features'    => $service['features'],
-					'variant'     => 'default',
-				) );
-				?>
-			<?php endforeach; ?>
-		</div>
-	</div>
-</section>
+				<p class="content-card__about">
+					<?php echo esc_html( $about_text ); ?>
+				</p>
 
-<!-- Timeline Section -->
-<section class="solar-timeline" aria-labelledby="timeline-heading">
-	<div class="container">
-		<div class="section-header">
-			<span class="section-tag section-tag--solar">Ablauf</span>
-			<h2 id="timeline-heading" class="section-title"><?php echo esc_html( $timeline_title ); ?></h2>
-		</div>
+				<div class="content-card__grid">
+					<div class="content-card__column">
+						<h2 class="content-card__title">Dach- und Anlagentypen</h2>
+						<ul class="content-card__list content-card__list--solar">
+							<?php foreach ( $dach_typen as $item ) : ?>
+								<?php if ( ! empty( $item ) ) : ?>
+									<li><?php echo esc_html( $item ); ?></li>
+								<?php endif; ?>
+							<?php endforeach; ?>
+						</ul>
+					</div>
 
-		<div class="timeline">
-			<?php foreach ( $timeline_items as $index => $item ) : ?>
-				<div class="timeline__item">
-					<div class="timeline__marker"><?php echo esc_html( $index + 1 ); ?></div>
-					<div class="timeline__content">
-						<h3 class="timeline__title"><?php echo esc_html( $item['title'] ); ?></h3>
-						<p class="timeline__text"><?php echo esc_html( $item['text'] ); ?></p>
+					<div class="content-card__column">
+						<h2 id="content-heading" class="content-card__title">Installationsumfang</h2>
+						<ul class="content-card__list content-card__list--solar">
+							<?php foreach ( $installation_umfang as $item ) : ?>
+								<?php if ( ! empty( $item ) ) : ?>
+									<li><?php echo esc_html( $item ); ?></li>
+								<?php endif; ?>
+							<?php endforeach; ?>
+						</ul>
 					</div>
 				</div>
-			<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 </section>
@@ -227,5 +147,108 @@ get_template_part( 'template-parts/hero/hero-page', null, array(
 		?>
 	</div>
 </section>
+
+<style>
+/* Content Card Styles */
+.content-card {
+	background: var(--color-bg);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.content-card__body {
+	padding: var(--spacing-xl);
+}
+
+.content-card__highlight {
+	font-size: 1.125rem;
+	line-height: 1.7;
+	color: var(--color-text);
+	margin-bottom: var(--spacing-md);
+	padding: var(--spacing-md);
+	background: rgba(6, 182, 212, 0.08);
+	border-left: 3px solid #0891B2;
+	border-radius: var(--radius-sm);
+}
+
+.content-card__about {
+	font-size: 1rem;
+	line-height: 1.7;
+	color: var(--color-text);
+	margin-bottom: var(--spacing-lg);
+}
+
+.content-card__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--spacing-xl);
+}
+
+.content-card__column {
+	display: flex;
+	flex-direction: column;
+}
+
+.content-card__title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: var(--color-heading);
+	margin-bottom: var(--spacing-md);
+}
+
+.content-card__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+}
+
+.content-card__list li {
+	position: relative;
+	padding-left: var(--spacing-lg);
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--color-text);
+}
+
+.content-card__list li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.5em;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #0891B2;
+}
+
+.content-card__list--solar li::before {
+	background: #0891B2;
+}
+
+@media (max-width: 768px) {
+	.content-card__body {
+		padding: var(--spacing-lg);
+	}
+
+	.content-card__grid {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-lg);
+	}
+
+	.content-card__highlight {
+		font-size: 1rem;
+	}
+
+	.content-card__title {
+		font-size: 1.125rem;
+	}
+}
+</style>
 
 <?php get_footer(); ?>

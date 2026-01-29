@@ -15,16 +15,17 @@ $hero_title = get_the_title();
 $hero_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 
 // Site Ayarlarından İletişim Bilgilerini Al
-$phone      = dataenergie_get_option( 'phone_number', '+41 44 123 45 67' );
+$phone      = dataenergie_get_option( 'phone_number', '044 501 73 73' );
+$mobile     = dataenergie_get_option( 'mobile_number', '076 216 27 73' );
 $email      = dataenergie_get_option( 'email_address', 'info@dataenergie.ch' );
-$address    = dataenergie_get_option( 'address_text', "Musterstrasse 123\n8000 Zürich\nSchweiz" );
+$address    = dataenergie_get_option( 'address_text', "Dataenergie GmbH\nGewerbestrasse 19\n6314 Unterägeri\nSchweiz" );
 $facebook   = dataenergie_get_option( 'facebook_url' );
 $linkedin   = dataenergie_get_option( 'linkedin_url' );
 $instagram  = dataenergie_get_option( 'instagram_url' );
 
 // Google Maps API Key (Customizer'dan alınabilir)
 $maps_api_key = dataenergie_get_option( 'google_maps_api_key', '' );
-$maps_embed_url = dataenergie_get_option( 'google_maps_embed_url', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.9467!2d8.5417!3d47.3769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDIyJzM2LjkiTiA4wrAzMicyOS4xIkU!5e0!3m2!1sen!2sch!4v1' );
+$maps_embed_url = dataenergie_get_option( 'google_maps_embed_url', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2718.5!2d8.5765!3d47.1403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479aa9c5e8b8e8e7%3A0x1234567890abcdef!2sGewerbestrasse%2019%2C%206314%20Unter%C3%A4geri%2C%20Switzerland!5e0!3m2!1sde!2sch!4v1' );
 
 // Contact Form 7 shortcode kontrolü
 $post_content = get_the_content();
@@ -85,8 +86,13 @@ $has_cf7 = has_shortcode( $post_content, 'contact-form-7' );
                         <div class="contact-card__content">
                             <h3 class="contact-card__label">Telefon</h3>
                             <a href="tel:<?php echo esc_attr( dataenergie_clean_phone( $phone ) ); ?>" class="contact-card__value contact-card__link">
-                                <?php echo esc_html( $phone ); ?>
+                                Tel. <?php echo esc_html( $phone ); ?>
                             </a>
+                            <?php if ( $mobile ) : ?>
+                            <a href="tel:<?php echo esc_attr( dataenergie_clean_phone( $mobile ) ); ?>" class="contact-card__value contact-card__link">
+                                Mobile <?php echo esc_html( $mobile ); ?>
+                            </a>
+                            <?php endif; ?>
                         </div>
                     </div>
 
@@ -256,7 +262,7 @@ $has_cf7 = has_shortcode( $post_content, 'contact-form-7' );
     <div class="contact-map__header">
         <div class="container">
             <h2 class="contact-map__title">Unser Standort</h2>
-            <p class="contact-map__subtitle">Besuchen Sie uns in Zürich</p>
+            <p class="contact-map__subtitle">Besuchen Sie uns in Unterägeri</p>
         </div>
     </div>
     <div class="contact-map__container">

@@ -198,7 +198,7 @@ $icons = array(
                             data-lightbox-index="<?php echo esc_attr( $index ); ?>"
                             data-lightbox-src="<?php echo esc_url( $img_full_url ); ?>"
                             data-lightbox-alt="<?php echo esc_attr( $img_alt ); ?>"
-                            aria-label="<?php printf( esc_attr__( 'Bild %d vergrößern', 'dataenergie' ), $index + 1 ); ?>"
+                            aria-label="<?php printf( esc_attr__( 'Bild %d vergrössern', 'dataenergie' ), $index + 1 ); ?>"
                         >
                             <img
                                 src="<?php echo esc_url( $img_url ); ?>"
@@ -225,7 +225,7 @@ $icons = array(
         >
             <div class="lightbox__backdrop"></div>
             <div class="lightbox__content">
-                <button type="button" class="lightbox__close" aria-label="<?php esc_attr_e( 'Schließen', 'dataenergie' ); ?>">
+                <button type="button" class="lightbox__close" aria-label="<?php esc_attr_e( 'Schliessen', 'dataenergie' ); ?>">
                     <?php echo $icons['close']; ?>
                 </button>
                 <button type="button" class="lightbox__nav lightbox__nav--prev" aria-label="<?php esc_attr_e( 'Vorheriges Bild', 'dataenergie' ); ?>">

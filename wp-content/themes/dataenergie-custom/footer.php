@@ -12,13 +12,16 @@
 
                 <!-- Column 1: About -->
                 <div class="footer-section footer-about">
+                    <?php
+                    $footer_logo_text   = dataenergie_get_option( 'footer_logo_text', 'Data' );
+                    $footer_logo_accent = dataenergie_get_option( 'footer_logo_accent', 'energie' );
+                    $footer_description = dataenergie_get_option( 'footer_description', 'Ihr zuverlässiger Partner für professionelle IT-Dienstleistungen und nachhaltige Solar-Energielösungen. Wir verbinden technische Expertise mit umweltbewusstem Handeln für eine bessere Zukunft.' );
+                    ?>
                     <div class="footer-logo">
-                        Data<span class="logo-accent">energie</span>
+                        <?php echo esc_html( $footer_logo_text ); ?><span class="logo-accent"><?php echo esc_html( $footer_logo_accent ); ?></span>
                     </div>
                     <p>
-                        Ihr zuverlässiger Partner für professionelle IT-Dienstleistungen und
-                        nachhaltige Solar-Energielösungen. Wir verbinden technische Expertise
-                        mit umweltbewusstem Handeln für eine bessere Zukunft.
+                        <?php echo esc_html( $footer_description ); ?>
                     </p>
                 </div>
 
@@ -42,6 +45,7 @@
                             <a href="<?php echo esc_url( home_url( '/it-services/' ) ); ?>">IT Services</a>
                             <a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>">Solar Systems</a>
                             <a href="<?php echo esc_url( home_url( '/ueber-uns/' ) ); ?>">Über uns</a>
+                            <a href="<?php echo esc_url( home_url( '/loesungen/' ) ); ?>">Lösungen</a>
                             <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Kontakt</a>
                             <?php
                         }
@@ -53,12 +57,50 @@
                 <div class="footer-section">
                     <h4>Services</h4>
                     <nav class="footer-links">
-                        <a href="<?php echo esc_url( home_url( '/it-infrastructure/' ) ); ?>">IT Infrastructure</a>
-                        <a href="<?php echo esc_url( home_url( '/cloud-solutions/' ) ); ?>">Cloud Solutions</a>
-                        <a href="<?php echo esc_url( home_url( '/cybersecurity/' ) ); ?>">Cybersecurity</a>
-                        <a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>">Photovoltaik</a>
-                        <a href="<?php echo esc_url( home_url( '/solar-systems/' ) ); ?>">Energiespeicher</a>
-                        <a href="<?php echo esc_url( home_url( '/loesungen/' ) ); ?>">Lösungen</a>
+                        <?php
+                        if ( has_nav_menu( 'footer-services' ) ) {
+                            wp_nav_menu( array(
+                                'theme_location' => 'footer-services',
+                                'container'      => false,
+                                'menu_class'     => '',
+                                'fallback_cb'    => false,
+                                'depth'          => 1,
+                            ) );
+                        } else {
+                            // Fallback statik linkler
+                            ?>
+                            <a href="<?php echo esc_url( home_url( '/cloud-solutions/' ) ); ?>">Cloud Solutions</a>
+                            <a href="<?php echo esc_url( home_url( '/cybersecurity/' ) ); ?>">Cybersecurity</a>
+                            <a href="<?php echo esc_url( home_url( '/solar-systems/planung/' ) ); ?>">Planung & Engineering</a>
+                            <a href="<?php echo esc_url( home_url( '/drohnenaufnahmen/' ) ); ?>">Drohnenaufnahmen</a>
+                            <?php
+                        }
+                        ?>
+                    </nav>
+                </div>
+
+                <!-- Column: Lösungen -->
+                <div class="footer-section">
+                    <h4>Lösungen</h4>
+                    <nav class="footer-links">
+                        <?php
+                        if ( has_nav_menu( 'footer-solutions' ) ) {
+                            wp_nav_menu( array(
+                                'theme_location' => 'footer-solutions',
+                                'container'      => false,
+                                'menu_class'     => '',
+                                'fallback_cb'    => false,
+                                'depth'          => 1,
+                            ) );
+                        } else {
+                            // Fallback statik linkler
+                            ?>
+                            <a href="<?php echo esc_url( home_url( '/workforce-management/' ) ); ?>">Workforce Management</a>
+                            <a href="<?php echo esc_url( home_url( '/smart-building/' ) ); ?>">Smart Building</a>
+                            <a href="<?php echo esc_url( home_url( '/beratung-analyse/' ) ); ?>">IT Governance & Risk Assessment</a>
+                            <?php
+                        }
+                        ?>
                     </nav>
                 </div>
 
@@ -67,7 +109,7 @@
                 $phone   = dataenergie_get_option( 'phone_number', '044 501 73 73' );
                 $mobile  = dataenergie_get_option( 'mobile_number', '076 216 27 73' );
                 $email   = dataenergie_get_option( 'email_address', 'info@dataenergie.ch' );
-                $address = dataenergie_get_option( 'address_text', "Gewerbestrasse 19\n6314 Unterägeri\nSchweiz" );
+                $address = dataenergie_get_option( 'address_text', "Dataenergie GmbH\nGewerbestrasse 19\n6314 Unterägeri\nSchweiz" );
                 ?>
                 <div class="footer-section">
                     <h4>Kontakt</h4>
@@ -119,13 +161,32 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="footer-bottom-inner">
+                <?php
+                $footer_copyright = dataenergie_get_option( 'footer_copyright', '© {year} Dataenergie GmbH. Alle Rechte vorbehalten.' );
+                $footer_copyright = str_replace( '{year}', date( 'Y' ), $footer_copyright );
+                ?>
                 <p class="copyright">
-                    &copy; <?php echo date( 'Y' ); ?> Dataenergie GmbH. Alle Rechte vorbehalten.
+                    <?php echo esc_html( $footer_copyright ); ?>
                 </p>
                 <nav class="footer-legal-links">
-                    <a href="<?php echo esc_url( home_url( '/impressum/' ) ); ?>">Impressum</a>
-                    <a href="<?php echo esc_url( home_url( '/datenschutz/' ) ); ?>">Datenschutz</a>
-                    <a href="<?php echo esc_url( home_url( '/agb/' ) ); ?>">AGB</a>
+                    <?php
+                    if ( has_nav_menu( 'footer-legal' ) ) {
+                        wp_nav_menu( array(
+                            'theme_location' => 'footer-legal',
+                            'container'      => false,
+                            'menu_class'     => '',
+                            'fallback_cb'    => false,
+                            'depth'          => 1,
+                        ) );
+                    } else {
+                        // Fallback statik linkler
+                        ?>
+                        <a href="<?php echo esc_url( home_url( '/impressum/' ) ); ?>">Impressum</a>
+                        <a href="<?php echo esc_url( home_url( '/datenschutz/' ) ); ?>">Datenschutz</a>
+                        <a href="<?php echo esc_url( home_url( '/agb/' ) ); ?>">AGB</a>
+                        <?php
+                    }
+                    ?>
                 </nav>
             </div>
         </div><!-- .container -->

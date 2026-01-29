@@ -83,16 +83,16 @@ function dataenergie_import_demo_content() {
         'impressum' => array(
             'title'    => 'Impressum',
             'content'  => '<!-- wp:heading -->
-<h2>Angaben gemäß § 5 TMG</h2>
+<h2>Angaben gemäss § 5 TMG</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Dataenergie GmbH<br>Musterstrasse 123<br>8000 Zürich<br>Schweiz</p>
+<p>Dataenergie GmbH<br>Gewerbestrasse 19<br>6314 Unterägeri<br>Schweiz</p>
 <!-- /wp:paragraph -->
 <!-- wp:heading -->
 <h2>Kontakt</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph -->
-<p>Telefon: +41 44 123 45 67<br>E-Mail: info@dataenergie.ch</p>
+<p>Telefon: 044 501 73 73<br>Mobile: 076 216 27 73<br>E-Mail: info@dataenergie.ch</p>
 <!-- /wp:paragraph -->',
             'template' => 'default',
         ),
@@ -294,9 +294,10 @@ function dataenergie_import_acf_content() {
 
     // 4. SITE AYARLARINI DOLDUR (Options Page)
     // -------------------------------------------------------------------------
-    update_field( 'phone_number', '+41 44 234 45 67', 'option' );
+    update_field( 'phone_number', '044 501 73 73', 'option' );
+    update_field( 'mobile_number', '076 216 27 73', 'option' );
     update_field( 'email_address', 'info@dataenergie.ch', 'option' );
-    update_field( 'address_text', "Gewerbestrasse 19\n8132 Egg bei Zürich\nSchweiz", 'option' );
+    update_field( 'address_text', "Dataenergie GmbH\nGewerbestrasse 19\n6314 Unterägeri\nSchweiz", 'option' );
     update_field( 'facebook_url', 'https://facebook.com/', 'option' );
     update_field( 'linkedin_url', 'https://linkedin.com/', 'option' );
     update_field( 'instagram_url', 'https://instagram.com/', 'option' );
