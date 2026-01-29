@@ -91,14 +91,6 @@ $about_text = $about_teaser ?: $default_about;
             </p>
             <div class="about-teaser__stats">
                 <div class="stat-item">
-                    <span class="stat-item__number">15+</span>
-                    <span class="stat-item__label">Jahre Erfahrung</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-item__number">500+</span>
-                    <span class="stat-item__label">Zufriedene Kunden</span>
-                </div>
-                <div class="stat-item">
                     <span class="stat-item__number">100%</span>
                     <span class="stat-item__label">Swiss Quality</span>
                 </div>
@@ -301,70 +293,62 @@ $about_text = $about_teaser ?: $default_about;
                     </div>
                     <h3 class="services-container__title">Solar Energy</h3>
                 </div>
-                <div class="services-container__grid">
-                    <!-- Service Card: Photovoltaik -->
-                    <a href="<?php echo esc_url( home_url( '/solar-systems/installation/' ) ); ?>" class="service-card-mini service-card-mini--solar">
+                <div class="services-container__grid services-container__grid--2x2">
+                    <!-- Service Card: Planung & Engineering -->
+                    <a href="<?php echo esc_url( home_url( '/solar-systems/planung/' ) ); ?>" class="service-card-mini service-card-mini--solar service-card-mini--detailed">
                         <div class="service-card-mini__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="5"></circle>
-                                <line x1="12" y1="1" x2="12" y2="3"></line>
-                                <line x1="12" y1="21" x2="12" y2="23"></line>
-                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                <line x1="1" y1="12" x2="3" y2="12"></line>
-                                <line x1="21" y1="12" x2="23" y2="12"></line>
-                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                                <path d="M2 2l7.586 7.586"></path>
+                                <circle cx="11" cy="11" r="2"></circle>
                             </svg>
                         </div>
                         <div class="service-card-mini__content">
-                            <h4 class="service-card-mini__title">Photovoltaik</h4>
-                            <p class="service-card-mini__description">Solaranlagen für Privathaushalte und Unternehmen.</p>
+                            <h4 class="service-card-mini__title">Planung & Engineering</h4>
+                            <p class="service-card-mini__description">Professionelle Anlagenplanung und technische Projektierung.</p>
                         </div>
                     </a>
 
-                    <!-- Service Card: Energiespeicher -->
-                    <a href="<?php echo esc_url( home_url( '/solar-systems/energiespeicher/' ) ); ?>" class="service-card-mini service-card-mini--solar">
-                        <div class="service-card-mini__icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="22" y1="11" x2="22" y2="13"></line>
-                                <line x1="6" y1="11" x2="6" y2="17"></line>
-                                <line x1="10" y1="11" x2="10" y2="17"></line>
-                                <line x1="14" y1="11" x2="14" y2="17"></line>
-                                <line x1="18" y1="11" x2="18" y2="17"></line>
-                            </svg>
-                        </div>
-                        <div class="service-card-mini__content">
-                            <h4 class="service-card-mini__title">Energiespeicher</h4>
-                            <p class="service-card-mini__description">Batteriespeicher für Eigenverbrauchsoptimierung.</p>
-                        </div>
-                    </a>
-
-                    <!-- Service Card: Wartung -->
-                    <a href="<?php echo esc_url( home_url( '/solar-systems/wartung/' ) ); ?>" class="service-card-mini service-card-mini--solar">
+                    <!-- Service Card: Installation -->
+                    <a href="<?php echo esc_url( home_url( '/solar-systems/installation/' ) ); ?>" class="service-card-mini service-card-mini--solar service-card-mini--detailed">
                         <div class="service-card-mini__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                             </svg>
                         </div>
                         <div class="service-card-mini__content">
-                            <h4 class="service-card-mini__title">Wartung & Service</h4>
-                            <p class="service-card-mini__description">Professionelle Anlagenwartung und Reinigung.</p>
+                            <h4 class="service-card-mini__title">Installation</h4>
+                            <p class="service-card-mini__description">Fachgerechte Montage und Inbetriebnahme Ihrer Solaranlage.</p>
                         </div>
                     </a>
 
-                    <!-- Service Card: Beratung -->
-                    <a href="<?php echo esc_url( home_url( '/solar-systems/beratung/' ) ); ?>" class="service-card-mini service-card-mini--solar">
+                    <!-- Service Card: Drohnenaufnahmen -->
+                    <a href="<?php echo esc_url( home_url( '/solar-systems/drohnenaufnahmen/' ) ); ?>" class="service-card-mini service-card-mini--solar service-card-mini--detailed">
                         <div class="service-card-mini__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
                             </svg>
                         </div>
                         <div class="service-card-mini__content">
-                            <h4 class="service-card-mini__title">Beratung</h4>
-                            <p class="service-card-mini__description">Individuelle Energieberatung und Planung.</p>
+                            <h4 class="service-card-mini__title">Drohnenaufnahmen</h4>
+                            <p class="service-card-mini__description">Präzise Dachvermessung und Anlageninspektion aus der Luft.</p>
+                        </div>
+                    </a>
+
+                    <!-- Service Card: Reinigung -->
+                    <a href="<?php echo esc_url( home_url( '/solar-systems/reinigung/' ) ); ?>" class="service-card-mini service-card-mini--solar service-card-mini--detailed">
+                        <div class="service-card-mini__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
+                                <path d="M13 13l6 6"></path>
+                            </svg>
+                        </div>
+                        <div class="service-card-mini__content">
+                            <h4 class="service-card-mini__title">Reinigung</h4>
+                            <p class="service-card-mini__description">Professionelle Reinigung für maximale Anlagenleistung.</p>
                         </div>
                     </a>
                 </div>
